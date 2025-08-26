@@ -1,0 +1,245 @@
+/* 自定义分类页面样式 */
+.category-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  padding: 20px 0;
+}
+
+.category-list-item {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 15px;
+  padding: 25px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.category-list-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+}
+
+.category-list-item:nth-child(1) {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.category-list-item:nth-child(2) {
+  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+}
+
+.category-list-item:nth-child(3) {
+  background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+}
+
+.category-list-item:nth-child(4) {
+  background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+}
+
+.category-list-item:nth-child(5) {
+  background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+}
+
+.category-list-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255,255,255,0.1);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.category-list-item:hover::before {
+  opacity: 1;
+}
+
+.category-list-link {
+  color: white !important;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.category-list-link::before {
+  content: '📁';
+  font-size: 24px;
+  margin-right: 15px;
+}
+
+/* 为不同分类添加不同图标 */
+.category-list-item:nth-child(1) .category-list-link::before {
+  content: '📱'; /* 小程序 */
+}
+
+.category-list-item:nth-child(2) .category-list-link::before {
+  content: '🤖'; /* 机器学习 */
+}
+
+.category-list-item:nth-child(3) .category-list-link::before {
+  content: '💻'; /* 编程 */
+}
+
+.category-list-item:nth-child(4) .category-list-link::before {
+  content: '🔧'; /* 工具 */
+}
+
+.category-list-item:nth-child(5) .category-list-link::before {
+  content: '📚'; /* 学习 */
+}
+
+.category-list-count {
+  background: rgba(255,255,255,0.2);
+  color: white;
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-size: 14px;
+  margin-left: auto;
+  font-weight: 500;
+}
+
+/* 文章卡片优化 */
+.recent-post-item {
+  background: rgba(255,255,255,0.95);
+  border-radius: 15px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+  transition: all 0.3s ease;
+  overflow: hidden;
+  margin-bottom: 25px;
+}
+
+.recent-post-item:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+}
+
+.recent-post-info {
+  padding: 25px;
+}
+
+.recent-post-info .article-title {
+  font-size: 20px;
+  font-weight: 600;
+  color: #2c3e50;
+  margin-bottom: 10px;
+  line-height: 1.4;
+}
+
+.recent-post-info .article-title:hover {
+  color: #667eea;
+}
+
+.recent-post-meta {
+  color: #7f8c8d;
+  font-size: 14px;
+  margin-bottom: 15px;
+}
+
+.recent-post-meta i {
+  margin-right: 5px;
+  color: #667eea;
+}
+
+/* 标签样式优化 */
+.article-tag {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white !important;
+  padding: 4px 12px;
+  border-radius: 15px;
+  font-size: 12px;
+  margin-right: 8px;
+  margin-bottom: 5px;
+  display: inline-block;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.article-tag:hover {
+  transform: scale(1.05);
+  box-shadow: 0 3px 10px rgba(102, 126, 234, 0.3);
+}
+
+/* 分类标签样式 */
+.article-meta__categories {
+  color: #667eea;
+  font-weight: 500;
+}
+
+.article-meta__categories::before {
+  content: '📂';
+  margin-right: 5px;
+}
+
+/* 页面标题优化 */
+.page-title {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+/* 留言板页面样式 */
+.comments-page {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 15px;
+  padding: 2rem;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+  margin-bottom: 2rem;
+}
+
+/* Valine 评论框美化 */
+.valine-wrapper {
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  margin-top: 2rem;
+}
+
+.valine-wrapper .vwrap {
+  border: 2px solid #e1e8ed;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.valine-wrapper .vwrap:focus-within {
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.valine-wrapper .vbtn {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border: none;
+  border-radius: 6px;
+  color: white;
+  padding: 8px 20px;
+  transition: all 0.3s ease;
+}
+
+.valine-wrapper .vbtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+}
+
+/* 评论列表美化 */
+.valine-wrapper .vcard {
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 8px;
+  border: 1px solid #f0f0f0;
+  margin-bottom: 1rem;
+  transition: all 0.3s ease;
+}
+
+.valine-wrapper .vcard:hover {
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transform: translateY(-2px);
+}
