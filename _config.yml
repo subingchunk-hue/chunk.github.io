@@ -7,13 +7,13 @@ title: Chunk Blog           # 博客标题
 subtitle: 我的个人博客       # 博客副标题
 description: Hexo 搭建的个人博客，用于分享学习笔记和经验
 keywords: Hexo, 博客, 学习, 笔记
-author: chunk     # 博主名字
+author: chunk               # 博主名字
 language: zh-CN             # 语言
 timezone: Asia/Shanghai      # 时区
 
 # URL
-url: https://subingchunk-hue.github.io
-root: /
+url: https://subingchunk-hue.github.io/chunk.github.io   # 项目页面完整 URL
+root: /chunk.github.io/                                  # 项目页面根路径
 permalink: :year/:month/:day/:title/
 permalink_defaults:
 pretty_urls:

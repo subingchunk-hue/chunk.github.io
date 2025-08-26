@@ -1,0 +1,295 @@
+# Butterfly主题配置文件 - 简洁资料分享版
+
+# 导航菜单 - 简洁实用
+menu:
+  首页: / || fas fa-home
+  归档: /archives/ || fas fa-archive
+  标签: /tags/ || fas fa-tags
+  分类: /categories/ || fas fa-folder-open
+  关于: /about/ || fas fa-user
+
+# 代码配置 - 适合资料分享
+highlight_theme: darker # 选择darker主题，更酷炫
+highlight_copy: true # 代码复制按钮
+highlight_shrink: false # 代码框默认展开
+code_word_wrap: true # 代码换行
+highlight_height_limit: 400 # 代码高度限制
+
+# 关闭社交图标
+social:
+
+# 顶部图片配置 - 酷炫风格
+index_img: https://cdn.jsdelivr.net/gh/jerryc127/CDN@latest/cover/night.jpg
+default_top_img: https://cdn.jsdelivr.net/gh/jerryc127/CDN@latest/cover/night.jpg
+archive_img: https://cdn.jsdelivr.net/gh/jerryc127/CDN@latest/cover/code.jpg
+tag_img: https://cdn.jsdelivr.net/gh/jerryc127/CDN@latest/cover/space.jpg
+category_img: https://cdn.jsdelivr.net/gh/jerryc127/CDN@latest/cover/tech.jpg
+
+# 文章封面 - 酷炫风格
+cover:
+  index_enable: true
+  aside_enable: true
+  archives_enable: true
+  position: both
+  default_cover:
+    - https://cdn.jsdelivr.net/gh/jerryc127/CDN@latest/cover/night.jpg
+    - https://cdn.jsdelivr.net/gh/jerryc127/CDN@latest/cover/code.jpg
+    - https://cdn.jsdelivr.net/gh/jerryc127/CDN@latest/cover/space.jpg
+    - https://cdn.jsdelivr.net/gh/jerryc127/CDN@latest/cover/tech.jpg
+    - https://cdn.jsdelivr.net/gh/jerryc127/CDN@latest/cover/matrix.jpg
+
+# 文章meta显示
+post_meta:
+  page:
+    date_type: both
+    date_format: date # 显示具体日期而非相对时间
+    categories: true
+    tags: true
+    label: true
+  post:
+    date_type: both
+    date_format: date
+    categories: true
+    tags: true
+    label: true
+
+# 文章版权 - 适合资料分享
+post_copyright:
+  enable: true
+  decode: false
+  author_href:
+  license: CC BY-NC-SA 4.0
+  license_url: https://creativecommons.org/licenses/by-nc-sa/4.0/
+
+# 关闭打赏功能
+reward:
+  enable: false
+
+# 文章目录TOC - 重要功能
+toc:
+  post: true
+  page: false
+  number: true
+  expand: true # 默认展开目录
+  style_simple: false
+
+# 相关文章推荐
+related_post:
+  enable: true
+  limit: 6
+  date_type: created
+
+# 文章锚点
+anchor: true
+
+# 文章过期提醒
+noticeOutdate:
+  enable: true
+  style: flat
+  limit_day: 180 # 6个月提醒
+  position: top
+  message_prev: 本文最后更新于
+  message_next: 天前，内容可能已过时，请注意甄别。
+
+# 侧边栏设置 - 简化版
+aside:
+  enable: true
+  hide: false
+  button: true
+  mobile: true
+  position: right
+  display:
+    archive: true
+    tag: true
+    category: true
+  card_author:
+    enable: true
+    description: 专注技术资料分享
+    button:
+      enable: false # 关闭按钮
+  card_announcement:
+    enable: true
+    content: 欢迎来到我的资料分享博客！这里整理和分享各种技术资料和学习笔记。
+  card_recent_post:
+    enable: true
+    limit: 5
+    sort: date
+    sort_order: -1
+  card_categories:
+    enable: true
+    limit: 10
+    expand: none
+    sort_order: -1
+  card_tags:
+    enable: true
+    limit: 30
+    color: false
+    orderby: random
+    order: 1
+    sort_order: -1
+  card_archives:
+    enable: true
+    type: monthly
+    format: YYYY年MM月
+    order: -1
+    limit: 12
+    sort_order: -1
+  card_webinfo:
+    enable: true
+    post_count: true
+    last_push_date: true
+    sort_order: -1
+
+# 访问者统计
+busuanzi:
+  site_uv: true
+  site_pv: true
+  page_pv: true
+
+# 搜索功能 - 重要
+local_search:
+  enable: true
+  preload: false
+  CDN:
+
+# 关闭数学公式
+mathjax:
+  enable: false
+
+katex:
+  enable: false
+
+# 图片懒加载
+lazyload:
+  enable: true
+  field: site
+  placeholder:
+  blur: false
+
+# 图片灯箱
+medium_zoom: false
+fancybox: true
+
+# 关闭Pjax
+pjax:
+  enable: false
+
+# 关闭PWA
+pwa:
+  enable: false
+
+# 字数统计
+wordcount:
+  enable: true
+  post_wordcount: true
+  min2read: true
+  total_wordcount: true
+
+# 页脚设置
+footer:
+  owner:
+    enable: true
+    since: 2025
+  custom_text: 专注技术资料分享，记录学习成长
+  copyright: true
+
+# 右下角按钮 - 酷炫配置
+rightside:
+  enable: true
+  hide_rightside: false
+  show_percent: true
+  readmode: true
+  darkmode:
+    enable: true
+    button: true
+    autoChangeMode: 2 # 自动切换暗色模式
+
+# 启用酷炫背景特效
+canvas_ribbon:
+  enable: false
+
+canvas_fluttering_ribbon:
+  enable: false
+
+canvas_nest:
+  enable: true
+  color: '0,0,255' # 蓝色线条
+  opacity: 0.7
+  zIndex: -1
+  count: 99
+  mobile: false
+
+# 启用酷炫鼠标点击效果
+click_heart:
+  enable: true
+
+ClickShowText:
+  enable: true
+  text:
+    - 酷！
+    - 棒！
+    - 666
+    - 牛逼！
+    - 厉害！
+    - 赞！
+  fontSize: 15
+  random: true
+  mobile: false
+
+# 启用页面加载动画
+preloader:
+  enable: true
+  source: 1
+  pace_css_url:
+
+# 网站验证
+site_verification:
+
+# 启用美化配置
+beatify:
+  enable: true
+  field: post
+  title-prefix-icon: '\f0c1'
+  title-prefix-icon-color: '#F47466'
+
+# 字体设置 - 保持默认
+font:
+  global-font-size:
+  code-font-size:
+  font-family:
+  code-font-family:
+
+# 网站图标
+favicon: /img/favicon.png
+
+# 启用主页subtitle打字机特效
+subtitle:
+  enable: true
+  effect: true
+  startDelay: 300
+  typeSpeed: 150
+  backSpeed: 50
+  loop: true
+  source: false
+  sub:
+    - 专注技术资料分享
+    - 记录学习成长轨迹
+    - 分享编程心得体会
+    - 探索技术前沿动态
+
+# 启用Loading动画
+loading:
+  fullpage: false
+  pace: true
+
+# 404页面
+error_404:
+  enable: false
+
+# CDN设置
+CDN:
+  internal_provider: local
+  third_party_provider: jsdelivr
+  version: false
+  custom_format:
+  option:
