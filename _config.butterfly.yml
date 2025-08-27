@@ -5,8 +5,9 @@ menu:
   首页: / || fas fa-home
   归档: /archives/ || fas fa-archive
   标签: /tags/ || fas fa-tags
-  分类: /categories/ || fas fa-folder-open
-  关于: /about/ || fas fa-user
+  分类: /categories/ || fas fa-th-large
+  留言板: /comments/ || fas fa-comments
+  关于: /about/ || fas fa-user-circle
 
 # 代码配置 - 适合资料分享
 highlight_theme: darker # 选择darker主题，更酷炫
@@ -18,25 +19,20 @@ highlight_height_limit: 400 # 代码高度限制
 # 关闭社交图标
 social:
 
-# 顶部图片配置 - 酷炫风格
-index_img: https://cdn.jsdelivr.net/gh/jerryc127/CDN@latest/cover/night.jpg
-default_top_img: https://cdn.jsdelivr.net/gh/jerryc127/CDN@latest/cover/night.jpg
-archive_img: https://cdn.jsdelivr.net/gh/jerryc127/CDN@latest/cover/code.jpg
-tag_img: https://cdn.jsdelivr.net/gh/jerryc127/CDN@latest/cover/space.jpg
-category_img: https://cdn.jsdelivr.net/gh/jerryc127/CDN@latest/cover/tech.jpg
+# 顶部图片配置 - 优雅现代风格
+index_img: false
+default_top_img: false
+archive_img: false
+tag_img: false
+category_img: false
 
-# 文章封面 - 酷炫风格
+# 文章封面 - 优雅现代风格
 cover:
-  index_enable: true
-  aside_enable: true
-  archives_enable: true
+  index_enable: false
+  aside_enable: false
+  archives_enable: false
   position: both
   default_cover:
-    - https://cdn.jsdelivr.net/gh/jerryc127/CDN@latest/cover/night.jpg
-    - https://cdn.jsdelivr.net/gh/jerryc127/CDN@latest/cover/code.jpg
-    - https://cdn.jsdelivr.net/gh/jerryc127/CDN@latest/cover/space.jpg
-    - https://cdn.jsdelivr.net/gh/jerryc127/CDN@latest/cover/tech.jpg
-    - https://cdn.jsdelivr.net/gh/jerryc127/CDN@latest/cover/matrix.jpg
 
 # 文章meta显示
 post_meta:
@@ -53,6 +49,9 @@ post_meta:
     tags: true
     label: true
 
+# 网站背景 - 炫酷星空
+background: "linear-gradient(45deg, #0c0c0c 0%, #1a1a2e 25%, #16213e 50%, #0f3460 75%, #533483 100%)"
+
 # 文章版权 - 适合资料分享
 post_copyright:
   enable: true
@@ -64,6 +63,32 @@ post_copyright:
 # 关闭打赏功能
 reward:
   enable: false
+
+# 评论系统配置
+comments:
+  use: Valine
+  text: true
+  lazyload: false
+  count: false
+  card_post_count: false
+
+# Valine评论配置
+valine:
+  appId: leancloud-appid-here  # 请替换为你的LeanCloud AppId
+  appKey: leancloud-appkey-here  # 请替换为你的LeanCloud AppKey
+  avatar: monsterid
+  serverURLs: 
+  bg: 
+  visitor: false
+  option:
+    placeholder: '欢迎留言！支持 Markdown 语法'
+    requiredFields: ['nick']
+    enableQQ: true
+
+# 头像配置
+avatar:
+  img: /images/blog.jpg
+  effect: false
 
 # 文章目录TOC - 重要功能
 toc:
@@ -102,49 +127,58 @@ aside:
     archive: true
     tag: true
     category: true
+  card_comments:
+    enable: true
+    title: 💬 最新留言
+    limit: 5
+    sort_order: 1 # 设置为第一个显示
   card_author:
     enable: true
     description: 专注技术资料分享
     button:
       enable: false # 关闭按钮
+    sort_order: 2
   card_announcement:
     enable: true
-    content: 欢迎来到我的资料分享博客！这里整理和分享各种技术资料和学习笔记。
+    content: 欢迎来到我的资料分享博客！这里整理和分享各种学习笔记和资料。
+    sort_order: 3
   card_recent_post:
     enable: true
     limit: 5
     sort: date
-    sort_order: -1
+    sort_order: 4
   card_categories:
     enable: true
     limit: 10
     expand: none
-    sort_order: -1
+    sort_order: 5
   card_tags:
     enable: true
     limit: 30
     color: false
     orderby: random
     order: 1
-    sort_order: -1
+    sort_order: 6
   card_archives:
     enable: true
     type: monthly
     format: YYYY年MM月
     order: -1
     limit: 12
-    sort_order: -1
+    sort_order: 7
   card_webinfo:
     enable: true
     post_count: true
     last_push_date: true
-    sort_order: -1
+    sort_order: 8
 
 # 访问者统计
 busuanzi:
   site_uv: true
   site_pv: true
   page_pv: true
+  # 使用更稳定的CDN
+  cdn: 'https://cdn.jsdelivr.net/npm/busuanzi@2.3.0/bsz.pure.mini.js'
 
 # 搜索功能 - 重要
 local_search:
@@ -190,7 +224,7 @@ footer:
   owner:
     enable: true
     since: 2025
-  custom_text: 专注技术资料分享，记录学习成长
+  custom_text: 专注资料分享，记录学习成长
   copyright: true
 
 # 右下角按钮 - 酷炫配置
@@ -204,20 +238,20 @@ rightside:
     button: true
     autoChangeMode: 2 # 自动切换暗色模式
 
-# 启用酷炫背景特效
+# 背景特效配置 - 简洁酷炫
 canvas_ribbon:
   enable: false
 
 canvas_fluttering_ribbon:
   enable: false
 
+# 禁用动态背景，使用静态背景
 canvas_nest:
-  enable: true
-  color: '0,0,255' # 蓝色线条
-  opacity: 0.7
-  zIndex: -1
-  count: 99
-  mobile: false
+  enable: false
+
+# 设置优雅静态背景
+body_bg_url: https://cdn.jsdelivr.net/gh/jerryc127/CDN@latest/cover/subtle-gradient.jpg
+body_bg_opacity: 0.95
 
 # 启用酷炫鼠标点击效果
 click_heart:
@@ -272,10 +306,9 @@ subtitle:
   loop: true
   source: false
   sub:
-    - 专注技术资料分享
+    - 专注学习资料分享
     - 记录学习成长轨迹
     - 分享编程心得体会
-    - 探索技术前沿动态
 
 # 启用Loading动画
 loading:
@@ -293,3 +326,9 @@ CDN:
   version: false
   custom_format:
   option:
+
+# 自定义CSS
+inject:
+  head:
+    - <link rel="stylesheet" href="/chunk.github.io/css/custom.css">
+  bottom:
