@@ -78,17 +78,27 @@
   color: #ffffff !important;
 }
 
-/* 特定元素使用超级浅的灰色 */
-span,
-i,
-textarea,
-.fas,
-.fa-fw,
-.fa-comments,
-#veditor,
-.veditor,
-.vinput {
-  color: #e0e0e0 !important;
+/* 强制设置特定元素的颜色为超级浅的灰色 */
+span, i, textarea, .fas, .fa-fw, .fa-comments, #veditor, .veditor, .vinput {
+    color: #e0e0e0 !important;
+}
+
+/* 修复页面底部区域样式 */
+.footer-other {
+    background: transparent !important;
+}
+
+/* 增强span字体可见性 */
+span {
+    color: #f0f0f0 !important;
+    text-shadow: 0 0 2px rgba(255, 255, 255, 0.3) !important;
+}
+
+/* 特别处理网站标题 */
+.site-name {
+    color: #ffffff !important;
+    font-weight: bold !important;
+    text-shadow: 0 0 3px rgba(255, 255, 255, 0.5) !important;
 }
 
 /* 评论输入框背景 */
