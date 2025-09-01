@@ -791,20 +791,20 @@ a:hover {
     text-decoration: underline;
 }
 
-/* 代码块优化 */
+/* 代码块样式优化 - 覆盖主题样式 */
 code {
     background-color: transparent !important;
-    color: #00ff88 !important;
+    color: #c792ea !important;
     padding: 2px 4px !important;
     border-radius: 3px !important;
     font-family: 'Consolas', 'Monaco', 'Courier New', monospace !important;
-    border: 1px solid rgba(0, 255, 136, 0.3) !important;
+    border: none !important;
     font-weight: bold !important;
 }
 
 pre {
     background-color: transparent !important;
-    border: 1px solid rgba(0, 255, 136, 0.3) !important;
+    border: none !important;
     border-radius: 5px !important;
     padding: 15px !important;
     font-family: 'Consolas', monospace;
@@ -812,10 +812,92 @@ pre {
 
 pre code {
     background-color: transparent !important;
-    color: #00ff88 !important;
+    color: #c792ea !important;
     font-family: 'Consolas', 'Monaco', 'Courier New', monospace !important;
     border: none !important;
     font-weight: normal !important;
+}
+
+/* 覆盖butterfly主题的代码高亮样式 */
+figure.highlight {
+    background-color: transparent !important;
+    border: none !important;
+    border-radius: 5px !important;
+}
+
+figure.highlight table {
+    background-color: transparent !important;
+    margin: 0 !important;
+}
+
+figure.highlight table td {
+    background-color: transparent !important;
+    border: none !important;
+}
+
+figure.highlight table td.gutter {
+    background-color: transparent !important;
+    border-right: none !important;
+}
+
+figure.highlight table td.code {
+    background-color: transparent !important;
+}
+
+figure.highlight pre {
+    background-color: transparent !important;
+    color: #c792ea !important;
+    margin: 0 !important;
+    padding: 10px !important;
+}
+
+figure.highlight .line {
+    color: #c792ea !important;
+}
+
+/* 确保代码块中的span元素显示为紫色 */
+figure.highlight span,
+figure.highlight .line span,
+figure.highlight pre span,
+figure.highlight code span {
+    color: #c792ea !important;
+}
+
+/* 语法高亮颜色覆盖 */
+figure.highlight .comment { color: #75715e !important; }
+figure.highlight .keyword { color: #66d9ef !important; }
+figure.highlight .string { color: #a6e22e !important; }
+figure.highlight .number { color: #ae81ff !important; }
+figure.highlight .function { color: #f92672 !important; }
+figure.highlight .type { color: #66d9ef !important; }
+figure.highlight .built_in { color: #a6e22e !important; }
+
+/* 行号样式 */
+figure.highlight .gutter pre {
+    color: rgba(199, 146, 234, 0.5) !important;
+    background-color: transparent !important;
+    text-align: right !important;
+    padding-right: 10px !important;
+}
+
+/* 数学公式样式 - 黄色 */
+.katex, .katex-display, .MathJax, .MathJax_Display {
+    color: #ffd700 !important;
+}
+
+/* 行内数学公式 */
+.katex .katex-mathml, .katex .katex-html {
+    color: #ffd700 !important;
+}
+
+/* MathJax 数学公式 */
+.MathJax * {
+    color: #ffd700 !important;
+}
+
+/* 通用数学公式选择器 */
+span[class*="math"], div[class*="math"] {
+    color: #ffd700 !important;
 }
 
 /* 引用块优化 */
