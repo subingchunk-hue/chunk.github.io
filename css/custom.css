@@ -793,17 +793,29 @@ a:hover {
 
 /* 代码块优化 */
 code {
-    background: transparent !important;
-    color: #90caf9 !important;
-    border: none;
-    font-family: 'Courier New', monospace;
-    font-weight: 600;
+    background-color: transparent !important;
+    color: #00ff88 !important;
+    padding: 2px 4px !important;
+    border-radius: 3px !important;
+    font-family: 'Consolas', 'Monaco', 'Courier New', monospace !important;
+    border: 1px solid rgba(0, 255, 136, 0.3) !important;
+    font-weight: bold !important;
 }
 
 pre {
-    background: transparent !important;
-    border: none;
+    background-color: transparent !important;
+    border: 1px solid rgba(0, 255, 136, 0.3) !important;
+    border-radius: 5px !important;
+    padding: 15px !important;
     font-family: 'Consolas', monospace;
+}
+
+pre code {
+    background-color: transparent !important;
+    color: #00ff88 !important;
+    font-family: 'Consolas', 'Monaco', 'Courier New', monospace !important;
+    border: none !important;
+    font-weight: normal !important;
 }
 
 /* 引用块优化 */
