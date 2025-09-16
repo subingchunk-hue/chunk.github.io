@@ -1,0 +1,354 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>实验报告——第一个微信小程序 | Chunk Blog</title><meta name="author" content="chunk"><meta name="copyright" content="chunk"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="实验目标1、学习使用快速启动模板创建小程序的方法； 2、学习不使用模板手动创建小程序的方法。 实验步骤自动生成小程序 在微信开发者工具中选择模板创建项目，如图所示； 依次填写项目名称、目录和 AppID 就可以新建一个小程序项目。其中项目名称为开发者自定义，仅供开发者工具管理使用；目录即为项目文件存放的路径地址；AppID为管理员在微信公众平台上注册的小程序ID（以登录微信公众平台https:&#x2F;&#x2F;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="实验报告——第一个微信小程序">
+<meta property="og:url" content="https://subingchunk-hue.github.io/chunk.github.io/2025/08/25/%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/index.html">
+<meta property="og:site_name" content="Chunk Blog">
+<meta property="og:description" content="实验目标1、学习使用快速启动模板创建小程序的方法； 2、学习不使用模板手动创建小程序的方法。 实验步骤自动生成小程序 在微信开发者工具中选择模板创建项目，如图所示； 依次填写项目名称、目录和 AppID 就可以新建一个小程序项目。其中项目名称为开发者自定义，仅供开发者工具管理使用；目录即为项目文件存放的路径地址；AppID为管理员在微信公众平台上注册的小程序ID（以登录微信公众平台https:&#x2F;&#x2F;">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://subingchunk-hue.github.io/chunk.github.io/images/blog.jpg">
+<meta property="article:published_time" content="2025-08-25T12:15:00.000Z">
+<meta property="article:modified_time" content="2025-09-09T06:27:18.057Z">
+<meta property="article:author" content="chunk">
+<meta property="article:tag" content="小程序开发">
+<meta property="article:tag" content="实验">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://subingchunk-hue.github.io/chunk.github.io/images/blog.jpg"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "实验报告——第一个微信小程序",
+  "url": "https://subingchunk-hue.github.io/chunk.github.io/2025/08/25/%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/",
+  "image": "https://subingchunk-hue.github.io/chunk.github.io/images/blog.jpg",
+  "datePublished": "2025-08-25T12:15:00.000Z",
+  "dateModified": "2025-09-09T06:27:18.057Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "chunk",
+      "url": "https://subingchunk-hue.github.io/chunk.github.io"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/chunk.github.io/favicon.ico"><link rel="canonical" href="https://subingchunk-hue.github.io/chunk.github.io/2025/08/25/%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/chunk.github.io/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/chunk.github.io/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: true,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '实验报告——第一个微信小程序',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'post'
+}</script><link rel="stylesheet" href="/chunk.github.io/css/custom.css"><meta name="generator" content="Hexo 7.3.0"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><script>(()=>{
+  const $loadingBox = document.getElementById('loading-box')
+  const $body = document.body
+  const preloader = {
+    endLoading: () => {
+      if ($loadingBox.classList.contains('loaded')) return
+      $body.style.overflow = ''
+      $loadingBox.classList.add('loaded')
+    },
+    initLoading: () => {
+      $body.style.overflow = 'hidden'
+      $loadingBox.classList.remove('loaded')
+    }
+  }
+
+  preloader.initLoading()
+
+  if (document.readyState === 'complete') {
+    preloader.endLoading()
+  } else {
+    window.addEventListener('load', preloader.endLoading)
+    document.addEventListener('DOMContentLoaded', preloader.endLoading)
+    // Add timeout protection: force end after 7 seconds
+    setTimeout(preloader.endLoading, 7000)
+  }
+
+  if (false) {
+    btf.addGlobalFn('pjaxSend', preloader.initLoading, 'preloader_init')
+    btf.addGlobalFn('pjaxComplete', preloader.endLoading, 'preloader_end')
+  }
+})()</script><div id="web_bg" style="background: linear-gradient(45deg, #0c0c0c 0%, #1a1a2e 25%, #16213e 50%, #0f3460 75%, #533483 100%);"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/chunk.github.io/images/blog.jpg" onerror="this.onerror=null;this.src='/chunk.github.io/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/chunk.github.io/archives/"><div class="headline">文章</div><div class="length-num">28</div></a><a href="/chunk.github.io/tags/"><div class="headline">标签</div><div class="length-num">5</div></a><a href="/chunk.github.io/categories/"><div class="headline">分类</div><div class="length-num">5</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/chunk.github.io/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/chunk.github.io/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/chunk.github.io/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/chunk.github.io/categories/"><i class="fa-fw fas fa-th-large"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/chunk.github.io/comments/"><i class="fa-fw fas fa-comments"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/chunk.github.io/about/"><i class="fa-fw fas fa-user-circle"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/chunk.github.io/"><span class="site-name">Chunk Blog</span></a><a class="nav-page-title" href="/chunk.github.io/"><span class="site-name">实验报告——第一个微信小程序</span><span class="site-name"><i class="fa-solid fa-circle-arrow-left"></i><span>  返回首页</span></span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/chunk.github.io/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/chunk.github.io/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/chunk.github.io/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/chunk.github.io/categories/"><i class="fa-fw fas fa-th-large"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/chunk.github.io/comments/"><i class="fa-fw fas fa-comments"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/chunk.github.io/about/"><i class="fa-fw fas fa-user-circle"></i><span> 关于</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">实验报告——第一个微信小程序</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2025-08-25T12:15:00.000Z" title="发表于 2025-08-25 20:15:00">2025-08-25</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-09-09T06:27:18.057Z" title="更新于 2025-09-09 14:27:18">2025-09-09</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/chunk.github.io/categories/%E5%B0%8F%E7%A8%8B%E5%BA%8F/">小程序</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">总字数:</span><span class="word-count">961</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>2分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div><article class="container post-content" id="article-container"><div id="post-outdate-notice" data="{&quot;limitDay&quot;:180,&quot;messagePrev&quot;:&quot;本文最后更新于&quot;,&quot;messageNext&quot;:&quot;天前，内容可能已过时，请注意甄别。&quot;,&quot;postUpdate&quot;:&quot;2025-09-09 14:27:18&quot;}" hidden></div><h2 id="实验目标"><a href="#实验目标" class="headerlink" title="实验目标"></a>实验目标</h2><p>1、学习使用快速启动模板创建小程序的方法；</p>
+<p>2、学习不使用模板手动创建小程序的方法。</p>
+<h2 id="实验步骤"><a href="#实验步骤" class="headerlink" title="实验步骤"></a>实验步骤</h2><h4 id="自动生成小程序"><a href="#自动生成小程序" class="headerlink" title="自动生成小程序"></a>自动生成小程序</h4><ul>
+<li><p>在微信开发者工具中选择模板创建项目，如图所示；</p>
+<p>依次填写项目名称、目录和 AppID 就可以新建一个小程序项目。其中项目名称为开发者自定义，仅供开发者工具管理使用；目录即为项目文件存放的路径地址；AppID为管理员在微信公众平台上注册的小程序ID（以登录微信公众平台<a target="_blank" rel="noopener" href="https://mp.weixin.qq.com查看)./">https://mp.weixin.qq.com查看）。</a></p>
+<img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/chunk.github.io/images/image-20250825134403333.png" alt="image-20250825134403333" style="zoom: 33%;" />
+</li>
+<li><p>编译预览小程序。</p>
+<img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/chunk.github.io/images/image-20250825135537636.png" alt="image-20250825135537636" style="zoom:33%;" /></li>
+</ul>
+<h4 id="手动创建小程序"><a href="#手动创建小程序" class="headerlink" title="手动创建小程序"></a>手动创建小程序</h4><ul>
+<li><p>不选取模板创建空白项目</p>
+<img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/chunk.github.io/images/image-20250825140243487.png" alt="image-20250825140243487" style="zoom:33%;" />
+
+<img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/chunk.github.io/images/image-20250825140435939.png" alt="image-20250825140435939" style="zoom:33%;" />
+</li>
+<li><p>进行页面配置</p>
+<ul>
+<li><p>创建页面文件</p>
+<p>page文件内存储页面文件，一般来说，首页默认命名为index，表示小程序运行的第一个页面。</p>
+<img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/chunk.github.io/images/image-20250825141119412.png" alt="image-20250825141119412" style="zoom:33%;" />
+</li>
+<li><p>删除<code>index.wxml</code>、<code>index.wxss</code>和<code>app.wxss</code>中的所有代码；</p>
+<img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/chunk.github.io/images/image-20250825141713756.png" alt="image-20250825141713756" style="zoom: 50%;" />
+<img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/chunk.github.io/images/image-20250825141748090.png" alt="image-20250825141748090" style="zoom:40%;" />
+
+
+</li>
+<li><p>删除<code>index.js</code>中的所有代码并输入<code>&quot;page&quot;</code>使其自动补全函数；</p>
+<img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/chunk.github.io/images/image-20250825141512906.png" alt="image-20250825141512906" style="zoom:40%;" />
+<img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/chunk.github.io/images/image-20250825141626784.png" alt="image-20250825141626784" style="zoom:40%;" />
+</li>
+<li><p>删除<code>app.js</code>中的所有代码并输入<code>&quot;app&quot;</code>使其自动补全函数。</p>
+<img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/chunk.github.io/images/image-20250825141858454.png" alt="image-20250825141858454" style="zoom:33%;" /></li>
+</ul>
+</li>
+<li><p>视图设计</p>
+<ul>
+<li><p>导航栏设计</p>
+<p>在<code>app.json</code>文件中对windows属性进行重新配置来自定义导航栏效果，将小程序导航栏更改为紫色背景及白色字体。</p>
+<blockquote>
+<p>663399使用rgb格式，代表紫色；</p>
+</blockquote>
+<img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/chunk.github.io/images/image-20250825142757592.png" alt="image-20250825142757592" style="zoom:33%;" />
+
+<p>对应效果如下：</p>
+<img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/chunk.github.io/images/image-20250825143203516.png" alt="image-20250825143203516" style="zoom: 67%;" />
+</li>
+<li><p>页面设计</p>
+<p>首先，在小程序中添加微信头像、昵称及“点击获取头像和昵称”按钮三个组件，并将其设置为列项居中排列。</p>
+<blockquote>
+<p>使用组件格式：</p>
+<ul>
+<li><p>微信头像：<code>&lt;image&gt;</code>组件; </p>
+</li>
+<li><p>微信昵称: <code>&lt;text&gt;</code>(文本)组件; </p>
+</li>
+<li><p>按钮: <code>&lt;button&gt;</code>(按钮)组件。</p>
+</li>
+</ul>
+</blockquote>
+<img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/chunk.github.io/images/image-20250825144902724.png" alt="image-20250825144902724" style="zoom:67%;" />
+
+<p>由于尚未获得头像图片，临时使用本地图片代替微信头像，之后再通过点击按钮获取微信头像后进行更改。</p>
+<p>在项目中新建自定义文件夹images用于存放图片并将本地图片移入等待使用，之后修改<code>&lt;image&gt;</code>组件读取该图片。</p>
+<img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/chunk.github.io/images/image-20250825150038680.png" alt="image-20250825150038680" style="zoom: 50%;" />
+
+<img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/chunk.github.io/images/image-20250825150358220.png" alt="image-20250825150358220" style="zoom:50%;" /></li>
+</ul>
+</li>
+<li><p>逻辑实现</p>
+<ul>
+<li><p>获取微信用户信息</p>
+<p>在<code>WXML</code>页面修改<code>&lt;button&gt;</code>组件的代码，其中<code>open-type= get User Info&#39;</code>表示激活获取微信用户信息功能,然后使用 <code>bindgetuserinfo</code>属 性表示获得的数据将传递给自定义函数 <code>getMyInfo</code>, 名称可自定义。</p>
+<img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/chunk.github.io/images/image-20250825154954451.png" alt="image-20250825154954451" style="zoom:50%;" />
+
+<p>在<code>JS</code>页面的<code>Page()</code>内部追加<code>getMyInfo</code>函数</p>
+<img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/chunk.github.io/images/image-20250825155039146.png" alt="image-20250825155039146" style="zoom:50%;" />
+
+<p>保存后预览项目，如果点击按钮后 Console 控制台能够成功输出一段数据，就说明获取成功。</p>
+<img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/chunk.github.io/images/image-20250825155452602.png" alt="image-20250825155452602" style="zoom:50%;" />
+</li>
+<li><p>使用动态数据显示头像和昵称</p>
+<p>在WXML页面修改<code>&lt;image&gt;</code>和<code>&lt;text&gt;</code>组建的代码；</p>
+<img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/chunk.github.io/images/image-20250825155515375.png" alt="image-20250825155515375" style="zoom:50%;" />
+
+<p>修改JS文件，在现有的data 属性中追加这两个动态数据的值，使其仍然可以显示原先的内容；</p>
+<img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/chunk.github.io/images/image-20250825155945307.png" alt="image-20250825155945307" style="zoom:50%;" />
+
+<p>更新后预览图不变，如图所示：</p>
+<img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/chunk.github.io/images/image-20250825153228796.png" alt="image-20250825153228796" style="zoom:50%;" />
+</li>
+<li><p>更新头像和昵称</p>
+<p>修改<code>JS</code>文件中<code>getMyInfo</code> 函数的代码,使获取到的信息更新到动态数据上。</p>
+<img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/chunk.github.io/images/image-20250825160158123.png" alt="image-20250825160158123" style="zoom:50%;" />
+
+<p>点击按钮后，头像和昵称成功更新：</p>
+<img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/chunk.github.io/images/image-20250825160245678.png" alt="image-20250825160245678" style="zoom:50%;" /></li>
+</ul>
+</li>
+</ul>
+<h2 id="程序运行结果"><a href="#程序运行结果" class="headerlink" title="程序运行结果"></a>程序运行结果</h2> <img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/chunk.github.io/images/image-20250825140021498.png" alt="img" style="zoom:33%;" />                  
+
+ <img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/chunk.github.io/images/image-20250825153228796.png" alt="image-20250825153228796" style="zoom:50%;" />   
+
+<h2 id="问题总结与体会"><a href="#问题总结与体会" class="headerlink" title="问题总结与体会"></a>问题总结与体会</h2><ol>
+<li>学会了微信开发者工具的基础操作，能按步骤新建项目，用快速启动模板快速看到可运行的小程序效果，初步了解了小程序开发的基本流程。</li>
+<li>通过手动创建小程序，我大致了解了不同文件的作用，也掌握了修改配置（如导航栏样式）和删减多余文件的方法，对小程序的配置逻辑有了简单的认识。</li>
+<li>尝试用基础组件搭建页面，用 WXSS 调 用户信息、更新页面数据，理解了一些简单原理。</li>
+</ol>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://subingchunk-hue.github.io/chunk.github.io">chunk</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://subingchunk-hue.github.io/chunk.github.io/2025/08/25/%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/">https://subingchunk-hue.github.io/chunk.github.io/2025/08/25/%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="https://subingchunk-hue.github.io/chunk.github.io" target="_blank">Chunk Blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/chunk.github.io/tags/%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91/">小程序开发</a><a class="post-meta__tags" href="/chunk.github.io/tags/%E5%AE%9E%E9%AA%8C/">实验</a></div><div class="post-share"><div class="social-share" data-image="/chunk.github.io/images/blog.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related" href="/chunk.github.io/2025/08/26/%E5%A4%A9%E6%B0%94%E9%A2%84%E6%8A%A5/" title="实验报告——天气预报"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info"><div class="info-1"><div class="info-item-1">上一篇</div><div class="info-item-2">实验报告——天气预报</div></div><div class="info-2"><div class="info-item-1">实验目标1、掌握服务器域名配置和临时服务器部署； 2、掌握 wx.request 接口的用法。 实验步骤准备工作 申请API密钥  选择可以提供全球气象数据服务s接口的和风天气API，首先进入官方网址，输入邮箱免费注册；        注册完成后访问控制台查看账号信息，依据官方文档成功生成API KEY，记录该key。（API KEY可以用于在小程序发出网络请求时作为身份识别的标识一起发送给和风天气的第三方服务器）    调用API  取出在和风天气中的API KEY及API Host  访问https://mn5xmd96fj.re.qweatherapi.com//v7/weather/now?location=101010100&amp;key=f40427d91c8c43a9a7db17aede262b09。  weather关键字代表获取实况天气，基于weather的接口有两个必填参数，分别为city和key，其中，city表示要查询的城市，此处选取城市ID为主要参数，key即为开发者的API KEY。      服务器域名配置 登录微信公众平台，进入小程序管理员后台，...</div></div></div></a><a class="pagination-related" href="/chunk.github.io/2025/05/26/%E9%87%8F%E5%AD%90%E5%AF%86%E7%A0%81/" title="量子密码"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">量子密码</div></div><div class="info-2"><div class="info-item-1">量子计算机 量子比特有1&#x2F;2的概率为状态|0&gt;和|1&gt;，所以&#x3D;&#x3D;量子计算机可以生成令传统电子计算机头疼的真正随机数&#x3D;&#x3D;。 在所有问题基本上都是可计算的情况下，如何构建新的密码体制  量子密码学 &#x3D;&#x3D;量子密码学不是用来取代现代密码学&#x3D;&#x3D;，而是要将量子密码学的优势和现代密码体制(如公钥密码体制)的优势结合起来，寻找新的应用领域。 量子密码的安全性基于量子状态的特性 目前，量子密码学主要用来实现对称密钥的分发，其优点：   密钥在公开信道中传输不必担心被窃听   &#x3D;&#x3D;能检查出密钥在传输过程中是否被窃听&#x3D;&#x3D;   量子密钥分发体制(QKD)的分类   基于不确定性原理   基于量子纠缠态   量子密钥学发展史   1970年，Wiesner（美国）提出量子密码学的思想。   1984年，Bennett（IBM）和Brassard（Montreal大- 学）提出第一个量子密码的密钥分配协议，称为BB84协议。   1991年，Ekert（牛津大学）提出...</div></div></div></a></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><a class="pagination-related" href="/chunk.github.io/2025/08/26/%E5%A4%A9%E6%B0%94%E9%A2%84%E6%8A%A5/" title="实验报告——天气预报"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-08-26</div><div class="info-item-2">实验报告——天气预报</div></div><div class="info-2"><div class="info-item-1">实验目标1、掌握服务器域名配置和临时服务器部署； 2、掌握 wx.request 接口的用法。 实验步骤准备工作 申请API密钥  选择可以提供全球气象数据服务s接口的和风天气API，首先进入官方网址，输入邮箱免费注册；        注册完成后访问控制台查看账号信息，依据官方文档成功生成API KEY，记录该key。（API KEY可以用于在小程序发出网络请求时作为身份识别的标识一起发送给和风天气的第三方服务器）    调用API  取出在和风天气中的API KEY及API Host  访问https://mn5xmd96fj.re.qweatherapi.com//v7/weather/now?location=101010100&amp;key=f40427d91c8c43a9a7db17aede262b09。  weather关键字代表获取实况天气，基于weather的接口有两个必填参数，分别为city和key，其中，city表示要查询的城市，此处选取城市ID为主要参数，key即为开发者的API KEY。      服务器域名配置 登录微信公众平台，进入小程序管理员后台，...</div></div></div></a><a class="pagination-related" href="/chunk.github.io/2025/09/01/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E4%BA%91%E5%BC%80%E5%8F%91/" title="实验报告——微信小程序云开发"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-09-01</div><div class="info-item-2">实验报告——微信小程序云开发</div></div><div class="info-2"><div class="info-item-1">一、实验目标 学习微信小程序云开发的基础知识。 能够完成利用文本搜索的功能就好，图像识别、语音识别接口有时有问题，不强求。  二、实验步骤（一）创建项目及云环境 创建空项目，本实验要选取开发模式为微信云开发；   点开控制台体验云开发免费资源     注册百度智能云并实名认证, 创建一个图像应用, 记录相应的API KEY 和 SECRET KEY                                                                   （二）导入垃圾分类数据集​	在控制台中点击数据集，添加集合并导入相应的数据集。      （三）创建及调用云函数代码 在新建的小程序中导入垃圾分类小程序小程序   在project.config.json文件中添加微信开发工具中的个人appid   在miniprogram文件夹下的app.js中添加云开发的ID云开发环境的ID：打开云开放，界面右上角有一个环境ID，点击复制即可     在miniprogram的子文件夹search下的search.js中添加百度云图像识别应用的API Key与 Sec...</div></div></div></a><a class="pagination-related" href="/chunk.github.io/2025/09/09/%E6%8E%A8%E7%AE%B1%E5%AD%90%E5%B0%8F%E6%B8%B8%E6%88%8F/" title="实验报告——推箱子小游戏"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-09-09</div><div class="info-item-2">实验报告——推箱子小游戏</div></div><div class="info-2"><div class="info-item-1">一、实验目标 综合应用所学的知识创建完整的推箱子游戏； 熟练掌握 和绘图 API。  二、实验步骤创建项目创建空项目并手动修改页面配置。   页面配置创建页面项目在app.json 文件中 pages 属性添加“pages/game/game&quot;，保存后会在pages文件夹下自动生成game目录。   删除和修改文件 删除index.wxml、index.wxss和app.wxss中的所有代码；  删除index.js中的所有代码并输入&quot;page&quot;使其自动补全函数；  删除app.js中的所有代码并输入&quot;app&quot;使其自动补全函数。   创建其他文件 添加图片文件 在目录结构中添加images文件夹，将游戏页面中需要用到的游戏界面复制进去，并将需要用到的游戏图标素材放在其下的icons文件夹中。   创建公共JS文件 新建utils文件夹，在其下新建data.js。   视图设计导航栏设计在app.json文件中修改导航栏效果，将其改为珊瑚红背景白色字体，更改后的代码如图中所示。   页面设计 公共样式设计 首先添加页面容器和顶端标题...</div></div></div></a><a class="pagination-related" href="/chunk.github.io/2025/09/08/%E7%AC%AC%E4%B8%80%E4%B8%AAHarmonyOS%E5%BA%94%E7%94%A8/" title="实验报告——第一个HarmonyOS应用"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-09-08</div><div class="info-item-2">实验报告——第一个HarmonyOS应用</div></div><div class="info-2"><div class="info-item-1">2025年夏季《移动软件开发》实验报告一、实验目标 掌握如何构建 HarmonyOS应用；  掌握应用程序包结构、资源文件的使用；  掌握ArkTS的核心功能和语法等基础知识，为后续的应用开发奠定基础。   二、实验步骤工具准备下载并安装最新版DevEco Studio。     创建ArkTS工程 单击Create Project创建工程，选择Application应用开发，选择模板Empty Ability，单击Next进行配置；   进入配置工程界面，Compatible SDK选择5.1.1(19)，其他参数保持默认设置，单击Finish，等待工程创建完成。   构建第一个页面 使用文本组件 在Project窗口，单击entry &gt; src &gt; main &gt; ets &gt; pages，打开Index.ets文件，编辑代码，将页面相对布局修改成Row/Column线性布局。 添加代码如下： 1234567891011121314151617// Index.ets@Entry@Componentstruct Index &#123;  @State m...</div></div></div></a><a class="pagination-related" href="/chunk.github.io/2025/09/02/%E8%A7%86%E9%A2%91%E6%92%AD%E6%94%BE%E5%B0%8F%E7%A8%8B%E5%BA%8F/" title="实验报告——视频播放小程序"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-09-02</div><div class="info-item-2">实验报告——视频播放小程序</div></div><div class="info-2"><div class="info-item-1">实验目标 掌握视频列表的切换方法； 掌握视频自动播放方法； 掌握视频随机颜色弹幕效果。  实验步骤创建空项目并完成页面配置 创建新项目   进行页面配置  删除index.wxml、index.wxss和app.wxss中的所有代码；     删除index.js中的所有代码并输入&quot;page&quot;使其自动补全函数；删除app.js中的所有代码并输入&quot;app&quot;使其自动补全函数。    创建images文件存放播放图标   视图设计导航栏设计改动app.json中代码，将导航栏背景改为金棕色   页面设计区域1：视频播放器使用&lt;video&gt;组件实现一个视频播放器，在index.wxml中添加如图所示代码，其中controls属性用于播放&#x2F;暂停、音量等控制组件。   可以看到此时播放器未居中，且没有填满一行。接下来我们在index.wxss中添加如图所示代码，将视频组件的宽度调整为填满一行。   区域2：弹幕发送区域使用&lt;view&gt;组件实现一个单行区域，包括文本输入框和发送按钮。在index.wxml中添加如图所示代...</div></div></div></a></div></div><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div class="vcomment" id="vcomment"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/chunk.github.io/images/blog.jpg" onerror="this.onerror=null;this.src='/chunk.github.io/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">chunk</div><div class="author-info-description">专注技术资料分享</div><div class="site-data"><a href="/chunk.github.io/archives/"><div class="headline">文章</div><div class="length-num">28</div></a><a href="/chunk.github.io/tags/"><div class="headline">标签</div><div class="length-num">5</div></a><a href="/chunk.github.io/categories/"><div class="headline">分类</div><div class="length-num">5</div></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">欢迎来到我的资料分享博客！这里整理和分享各种学习笔记和资料。</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content is-expand"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9E%E9%AA%8C%E7%9B%AE%E6%A0%87"><span class="toc-number">1.</span> <span class="toc-text">实验目标</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9E%E9%AA%8C%E6%AD%A5%E9%AA%A4"><span class="toc-number">2.</span> <span class="toc-text">实验步骤</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%87%AA%E5%8A%A8%E7%94%9F%E6%88%90%E5%B0%8F%E7%A8%8B%E5%BA%8F"><span class="toc-number">2.0.1.</span> <span class="toc-text">自动生成小程序</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%89%8B%E5%8A%A8%E5%88%9B%E5%BB%BA%E5%B0%8F%E7%A8%8B%E5%BA%8F"><span class="toc-number">2.0.2.</span> <span class="toc-text">手动创建小程序</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A8%8B%E5%BA%8F%E8%BF%90%E8%A1%8C%E7%BB%93%E6%9E%9C"><span class="toc-number">3.</span> <span class="toc-text">程序运行结果</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93%E4%B8%8E%E4%BD%93%E4%BC%9A"><span class="toc-number">4.</span> <span class="toc-text">问题总结与体会</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/chunk.github.io/2025/09/09/%E6%8E%A8%E7%AE%B1%E5%AD%90%E5%B0%8F%E6%B8%B8%E6%88%8F/" title="实验报告——推箱子小游戏">实验报告——推箱子小游戏</a><time datetime="2025-09-09T02:00:00.000Z" title="发表于 2025-09-09 10:00:00">2025-09-09</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/chunk.github.io/2025/09/08/%E7%AC%AC%E4%B8%80%E4%B8%AAHarmonyOS%E5%BA%94%E7%94%A8/" title="实验报告——第一个HarmonyOS应用">实验报告——第一个HarmonyOS应用</a><time datetime="2025-09-08T07:00:00.000Z" title="发表于 2025-09-08 15:00:00">2025-09-08</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/chunk.github.io/2025/09/02/%E9%9A%BE%E6%90%9E%E7%9A%84dp/" title="难搞的dp">难搞的dp</a><time datetime="2025-09-02T06:41:00.000Z" title="发表于 2025-09-02 14:41:00">2025-09-02</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/chunk.github.io/2025/09/02/%E8%A7%86%E9%A2%91%E6%92%AD%E6%94%BE%E5%B0%8F%E7%A8%8B%E5%BA%8F/" title="实验报告——视频播放小程序">实验报告——视频播放小程序</a><time datetime="2025-09-02T02:00:00.000Z" title="发表于 2025-09-02 10:00:00">2025-09-02</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/chunk.github.io/2025/09/01/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E4%BA%91%E5%BC%80%E5%8F%91/" title="实验报告——微信小程序云开发">实验报告——微信小程序云开发</a><time datetime="2025-09-01T07:10:00.000Z" title="发表于 2025-09-01 15:10:00">2025-09-01</time></div></div></div></div></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2025 By chunk</span></div><div class="footer_custom_text">专注资料分享，记录学习成长</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="前往评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/chunk.github.io/js/utils.js"></script><script src="/chunk.github.io/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><div class="js-pjax"><script>(() => {
+  const isShuoshuo = GLOBAL_CONFIG_SITE.pageType === 'shuoshuo'
+  const option = {"placeholder":"欢迎留言！支持 Markdown 语法","requiredFields":["nick"],"enableQQ":true,"recordIP":false}
+
+  const initValine = (el, path) => {
+    if (isShuoshuo) {
+      window.shuoshuoComment.destroyValine = () => {
+        if (el.children.length) {
+          el.innerHTML = ''
+          el.classList.add('no-comment')
+        }
+      }
+    }
+
+    const valineConfig = {
+      el: '#vcomment',
+      appId: 'e9sjHukfBcHrIxLhaKkvSH7P-gzGzoHsz',
+      appKey: '7S60BbRR1exbrVTsWUG5ITaL',
+      avatar: 'monsterid',
+      serverURLs: '',
+      emojiMaps: "",
+      visitor: false,
+      ...option,
+      path: isShuoshuo ? path : (option && option.path) || window.location.pathname
+    }
+
+    new Valine(valineConfig)
+  }
+
+  const loadValine = async (el, path) => {
+    if (typeof Valine === 'function') {
+      initValine(el, path)
+    } else {
+      await btf.getScript('https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js')
+      initValine(el, path)
+    }
+  }
+
+  if (isShuoshuo) {
+    'Valine' === 'Valine'
+      ? window.shuoshuoComment = { loadComment: loadValine }
+      : window.loadOtherComment = loadValine
+    return
+  }
+
+  if ('Valine' === 'Valine' || !false) {
+    if (false) btf.loadComment(document.getElementById('vcomment'),loadValine)
+    else setTimeout(loadValine, 0)
+  } else {
+    window.loadOtherComment = loadValine
+  }
+})()</script></div><script id="click-heart" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/click-heart.min.js" async="async" mobile="false"></script><script async data-pjax src="https://cdn.jsdelivr.net/npm/busuanzi@2.3.0/bsz.pure.mini.js"></script></div></body></html>

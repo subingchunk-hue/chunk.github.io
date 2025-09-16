@@ -1,0 +1,237 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>Chunk Blog - 我的个人博客</title><meta name="author" content="chunk"><meta name="copyright" content="chunk"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="Hexo 搭建的个人博客，用于分享学习笔记和经验">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Chunk Blog">
+<meta property="og:url" content="https://subingchunk-hue.github.io/chunk.github.io/index.html">
+<meta property="og:site_name" content="Chunk Blog">
+<meta property="og:description" content="Hexo 搭建的个人博客，用于分享学习笔记和经验">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://subingchunk-hue.github.io/chunk.github.io/images/blog.jpg">
+<meta property="article:author" content="chunk">
+<meta property="article:tag" content="Hexo, 博客, 学习, 笔记">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://subingchunk-hue.github.io/chunk.github.io/images/blog.jpg"><script type="application/ld+json"></script><link rel="shortcut icon" href="/chunk.github.io/favicon.ico"><link rel="canonical" href="https://subingchunk-hue.github.io/chunk.github.io/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/chunk.github.io/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/chunk.github.io/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: true,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Chunk Blog',
+  isHighlightShrink: false,
+  isToc: false,
+  pageType: 'home'
+}</script><link rel="stylesheet" href="/chunk.github.io/css/custom.css"><meta name="generator" content="Hexo 7.3.0"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><script>(()=>{
+  const $loadingBox = document.getElementById('loading-box')
+  const $body = document.body
+  const preloader = {
+    endLoading: () => {
+      if ($loadingBox.classList.contains('loaded')) return
+      $body.style.overflow = ''
+      $loadingBox.classList.add('loaded')
+    },
+    initLoading: () => {
+      $body.style.overflow = 'hidden'
+      $loadingBox.classList.remove('loaded')
+    }
+  }
+
+  preloader.initLoading()
+
+  if (document.readyState === 'complete') {
+    preloader.endLoading()
+  } else {
+    window.addEventListener('load', preloader.endLoading)
+    document.addEventListener('DOMContentLoaded', preloader.endLoading)
+    // Add timeout protection: force end after 7 seconds
+    setTimeout(preloader.endLoading, 7000)
+  }
+
+  if (false) {
+    btf.addGlobalFn('pjaxSend', preloader.initLoading, 'preloader_init')
+    btf.addGlobalFn('pjaxComplete', preloader.endLoading, 'preloader_end')
+  }
+})()</script><div id="web_bg" style="background: linear-gradient(45deg, #0c0c0c 0%, #1a1a2e 25%, #16213e 50%, #0f3460 75%, #533483 100%);"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/chunk.github.io/images/blog.jpg" onerror="this.onerror=null;this.src='/chunk.github.io/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/chunk.github.io/archives/"><div class="headline">文章</div><div class="length-num">28</div></a><a href="/chunk.github.io/tags/"><div class="headline">标签</div><div class="length-num">5</div></a><a href="/chunk.github.io/categories/"><div class="headline">分类</div><div class="length-num">5</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/chunk.github.io/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/chunk.github.io/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/chunk.github.io/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/chunk.github.io/categories/"><i class="fa-fw fas fa-th-large"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/chunk.github.io/comments/"><i class="fa-fw fas fa-comments"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/chunk.github.io/about/"><i class="fa-fw fas fa-user-circle"></i><span> 关于</span></a></div></div></div></div><div class="page" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/chunk.github.io/"><span class="site-name">Chunk Blog</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/chunk.github.io/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/chunk.github.io/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/chunk.github.io/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/chunk.github.io/categories/"><i class="fa-fw fas fa-th-large"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/chunk.github.io/comments/"><i class="fa-fw fas fa-comments"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/chunk.github.io/about/"><i class="fa-fw fas fa-user-circle"></i><span> 关于</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><h1 class="title-seo">Chunk Blog</h1></header><main class="layout" id="content-inner"><div class="recent-posts nc" id="recent-posts"><div class="recent-post-items"><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/chunk.github.io/2025/09/09/%E6%8E%A8%E7%AE%B1%E5%AD%90%E5%B0%8F%E6%B8%B8%E6%88%8F/" title="实验报告——推箱子小游戏">实验报告——推箱子小游戏</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time class="post-meta-date-created" datetime="2025-09-09T02:00:00.000Z" title="发表于 2025-09-09 10:00:00">2025-09-09</time><span class="article-meta-separator">|</span><i class="fas fa-history"></i><span class="article-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-09-09T00:55:47.774Z" title="更新于 2025-09-09 08:55:47">2025-09-09</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/chunk.github.io/categories/%E5%B0%8F%E7%A8%8B%E5%BA%8F/">小程序</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/chunk.github.io/tags/%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91/">小程序开发</a><span class="article-meta-link">•</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/chunk.github.io/tags/%E5%AE%9E%E9%AA%8C/">实验</a></span></div><div class="content">一、实验目标 综合应用所学的知识创建完整的推箱子游戏； 熟练掌握 和绘图 API。  二、实验步骤创建项目创建空项目并手动修改页面配置。   页面配置创建页面项目在app.json 文件中 pages 属性添加“pages/game/game&quot;，保存后会在pages文件夹下自动生成game目录。   删除和修改文件 删除index.wxml、index.wxss和app.wxss中的所有代码；  删除index.js中的所有代码并输入&quot;page&quot;使其自动补全函数；  删除app.js中的所有代码并输入&quot;app&quot;使其自动补全函数。   创建其他文件 添加图片文件 在目录结构中添加images文件夹，将游戏页面中需要用到的游戏界面复制进去，并将需要用到的游戏图标素材放在其下的icons文件夹中。   创建公共JS文件 新建utils文件夹，在其下新建data.js。   视图设计导航栏设计在app.json文件中修改导航栏效果，将其改为珊瑚红背景白色字体，更改后的代码如图中所示。   页面设计 公共样式设计 首先添加页面容器和顶端标题...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/chunk.github.io/2025/09/08/%E7%AC%AC%E4%B8%80%E4%B8%AAHarmonyOS%E5%BA%94%E7%94%A8/" title="实验报告——第一个HarmonyOS应用">实验报告——第一个HarmonyOS应用</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time class="post-meta-date-created" datetime="2025-09-08T07:00:00.000Z" title="发表于 2025-09-08 15:00:00">2025-09-08</time><span class="article-meta-separator">|</span><i class="fas fa-history"></i><span class="article-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-09-08T06:51:22.140Z" title="更新于 2025-09-08 14:51:22">2025-09-08</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/chunk.github.io/categories/%E5%B0%8F%E7%A8%8B%E5%BA%8F/">小程序</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/chunk.github.io/tags/%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91/">小程序开发</a><span class="article-meta-link">•</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/chunk.github.io/tags/%E5%AE%9E%E9%AA%8C/">实验</a></span></div><div class="content">2025年夏季《移动软件开发》实验报告一、实验目标 掌握如何构建 HarmonyOS应用；  掌握应用程序包结构、资源文件的使用；  掌握ArkTS的核心功能和语法等基础知识，为后续的应用开发奠定基础。   二、实验步骤工具准备下载并安装最新版DevEco Studio。     创建ArkTS工程 单击Create Project创建工程，选择Application应用开发，选择模板Empty Ability，单击Next进行配置；   进入配置工程界面，Compatible SDK选择5.1.1(19)，其他参数保持默认设置，单击Finish，等待工程创建完成。   构建第一个页面 使用文本组件 在Project窗口，单击entry &gt; src &gt; main &gt; ets &gt; pages，打开Index.ets文件，编辑代码，将页面相对布局修改成Row/Column线性布局。 添加代码如下： 1234567891011121314151617// Index.ets@Entry@Componentstruct Index &#123;  @State m...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/chunk.github.io/2025/09/02/%E9%9A%BE%E6%90%9E%E7%9A%84dp/" title="难搞的dp">难搞的dp</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time class="post-meta-date-created" datetime="2025-09-02T06:41:00.000Z" title="发表于 2025-09-02 14:41:00">2025-09-02</time><span class="article-meta-separator">|</span><i class="fas fa-history"></i><span class="article-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-09-15T15:04:00.745Z" title="更新于 2025-09-15 23:04:00">2025-09-15</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/chunk.github.io/categories/%E7%BC%96%E7%A8%8B%EF%BC%8C%E3%80%8A%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B%E5%85%A5%E9%97%A8%E7%BB%8F%E5%85%B8%E3%80%8B/">编程，《算法竞赛入门经典》</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/chunk.github.io/tags/%E7%BC%96%E7%A8%8B%EF%BC%8C%E7%AB%9E%E8%B5%9B/">编程，竞赛</a></span></div><div class="content">本文例题均来自于刘汝佳老师的《算法竞赛入门经典》，均可在 UVa 提交 引入DAG上的动态规划Tips 1很多动规的问题都可以转化为DAG上的动态规划，如：前一个矩形X可以嵌套进后一个Y，可以表示为X到Y有一条有向边，且构成的图是无环的。 Tips 2如何输出字典序最小的满足条件的路径   ——  将所以dp[i]计算出来，然后从头开始遍历选择最大d[i]对应的最小i。 Tips 3填表法 → “DP 填表，每格依赖前格，按公式严格计算” 刷表法 → “暴力&#x2F;预处理，把所有可能的值算出来存表，不用公式严格依赖” Tips 4先找出当前状态有几个可以考虑的因素。 在判断定义dp数组为几维时，只需思考当前状态下什么或哪几个因素会影响到下一状态，然后定义出初始状态，并思考下一决策的可能情况。 例题UVa 1025 城市里的间谍下一状态由当前状态的所处车站位置及已经过去的时间决定，则我们定义：dp[i][j]：在时刻i位于车站最少还需要等待的时间(保证可以成功会面即i最多为t) 边界条件：dp[T][n]=0 —– 已经到达目的地不需要再等待 输出数值：dp[0][1] —– ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/chunk.github.io/2025/09/02/%E8%A7%86%E9%A2%91%E6%92%AD%E6%94%BE%E5%B0%8F%E7%A8%8B%E5%BA%8F/" title="实验报告——视频播放小程序">实验报告——视频播放小程序</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time class="post-meta-date-created" datetime="2025-09-02T02:00:00.000Z" title="发表于 2025-09-02 10:00:00">2025-09-02</time><span class="article-meta-separator">|</span><i class="fas fa-history"></i><span class="article-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-09-02T02:07:16.136Z" title="更新于 2025-09-02 10:07:16">2025-09-02</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/chunk.github.io/categories/%E5%B0%8F%E7%A8%8B%E5%BA%8F/">小程序</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/chunk.github.io/tags/%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91/">小程序开发</a><span class="article-meta-link">•</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/chunk.github.io/tags/%E5%AE%9E%E9%AA%8C/">实验</a></span></div><div class="content">实验目标 掌握视频列表的切换方法； 掌握视频自动播放方法； 掌握视频随机颜色弹幕效果。  实验步骤创建空项目并完成页面配置 创建新项目   进行页面配置  删除index.wxml、index.wxss和app.wxss中的所有代码；     删除index.js中的所有代码并输入&quot;page&quot;使其自动补全函数；删除app.js中的所有代码并输入&quot;app&quot;使其自动补全函数。    创建images文件存放播放图标   视图设计导航栏设计改动app.json中代码，将导航栏背景改为金棕色   页面设计区域1：视频播放器使用&lt;video&gt;组件实现一个视频播放器，在index.wxml中添加如图所示代码，其中controls属性用于播放&#x2F;暂停、音量等控制组件。   可以看到此时播放器未居中，且没有填满一行。接下来我们在index.wxss中添加如图所示代码，将视频组件的宽度调整为填满一行。   区域2：弹幕发送区域使用&lt;view&gt;组件实现一个单行区域，包括文本输入框和发送按钮。在index.wxml中添加如图所示代...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/chunk.github.io/2025/09/01/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E4%BA%91%E5%BC%80%E5%8F%91/" title="实验报告——微信小程序云开发">实验报告——微信小程序云开发</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time class="post-meta-date-created" datetime="2025-09-01T07:10:00.000Z" title="发表于 2025-09-01 15:10:00">2025-09-01</time><span class="article-meta-separator">|</span><i class="fas fa-history"></i><span class="article-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-09-01T08:03:20.128Z" title="更新于 2025-09-01 16:03:20">2025-09-01</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/chunk.github.io/categories/%E5%B0%8F%E7%A8%8B%E5%BA%8F/">小程序</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/chunk.github.io/tags/%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91/">小程序开发</a><span class="article-meta-link">•</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/chunk.github.io/tags/%E5%AE%9E%E9%AA%8C/">实验</a></span></div><div class="content">一、实验目标 学习微信小程序云开发的基础知识。 能够完成利用文本搜索的功能就好，图像识别、语音识别接口有时有问题，不强求。  二、实验步骤（一）创建项目及云环境 创建空项目，本实验要选取开发模式为微信云开发；   点开控制台体验云开发免费资源     注册百度智能云并实名认证, 创建一个图像应用, 记录相应的API KEY 和 SECRET KEY                                                                   （二）导入垃圾分类数据集​	在控制台中点击数据集，添加集合并导入相应的数据集。      （三）创建及调用云函数代码 在新建的小程序中导入垃圾分类小程序小程序   在project.config.json文件中添加微信开发工具中的个人appid   在miniprogram文件夹下的app.js中添加云开发的ID云开发环境的ID：打开云开放，界面右上角有一个环境ID，点击复制即可     在miniprogram的子文件夹search下的search.js中添加百度云图像识别应用的API Key与 Sec...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/chunk.github.io/2025/08/27/%E6%A0%91%E7%9A%84%E7%A5%9E%E5%A5%87%E5%A6%99%E7%94%A8/" title="树的神奇妙用">树的神奇妙用</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time class="post-meta-date-created" datetime="2025-08-27T13:07:00.000Z" title="发表于 2025-08-27 21:07:00">2025-08-27</time><span class="article-meta-separator">|</span><i class="fas fa-history"></i><span class="article-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-09-04T12:01:46.858Z" title="更新于 2025-09-04 20:01:46">2025-09-04</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/chunk.github.io/categories/%E7%BC%96%E7%A8%8B%EF%BC%8C%E3%80%8A%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B%E5%85%A5%E9%97%A8%E7%BB%8F%E5%85%B8%E3%80%8B/">编程，《算法竞赛入门经典》</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/chunk.github.io/tags/%E7%BC%96%E7%A8%8B%EF%BC%8C%E7%AB%9E%E8%B5%9B/">编程，竞赛</a></span></div><div class="content">本文例题均来自于刘汝佳老师的《算法竞赛入门经典》，均可在 UVa 提交 存储结构树邻接表（万能的）1234567const int N=1e5+5;vector&lt;int&gt; g[N];void add_edge(int u,in v)&#123;	g[u].push_back(v);	g[v].push_back(u);&#125;  12345678910111213141516171819202122232425//dfs示例void dfs(int u,int fa)&#123;	for(v:g[u])&#123;		if(v==fa) continue;		dfs(v,u);	&#125;&#125;//bfs示例void bfs(int s)&#123;	queue&lt;int&gt; q;    vector&lt;int&gt; dist(N, -1);    q.push(s);    dist[s] = 0;    while (!q.empty()) &#123;        int u = q.front(); q.pop();        ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/chunk.github.io/2025/08/26/%E5%A4%A9%E6%B0%94%E9%A2%84%E6%8A%A5/" title="实验报告——天气预报">实验报告——天气预报</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time class="post-meta-date-created" datetime="2025-08-26T09:07:00.000Z" title="发表于 2025-08-26 17:07:00">2025-08-26</time><span class="article-meta-separator">|</span><i class="fas fa-history"></i><span class="article-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-09-09T06:26:44.127Z" title="更新于 2025-09-09 14:26:44">2025-09-09</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/chunk.github.io/categories/%E5%B0%8F%E7%A8%8B%E5%BA%8F/">小程序</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/chunk.github.io/tags/%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91/">小程序开发</a><span class="article-meta-link">•</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/chunk.github.io/tags/%E5%AE%9E%E9%AA%8C/">实验</a></span></div><div class="content">实验目标1、掌握服务器域名配置和临时服务器部署； 2、掌握 wx.request 接口的用法。 实验步骤准备工作 申请API密钥  选择可以提供全球气象数据服务s接口的和风天气API，首先进入官方网址，输入邮箱免费注册；        注册完成后访问控制台查看账号信息，依据官方文档成功生成API KEY，记录该key。（API KEY可以用于在小程序发出网络请求时作为身份识别的标识一起发送给和风天气的第三方服务器）    调用API  取出在和风天气中的API KEY及API Host  访问https://mn5xmd96fj.re.qweatherapi.com//v7/weather/now?location=101010100&amp;key=f40427d91c8c43a9a7db17aede262b09。  weather关键字代表获取实况天气，基于weather的接口有两个必填参数，分别为city和key，其中，city表示要查询的城市，此处选取城市ID为主要参数，key即为开发者的API KEY。      服务器域名配置 登录微信公众平台，进入小程序管理员后台，...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/chunk.github.io/2025/08/25/%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/" title="实验报告——第一个微信小程序">实验报告——第一个微信小程序</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time class="post-meta-date-created" datetime="2025-08-25T12:15:00.000Z" title="发表于 2025-08-25 20:15:00">2025-08-25</time><span class="article-meta-separator">|</span><i class="fas fa-history"></i><span class="article-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-09-09T06:27:18.057Z" title="更新于 2025-09-09 14:27:18">2025-09-09</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/chunk.github.io/categories/%E5%B0%8F%E7%A8%8B%E5%BA%8F/">小程序</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/chunk.github.io/tags/%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91/">小程序开发</a><span class="article-meta-link">•</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/chunk.github.io/tags/%E5%AE%9E%E9%AA%8C/">实验</a></span></div><div class="content">实验目标1、学习使用快速启动模板创建小程序的方法； 2、学习不使用模板手动创建小程序的方法。 实验步骤自动生成小程序 在微信开发者工具中选择模板创建项目，如图所示； 依次填写项目名称、目录和 AppID 就可以新建一个小程序项目。其中项目名称为开发者自定义，仅供开发者工具管理使用；目录即为项目文件存放的路径地址；AppID为管理员在微信公众平台上注册的小程序ID（以登录微信公众平台https://mp.weixin.qq.com查看）。   编译预览小程序。   手动创建小程序 不选取模板创建空白项目     进行页面配置  创建页面文件 page文件内存储页面文件，一般来说，首页默认命名为index，表示小程序运行的第一个页面。   删除index.wxml、index.wxss和app.wxss中的所有代码；      删除index.js中的所有代码并输入&quot;page&quot;使其自动补全函数；    删除app.js中的所有代码并输入&quot;app&quot;使其自动补全函数。    视图设计  导航栏设计 在app.json文件中对windows属性进行重...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/chunk.github.io/2025/05/26/%E9%87%8F%E5%AD%90%E5%AF%86%E7%A0%81/" title="量子密码">量子密码</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time class="post-meta-date-created" datetime="2025-05-26T05:07:00.000Z" title="发表于 2025-05-26 13:07:00">2025-05-26</time><span class="article-meta-separator">|</span><i class="fas fa-history"></i><span class="article-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-09-16T15:16:23.029Z" title="更新于 2025-09-16 23:16:23">2025-09-16</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/chunk.github.io/categories/%E5%AF%86%E7%A0%81%E5%AD%A6/">密码学</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/chunk.github.io/tags/%E5%AF%86%E7%A0%81%E5%AD%A6%EF%BC%8C%E7%AC%94%E8%AE%B0/">密码学，笔记</a></span></div><div class="content">量子计算机 量子比特有1&#x2F;2的概率为状态|0&gt;和|1&gt;，所以&#x3D;&#x3D;量子计算机可以生成令传统电子计算机头疼的真正随机数&#x3D;&#x3D;。 在所有问题基本上都是可计算的情况下，如何构建新的密码体制  量子密码学 &#x3D;&#x3D;量子密码学不是用来取代现代密码学&#x3D;&#x3D;，而是要将量子密码学的优势和现代密码体制(如公钥密码体制)的优势结合起来，寻找新的应用领域。 量子密码的安全性基于量子状态的特性 目前，量子密码学主要用来实现对称密钥的分发，其优点：   密钥在公开信道中传输不必担心被窃听   &#x3D;&#x3D;能检查出密钥在传输过程中是否被窃听&#x3D;&#x3D;   量子密钥分发体制(QKD)的分类   基于不确定性原理   基于量子纠缠态   量子密钥学发展史   1970年，Wiesner（美国）提出量子密码学的思想。   1984年，Bennett（IBM）和Brassard（Montreal大- 学）提出第一个量子密码的密钥分配协议，称为BB84协议。   1991年，Ekert（牛津大学）提出...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/chunk.github.io/2025/05/17/%E5%9F%BA%E4%BA%8E%E8%BA%AB%E4%BB%BD%E7%9A%84%E5%AF%86%E7%A0%81%E5%AD%A6/" title="基于身份的密码学">基于身份的密码学</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time class="post-meta-date-created" datetime="2025-05-17T06:07:00.000Z" title="发表于 2025-05-17 14:07:00">2025-05-17</time><span class="article-meta-separator">|</span><i class="fas fa-history"></i><span class="article-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-09-16T15:14:03.606Z" title="更新于 2025-09-16 23:14:03">2025-09-16</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/chunk.github.io/categories/%E5%AF%86%E7%A0%81%E5%AD%A6/">密码学</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/chunk.github.io/tags/%E5%AF%86%E7%A0%81%E5%AD%A6%EF%BC%8C%E7%AC%94%E8%AE%B0/">密码学，笔记</a></span></div><div class="content">基于身份的密码学（identity-based cryptography, IBC）提出者：Adi Shamir解决问题：如何以较小的代价保证公钥的真实性 IBC的原理传统公钥密码中公钥的产生   先选择私钥，再计算公钥，公钥必然显得“一片混乱”   公钥证书，PKI IBC产生公钥的原理 先选择公钥，再计算私钥 公钥可选择email地址、身份证号等，称之为用户的身份，记为ID    (注意：公钥就是ID，或从ID直接推导而来) 私钥看起来杂乱无章，没关系，反而有利 ID必须是每个用户唯一确定的信息，比如身份证号、电子邮箱等  基于身份的加密体制（IBE, Identity-based Encryption）定义   一个IBE包含以下算法：  Setup (1^λ): 产生系统公开参数 param，生成随机主密钥 msk KeyGen (param, ID, msk)：生成身份 ID 对应的用户私钥 sk Enc (param, ID, m): 给定明文 m∈M，输出密文 c ∈C Dec (param, sk,c): 给定密文 c∈C，输出 m∈M (或 ⊥)一致性要求: S...</div></div></div></div><nav id="pagination"><div class="pagination"><span class="page-number current">1</span><a class="page-number" href="/chunk.github.io/page/2/#content-inner">2</a><a class="page-number" href="/chunk.github.io/page/3/#content-inner">3</a><a class="extend next" rel="next" href="/chunk.github.io/page/2/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/chunk.github.io/images/blog.jpg" onerror="this.onerror=null;this.src='/chunk.github.io/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">chunk</div><div class="author-info-description">专注技术资料分享</div><div class="site-data"><a href="/chunk.github.io/archives/"><div class="headline">文章</div><div class="length-num">28</div></a><a href="/chunk.github.io/tags/"><div class="headline">标签</div><div class="length-num">5</div></a><a href="/chunk.github.io/categories/"><div class="headline">分类</div><div class="length-num">5</div></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">欢迎来到我的资料分享博客！这里整理和分享各种学习笔记和资料。</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/chunk.github.io/2025/09/09/%E6%8E%A8%E7%AE%B1%E5%AD%90%E5%B0%8F%E6%B8%B8%E6%88%8F/" title="实验报告——推箱子小游戏">实验报告——推箱子小游戏</a><time datetime="2025-09-09T02:00:00.000Z" title="发表于 2025-09-09 10:00:00">2025-09-09</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/chunk.github.io/2025/09/08/%E7%AC%AC%E4%B8%80%E4%B8%AAHarmonyOS%E5%BA%94%E7%94%A8/" title="实验报告——第一个HarmonyOS应用">实验报告——第一个HarmonyOS应用</a><time datetime="2025-09-08T07:00:00.000Z" title="发表于 2025-09-08 15:00:00">2025-09-08</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/chunk.github.io/2025/09/02/%E9%9A%BE%E6%90%9E%E7%9A%84dp/" title="难搞的dp">难搞的dp</a><time datetime="2025-09-02T06:41:00.000Z" title="发表于 2025-09-02 14:41:00">2025-09-02</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/chunk.github.io/2025/09/02/%E8%A7%86%E9%A2%91%E6%92%AD%E6%94%BE%E5%B0%8F%E7%A8%8B%E5%BA%8F/" title="实验报告——视频播放小程序">实验报告——视频播放小程序</a><time datetime="2025-09-02T02:00:00.000Z" title="发表于 2025-09-02 10:00:00">2025-09-02</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/chunk.github.io/2025/09/01/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E4%BA%91%E5%BC%80%E5%8F%91/" title="实验报告——微信小程序云开发">实验报告——微信小程序云开发</a><time datetime="2025-09-01T07:10:00.000Z" title="发表于 2025-09-01 15:10:00">2025-09-01</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
+            <i class="fas fa-folder-open"></i>
+            <span>分类</span>
+            
+          </div>
+          <ul class="card-category-list" id="aside-cat-list">
+            <li class="card-category-list-item "><a class="card-category-list-link" href="/chunk.github.io/categories/CSP%E8%AE%A4%E8%AF%81%EF%BC%8C%E7%BC%96%E7%A8%8B/"><span class="card-category-list-name">CSP认证，编程</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/chunk.github.io/categories/%E5%AF%86%E7%A0%81%E5%AD%A6/"><span class="card-category-list-name">密码学</span><span class="card-category-list-count">15</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/chunk.github.io/categories/%E5%B0%8F%E7%A8%8B%E5%BA%8F/"><span class="card-category-list-name">小程序</span><span class="card-category-list-count">6</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/chunk.github.io/categories/%E7%BC%96%E7%A8%8B/"><span class="card-category-list-name">编程</span><span class="card-category-list-count">4</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/chunk.github.io/categories/%E7%BC%96%E7%A8%8B%EF%BC%8C%E3%80%8A%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B%E5%85%A5%E9%97%A8%E7%BB%8F%E5%85%B8%E3%80%8B/"><span class="card-category-list-name">编程，《算法竞赛入门经典》</span><span class="card-category-list-count">2</span></a></li>
+          </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/chunk.github.io/tags/CSP%E8%AE%A4%E8%AF%81%EF%BC%8C%E6%B4%9B%E8%B0%B7%EF%BC%8C%E7%BC%96%E7%A8%8B/" style="font-size: 1.1em; color: #999">CSP认证，洛谷，编程</a> <a href="/chunk.github.io/tags/%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91/" style="font-size: 1.3em; color: #99a1ac">小程序开发</a> <a href="/chunk.github.io/tags/%E5%AE%9E%E9%AA%8C/" style="font-size: 1.3em; color: #99a1ac">实验</a> <a href="/chunk.github.io/tags/%E5%AF%86%E7%A0%81%E5%AD%A6%EF%BC%8C%E7%AC%94%E8%AE%B0/" style="font-size: 1.5em; color: #99a9bf">密码学，笔记</a> <a href="/chunk.github.io/tags/%E7%BC%96%E7%A8%8B%EF%BC%8C%E7%AB%9E%E8%B5%9B/" style="font-size: 1.3em; color: #99a1ac">编程，竞赛</a></div></div><div class="card-widget card-archives">
+    <div class="item-headline">
+      <i class="fas fa-archive"></i>
+      <span>归档</span>
+      
+    </div>
+  
+    <ul class="card-archive-list">
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/chunk.github.io/archives/2025/09/">
+            <span class="card-archive-list-date">
+              2025年09月
+            </span>
+            <span class="card-archive-list-count">5</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/chunk.github.io/archives/2025/08/">
+            <span class="card-archive-list-date">
+              2025年08月
+            </span>
+            <span class="card-archive-list-count">3</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/chunk.github.io/archives/2025/05/">
+            <span class="card-archive-list-date">
+              2025年05月
+            </span>
+            <span class="card-archive-list-count">5</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/chunk.github.io/archives/2025/04/">
+            <span class="card-archive-list-date">
+              2025年04月
+            </span>
+            <span class="card-archive-list-count">13</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/chunk.github.io/archives/2025/03/">
+            <span class="card-archive-list-date">
+              2025年03月
+            </span>
+            <span class="card-archive-list-count">2</span>
+          </a>
+        </li>
+      
+    </ul>
+  </div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站信息</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">28</div></div><div class="webinfo-item"><div class="item-name">本站总字数 :</div><div class="item-count">33.1k</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总浏览量 :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2025-09-16T15:22:03.615Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2025 By chunk</span></div><div class="footer_custom_text">专注资料分享，记录学习成长</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/chunk.github.io/js/utils.js"></script><script src="/chunk.github.io/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><div class="js-pjax"></div><script id="click-heart" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/click-heart.min.js" async="async" mobile="false"></script><script async data-pjax src="https://cdn.jsdelivr.net/npm/busuanzi@2.3.0/bsz.pure.mini.js"></script></div></body></html>

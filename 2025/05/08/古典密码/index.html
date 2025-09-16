@@ -1,0 +1,350 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>古典密码 | Chunk Blog</title><meta name="author" content="chunk"><meta name="copyright" content="chunk"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="置换密码典型代表—周期置换密码     工作原理将明文按一定长度 n 进行分组，把每组的字符按位置变换规则 π 重排位置。 密钥：置换π 密钥空间大小：n！  移位密码 工作原理 加密：明文字母代换为字母表中其后第k个字母 解密：密文字母代换为字母表中其前第k个字母（与加密相反）   密钥信息 密钥：k  密钥空间大小：26（0，1，…，25）   典型例子&#x3D;&#x3D;凯撒密码（k&amp;#">
+<meta property="og:type" content="article">
+<meta property="og:title" content="古典密码">
+<meta property="og:url" content="https://subingchunk-hue.github.io/chunk.github.io/2025/05/08/%E5%8F%A4%E5%85%B8%E5%AF%86%E7%A0%81/index.html">
+<meta property="og:site_name" content="Chunk Blog">
+<meta property="og:description" content="置换密码典型代表—周期置换密码     工作原理将明文按一定长度 n 进行分组，把每组的字符按位置变换规则 π 重排位置。 密钥：置换π 密钥空间大小：n！  移位密码 工作原理 加密：明文字母代换为字母表中其后第k个字母 解密：密文字母代换为字母表中其前第k个字母（与加密相反）   密钥信息 密钥：k  密钥空间大小：26（0，1，…，25）   典型例子&#x3D;&#x3D;凯撒密码（k&amp;#">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://subingchunk-hue.github.io/chunk.github.io/images/blog.jpg">
+<meta property="article:published_time" content="2025-05-08T00:07:00.000Z">
+<meta property="article:modified_time" content="2025-09-16T15:13:34.437Z">
+<meta property="article:author" content="chunk">
+<meta property="article:tag" content="密码学，笔记">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://subingchunk-hue.github.io/chunk.github.io/images/blog.jpg"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "古典密码",
+  "url": "https://subingchunk-hue.github.io/chunk.github.io/2025/05/08/%E5%8F%A4%E5%85%B8%E5%AF%86%E7%A0%81/",
+  "image": "https://subingchunk-hue.github.io/chunk.github.io/images/blog.jpg",
+  "datePublished": "2025-05-08T00:07:00.000Z",
+  "dateModified": "2025-09-16T15:13:34.437Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "chunk",
+      "url": "https://subingchunk-hue.github.io/chunk.github.io"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/chunk.github.io/favicon.ico"><link rel="canonical" href="https://subingchunk-hue.github.io/chunk.github.io/2025/05/08/%E5%8F%A4%E5%85%B8%E5%AF%86%E7%A0%81/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/chunk.github.io/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/chunk.github.io/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: true,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '古典密码',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'post'
+}</script><link rel="stylesheet" href="/chunk.github.io/css/custom.css"><meta name="generator" content="Hexo 7.3.0"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><script>(()=>{
+  const $loadingBox = document.getElementById('loading-box')
+  const $body = document.body
+  const preloader = {
+    endLoading: () => {
+      if ($loadingBox.classList.contains('loaded')) return
+      $body.style.overflow = ''
+      $loadingBox.classList.add('loaded')
+    },
+    initLoading: () => {
+      $body.style.overflow = 'hidden'
+      $loadingBox.classList.remove('loaded')
+    }
+  }
+
+  preloader.initLoading()
+
+  if (document.readyState === 'complete') {
+    preloader.endLoading()
+  } else {
+    window.addEventListener('load', preloader.endLoading)
+    document.addEventListener('DOMContentLoaded', preloader.endLoading)
+    // Add timeout protection: force end after 7 seconds
+    setTimeout(preloader.endLoading, 7000)
+  }
+
+  if (false) {
+    btf.addGlobalFn('pjaxSend', preloader.initLoading, 'preloader_init')
+    btf.addGlobalFn('pjaxComplete', preloader.endLoading, 'preloader_end')
+  }
+})()</script><div id="web_bg" style="background: linear-gradient(45deg, #0c0c0c 0%, #1a1a2e 25%, #16213e 50%, #0f3460 75%, #533483 100%);"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/chunk.github.io/images/blog.jpg" onerror="this.onerror=null;this.src='/chunk.github.io/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/chunk.github.io/archives/"><div class="headline">文章</div><div class="length-num">28</div></a><a href="/chunk.github.io/tags/"><div class="headline">标签</div><div class="length-num">5</div></a><a href="/chunk.github.io/categories/"><div class="headline">分类</div><div class="length-num">5</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/chunk.github.io/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/chunk.github.io/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/chunk.github.io/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/chunk.github.io/categories/"><i class="fa-fw fas fa-th-large"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/chunk.github.io/comments/"><i class="fa-fw fas fa-comments"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/chunk.github.io/about/"><i class="fa-fw fas fa-user-circle"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/chunk.github.io/"><span class="site-name">Chunk Blog</span></a><a class="nav-page-title" href="/chunk.github.io/"><span class="site-name">古典密码</span><span class="site-name"><i class="fa-solid fa-circle-arrow-left"></i><span>  返回首页</span></span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/chunk.github.io/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/chunk.github.io/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/chunk.github.io/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/chunk.github.io/categories/"><i class="fa-fw fas fa-th-large"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/chunk.github.io/comments/"><i class="fa-fw fas fa-comments"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/chunk.github.io/about/"><i class="fa-fw fas fa-user-circle"></i><span> 关于</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">古典密码</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2025-05-08T00:07:00.000Z" title="发表于 2025-05-08 08:07:00">2025-05-08</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-09-16T15:13:34.437Z" title="更新于 2025-09-16 23:13:34">2025-09-16</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/chunk.github.io/categories/%E5%AF%86%E7%A0%81%E5%AD%A6/">密码学</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">总字数:</span><span class="word-count">862</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>2分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div><article class="container post-content" id="article-container"><div id="post-outdate-notice" data="{&quot;limitDay&quot;:180,&quot;messagePrev&quot;:&quot;本文最后更新于&quot;,&quot;messageNext&quot;:&quot;天前，内容可能已过时，请注意甄别。&quot;,&quot;postUpdate&quot;:&quot;2025-09-16 23:13:34&quot;}" hidden></div><h4 id="置换密码典型代表—周期置换密码"><a href="#置换密码典型代表—周期置换密码" class="headerlink" title="置换密码典型代表—周期置换密码"></a>置换密码典型代表—周期置换密码</h4><p>   <img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/chunk.github.io/%E5%8F%A4%E5%85%B8%E5%AF%86%E7%A0%81/5d5658c11a0ac8e76d1767fc3de01b88f5743cc2.jpeg"><!-- {"width":524} --></p>
+<ul>
+<li>工作原理<br>将明文按一定长度 n 进行分组，把每组的字符按位置变换规则 π 重排位置。</li>
+<li>密钥：置换π</li>
+<li>密钥空间大小：n！</li>
+</ul>
+<h4 id="移位密码"><a href="#移位密码" class="headerlink" title="移位密码"></a>移位密码</h4><ul>
+<li>工作原理<ul>
+<li>加密：明文字母代换为字母表中其后第k个字母</li>
+<li>解密：密文字母代换为字母表中其前第k个字母（与加密相反）</li>
+</ul>
+</li>
+<li>密钥信息<ul>
+<li>密钥：k </li>
+<li>密钥空间大小：26（0，1，…，25）</li>
+</ul>
+</li>
+<li>典型例子<br>&#x3D;&#x3D;凯撒密码（k&#x3D;3的移位密码），<strong>没有密钥，不安全</strong>&#x3D;&#x3D;</li>
+</ul>
+<h4 id="代换密码"><a href="#代换密码" class="headerlink" title="代换密码"></a>代换密码</h4><ul>
+<li><h5 id="密钥—代换表"><a href="#密钥—代换表" class="headerlink" title="密钥—代换表"></a>密钥—代换表</h5></li>
+<li><h5 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h5>根据使用代换表数量的不同，可分为单表代换密码与多表代换密码。</li>
+<li><h5 id="单表代换密码"><a href="#单表代换密码" class="headerlink" title="单表代换密码"></a>单表代换密码</h5></li>
+</ul>
+<ul>
+<li>典型代表：简单代换密码<ul>
+<li>使用固定的代换表</li>
+<li>代换表可以是字母表上的任意置换，明文字母到密文字母的对应关系不一定像移位密码那样有规律</li>
+<li>密钥空间：26个字母的不同排列形成不同的密钥，共有26!个</li>
+<li>虽然密钥空间很大，但简单代换密码并不安全<br><code>“密钥空间大”并不是密码体制安全的充分条件</code></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>破译方法<ul>
+<li>频率分析（阿尔·金迪 <em>Al-Kindi</em>）</li>
+</ul>
+<ul>
+<li>原理：密文字母与对应的明文字母的出现频率完全一样。</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>应对方法：<br>命名密码（对常用单词进行代换，隐藏字母频率）<br>同音密码</li>
+</ul>
+<h4 id="多表代换密码"><a href="#多表代换密码" class="headerlink" title="多表代换密码"></a>多表代换密码</h4><ul>
+<li><h6 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h6>同时使用多张不同的代换表，就可以有效改变字母频率</li>
+<li><h6 id="维吉尼亚密码"><a href="#维吉尼亚密码" class="headerlink" title="维吉尼亚密码"></a>维吉尼亚密码</h6></li>
+</ul>
+<p>   <img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/chunk.github.io/%E5%8F%A4%E5%85%B8%E5%AF%86%E7%A0%81/effd0e01a6cc788fc8dc89b9bce333b7326a38ac.jpeg"></p>
+<ul>
+<li>工作原理<ul>
+<li><strong>密钥：长度为n的字符串</strong></li>
+</ul>
+<ul>
+<li>将消息分为n位一组，依据不同的密钥字母每组分别使用代换表</li>
+<li>密钥空间：26[^n]<br>密钥空间在n很大时已超出穷举攻击的能力范围，但不代表维吉尼亚密码不能用手工破译</li>
+</ul>
+</li>
+<li>破译方法</li>
+</ul>
+<ul>
+<li>在维吉尼亚密码的分析中，要&#x3D;&#x3D;先确定密钥长度，再确定具体密钥&#x3D;&#x3D;<br>   <del>下面为两种确定密钥长度的常用方法</del>：</li>
+</ul>
+<ul>
+<li>Kasiski测试法<ul>
+<li>普鲁士退役军官 弗里德里希·卡西斯基(<em>Friedrich Kasiski</em>)</li>
+<li>n为相同密文距密文开头距离的最大公约数的一个因子</li>
+</ul>
+</li>
+<li>重合指数法<ul>
+<li>美国著名密码学家 威廉.弗里德曼（<em>William F. Friedman</em>）</li>
+<li>将维吉尼亚密文串y分割成n行，每行排成一列<br><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/chunk.github.io/%E5%8F%A4%E5%85%B8%E5%AF%86%E7%A0%81/9675606699fe2cf90ee876914b9d80ca0d26969c.jpeg"></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>计算每行的重合指数与&#x3D;&#x3D;0.065&#x3D;&#x3D;比较</li>
+</ul>
+<h4 id="轮转机密码"><a href="#轮转机密码" class="headerlink" title="轮转机密码"></a>轮转机密码</h4><p>   标志着加密机械化的开始</p>
+<ul>
+<li><h5 id="典型代表——Enigma"><a href="#典型代表——Enigma" class="headerlink" title="典型代表——Enigma"></a>典型代表——Enigma</h5><ul>
+<li>组成<ul>
+<li>转子（3个转动快慢不同的转子）——每个转子内部相当于一个单表代换密码</li>
+<li>插线板——使任意两个被连接的字母的信号互换</li>
+<li>反射器</li>
+</ul>
+</li>
+<li>密钥空间<ul>
+<li>转子初始位置  26x26x26 &#x3D; 17,576</li>
+<li>转子相对位置  6</li>
+<li>插线板连接方式  100,391,791,500</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><h5 id="其他密码机"><a href="#其他密码机" class="headerlink" title="其他密码机"></a>其他密码机</h5><ul>
+<li>Lorenz (洛伦茨）</li>
+<li>Colossus (科洛希斯)—–第一台计算机，可编程</li>
+<li>Purple（日本，打字机）</li>
+</ul>
+</li>
+</ul>
+<h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><ul>
+<li>大多数古典密码体制不能很好地隐藏明文的统计特征，可以用&#x3D;&#x3D;🔵唯密文攻击攻破&#x3D;&#x3D;</li>
+<li>只有采用科学的理念，才能设计出安全的密码体制</li>
+</ul>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://subingchunk-hue.github.io/chunk.github.io">chunk</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://subingchunk-hue.github.io/chunk.github.io/2025/05/08/%E5%8F%A4%E5%85%B8%E5%AF%86%E7%A0%81/">https://subingchunk-hue.github.io/chunk.github.io/2025/05/08/%E5%8F%A4%E5%85%B8%E5%AF%86%E7%A0%81/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="https://subingchunk-hue.github.io/chunk.github.io" target="_blank">Chunk Blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/chunk.github.io/tags/%E5%AF%86%E7%A0%81%E5%AD%A6%EF%BC%8C%E7%AC%94%E8%AE%B0/">密码学，笔记</a></div><div class="post-share"><div class="social-share" data-image="/chunk.github.io/images/blog.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related" href="/chunk.github.io/2025/05/10/%E5%85%AC%E9%92%A5%E5%AF%86%E7%A0%81%E5%AD%A6/" title="公钥密码学"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info"><div class="info-1"><div class="info-item-1">上一篇</div><div class="info-item-2">公钥密码学</div></div><div class="info-2"><div class="info-item-1">概述 由于对称加密体制存在的许多问题，公钥密码学被提出  提出 1976年，Diffie与Hellman提出公钥密码体制的设想 Diffie-Hellman 密钥交换协议 公钥技术是二十世纪最伟大的思想之一，密码学的一次伟大革命  解决问题 从未见过面的两个人如何实现秘密通信 Diffie-Hellman 密钥交换协议 只设想了该种可能，&#x3D;&#x3D;并未提出解决方案&#x3D;&#x3D;  RSA的发明 1978年，MIT的三位密码学家 Rivest，Shamir，Adleman联合发明RSA加密体制  Diffie-Hellman密钥交换协议概述    安全性     Diffie-Hellman问题安全性基于在有限域上的离散对数问题！ 攻击手段 中间人攻击（Man-in-the-Middle Attack）：主动攻击下不安全如何抵抗中间人攻击——需要对交换的数据进行&#x3D;&#x3D;认证&#x3D;&#x3D;，以使通信双方知道到底在与谁进行密钥交换    公钥加密体制 定义 一个公钥加密体制包含以下算法:一致性要求:Setup输出的 ∀(pk,  sk)...</div></div></div></a><a class="pagination-related" href="/chunk.github.io/2025/05/03/%E5%88%86%E7%BB%84%E5%AF%86%E7%A0%81/" title="分组密码"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">分组密码</div></div><div class="info-2"><div class="info-item-1">分组密码（每次加密固定长度的明文）原理   输入：一个&#x3D;&#x3D;🟢定长&#x3D;&#x3D;的明文分组   输出：一个&#x3D;&#x3D;等长&#x3D;&#x3D;的密文分组 例子:   DES:   n&#x3D; 64 bits,    k &#x3D; 64 bits   AES:   n&#x3D;128 bits,    k &#x3D; 128, 192, 256 bits 设计分组密码的两种基本技术   混乱和扩散的思想由香农提出,目的是为了抵抗攻击者对密码系统的统计分析  混乱 目的：使明文和密文之间、密钥和密文之间的相关统计特性极小化，从而使攻击者无法找到密钥 方法：代换   扩散 目的：将明文及密钥的影响尽可能迅速地散布到较多个密文比特中 方法：置换    分组密码的迭代构造   目前，绝大多数的分组密码都是通过迭代技术构造的 数据加密标准（DES）核心设计思想：&#x3D;&#x3D;🟣Feistel 网络&#x3D;&#x3D;    为什么 Feistel 网络是可逆的？    求逆过程    DES的结构           ...</div></div></div></a></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><a class="pagination-related" href="/chunk.github.io/2025/04/26/Hash%E5%87%BD%E6%95%B0/" title="Hash函数"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-04-26</div><div class="info-item-2">Hash函数</div></div><div class="info-2"><div class="info-item-1">（一） 定义 Hash函数的定义 是一个高效的确定性函数，将一个长消息映射成固定长度的输出 H:  M -&gt; Y  (|M| &gt;&gt; |Y|) 输入称为消息，输出称为散列值   碰撞的定义 Hash函数的安全性 安全的Hash函数的性质 原像稳固 给定散列值 y ∈ Y ，要找到一个消息m ∈ M，使得 H(m)&#x3D;y 是计算上不可行的  单向性     第二原像稳固 给定一个消息m ∈ M，要找到另一个消息m’ ∈ M (m !&#x3D; m’) ，使得H(m)&#x3D;H(m’) 是计算上不可行的 弱抗碰撞性   碰撞稳固 找到一对消息 m, m’ ∈ M (m !&#x3D; m’) ，使得 H(m)&#x3D;H(m’) 是计算上不可行的 最容易找到的——若Hash满足该性质，则称为强抗碰撞性     抗碰撞Hash函数 设 H 是 Hash函数，如果所有高效的攻击者 A 能够找到碰撞的概率是可忽略的，则称 H 为 抗碰撞Hash函数  具有的性质：碰撞稳固、第二原像稳固 在实际应用中会同时设计成原像稳固的   若Hash函数设计的好，则不能绕...</div></div></div></a><a class="pagination-related" href="/chunk.github.io/2025/05/10/%E5%85%AC%E9%92%A5%E5%AF%86%E7%A0%81%E5%AD%A6/" title="公钥密码学"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-05-10</div><div class="info-item-2">公钥密码学</div></div><div class="info-2"><div class="info-item-1">概述 由于对称加密体制存在的许多问题，公钥密码学被提出  提出 1976年，Diffie与Hellman提出公钥密码体制的设想 Diffie-Hellman 密钥交换协议 公钥技术是二十世纪最伟大的思想之一，密码学的一次伟大革命  解决问题 从未见过面的两个人如何实现秘密通信 Diffie-Hellman 密钥交换协议 只设想了该种可能，&#x3D;&#x3D;并未提出解决方案&#x3D;&#x3D;  RSA的发明 1978年，MIT的三位密码学家 Rivest，Shamir，Adleman联合发明RSA加密体制  Diffie-Hellman密钥交换协议概述    安全性     Diffie-Hellman问题安全性基于在有限域上的离散对数问题！ 攻击手段 中间人攻击（Man-in-the-Middle Attack）：主动攻击下不安全如何抵抗中间人攻击——需要对交换的数据进行&#x3D;&#x3D;认证&#x3D;&#x3D;，以使通信双方知道到底在与谁进行密钥交换    公钥加密体制 定义 一个公钥加密体制包含以下算法:一致性要求:Setup输出的 ∀(pk,  sk)...</div></div></div></a><a class="pagination-related" href="/chunk.github.io/2025/05/03/%E5%88%86%E7%BB%84%E5%AF%86%E7%A0%81/" title="分组密码"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-05-03</div><div class="info-item-2">分组密码</div></div><div class="info-2"><div class="info-item-1">分组密码（每次加密固定长度的明文）原理   输入：一个&#x3D;&#x3D;🟢定长&#x3D;&#x3D;的明文分组   输出：一个&#x3D;&#x3D;等长&#x3D;&#x3D;的密文分组 例子:   DES:   n&#x3D; 64 bits,    k &#x3D; 64 bits   AES:   n&#x3D;128 bits,    k &#x3D; 128, 192, 256 bits 设计分组密码的两种基本技术   混乱和扩散的思想由香农提出,目的是为了抵抗攻击者对密码系统的统计分析  混乱 目的：使明文和密文之间、密钥和密文之间的相关统计特性极小化，从而使攻击者无法找到密钥 方法：代换   扩散 目的：将明文及密钥的影响尽可能迅速地散布到较多个密文比特中 方法：置换    分组密码的迭代构造   目前，绝大多数的分组密码都是通过迭代技术构造的 数据加密标准（DES）核心设计思想：&#x3D;&#x3D;🟣Feistel 网络&#x3D;&#x3D;    为什么 Feistel 网络是可逆的？    求逆过程    DES的结构           ...</div></div></div></a><a class="pagination-related" href="/chunk.github.io/2025/05/17/%E5%9F%BA%E4%BA%8E%E8%BA%AB%E4%BB%BD%E7%9A%84%E5%AF%86%E7%A0%81%E5%AD%A6/" title="基于身份的密码学"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-05-17</div><div class="info-item-2">基于身份的密码学</div></div><div class="info-2"><div class="info-item-1">基于身份的密码学（identity-based cryptography, IBC）提出者：Adi Shamir解决问题：如何以较小的代价保证公钥的真实性 IBC的原理传统公钥密码中公钥的产生   先选择私钥，再计算公钥，公钥必然显得“一片混乱”   公钥证书，PKI IBC产生公钥的原理 先选择公钥，再计算私钥 公钥可选择email地址、身份证号等，称之为用户的身份，记为ID    (注意：公钥就是ID，或从ID直接推导而来) 私钥看起来杂乱无章，没关系，反而有利 ID必须是每个用户唯一确定的信息，比如身份证号、电子邮箱等  基于身份的加密体制（IBE, Identity-based Encryption）定义   一个IBE包含以下算法：  Setup (1^λ): 产生系统公开参数 param，生成随机主密钥 msk KeyGen (param, ID, msk)：生成身份 ID 对应的用户私钥 sk Enc (param, ID, m): 给定明文 m∈M，输出密文 c ∈C Dec (param, sk,c): 给定密文 c∈C，输出 m∈M (或 ⊥)一致性要求: S...</div></div></div></a><a class="pagination-related" href="/chunk.github.io/2025/04/26/%E5%AE%89%E5%85%A8%E5%8D%8F%E8%AE%AE/" title="安全协议"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-04-26</div><div class="info-item-2">安全协议</div></div><div class="info-2"><div class="info-item-1">安全协议概述协议   两个或两个以上的参与者为完成某项特定任务而采取的一系列步骤 协议的复杂性 协议必须把所有不利条件事先都估计到，而不能假定一切都是正常的和非常理想的。  看一个协议是否正确，不能光看在正常情况下是否正确，而且还必须非常仔细地检查这个协议能否应付各种异常情况。  两个经典例子 两军问题：有些问题考虑太全面则无法解决 尾生抱柱：有些问题考虑不全面会导致严重后果  安全协议 又称密码协议，使用密码技术完成某项特定任务，并满足安全需求的协议。  在安全协议中，经常使用对称密码、公钥密码、Hash函数、PRG等密码工具。  安全协议的安全性需求   1234567机密性 完整性 认证性非否认性公平性匿名性……（根据应用场合不同进行组合） 安全协议中的角色 协议参与者 攻击者 内部&#x2F;外部攻击者 被动&#x2F;主动攻击者   可信第三方(TTP, Trusted Third Party) 用户都信任的实体，通常与每个用户共享密钥 功能：使用户之间确认彼此身份 或 共享会话密钥    安全协议设计与分析的困难性 安全目标本身的微妙性表面上十分简单的目标，实际上十分...</div></div></div></a><a class="pagination-related" href="/chunk.github.io/2025/03/11/%E5%AF%86%E7%A0%81%E5%AD%A6/" title="密码学"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-03-11</div><div class="info-item-2">密码学</div></div><div class="info-2"><div class="info-item-1">[[密码学史]][[密码学基本知识]]密码编码（保证机密性） [[古典密码]] 手工或机械方式对字符或单词进行处理 明文一般是有意义的自然语言文本   现代密码 [[对称密码]] [[公钥密码学]]（非对称密码） 总结 面向计算机和芯片，对比特、字节或字进行处理 明文可以是任意比特串      [[Hash函数]]（工具）认证（防伪造） [[消息认证]]：确认消息的来源 [[身份认证]]：确认通信对方是谁、向对方证明你是谁  [[数据完整性技术]][[安全协议]][[量子密码]]现代密码学 [[对称密码]]学 [[公钥密码学]]（传统公钥密码） RSA [[椭圆曲线密码学]]   [[基于身份的密码学]]  </div></div></div></a></div></div><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div class="vcomment" id="vcomment"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/chunk.github.io/images/blog.jpg" onerror="this.onerror=null;this.src='/chunk.github.io/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">chunk</div><div class="author-info-description">专注技术资料分享</div><div class="site-data"><a href="/chunk.github.io/archives/"><div class="headline">文章</div><div class="length-num">28</div></a><a href="/chunk.github.io/tags/"><div class="headline">标签</div><div class="length-num">5</div></a><a href="/chunk.github.io/categories/"><div class="headline">分类</div><div class="length-num">5</div></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">欢迎来到我的资料分享博客！这里整理和分享各种学习笔记和资料。</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content is-expand"><ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BD%AE%E6%8D%A2%E5%AF%86%E7%A0%81%E5%85%B8%E5%9E%8B%E4%BB%A3%E8%A1%A8%E2%80%94%E5%91%A8%E6%9C%9F%E7%BD%AE%E6%8D%A2%E5%AF%86%E7%A0%81"><span class="toc-number">1.</span> <span class="toc-text">置换密码典型代表—周期置换密码</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%A7%BB%E4%BD%8D%E5%AF%86%E7%A0%81"><span class="toc-number">2.</span> <span class="toc-text">移位密码</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BB%A3%E6%8D%A2%E5%AF%86%E7%A0%81"><span class="toc-number">3.</span> <span class="toc-text">代换密码</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%AF%86%E9%92%A5%E2%80%94%E4%BB%A3%E6%8D%A2%E8%A1%A8"><span class="toc-number">3.1.</span> <span class="toc-text">密钥—代换表</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%88%86%E7%B1%BB"><span class="toc-number">3.2.</span> <span class="toc-text">分类</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%8D%95%E8%A1%A8%E4%BB%A3%E6%8D%A2%E5%AF%86%E7%A0%81"><span class="toc-number">3.3.</span> <span class="toc-text">单表代换密码</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%A4%9A%E8%A1%A8%E4%BB%A3%E6%8D%A2%E5%AF%86%E7%A0%81"><span class="toc-number">4.</span> <span class="toc-text">多表代换密码</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#%E7%89%B9%E7%82%B9"><span class="toc-number">4.0.1.</span> <span class="toc-text">特点</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E7%BB%B4%E5%90%89%E5%B0%BC%E4%BA%9A%E5%AF%86%E7%A0%81"><span class="toc-number">4.0.2.</span> <span class="toc-text">维吉尼亚密码</span></a></li></ol></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%BD%AE%E8%BD%AC%E6%9C%BA%E5%AF%86%E7%A0%81"><span class="toc-number">5.</span> <span class="toc-text">轮转机密码</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%85%B8%E5%9E%8B%E4%BB%A3%E8%A1%A8%E2%80%94%E2%80%94Enigma"><span class="toc-number">5.1.</span> <span class="toc-text">典型代表——Enigma</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%85%B6%E4%BB%96%E5%AF%86%E7%A0%81%E6%9C%BA"><span class="toc-number">5.2.</span> <span class="toc-text">其他密码机</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-number">6.</span> <span class="toc-text">总结</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/chunk.github.io/2025/09/09/%E6%8E%A8%E7%AE%B1%E5%AD%90%E5%B0%8F%E6%B8%B8%E6%88%8F/" title="实验报告——推箱子小游戏">实验报告——推箱子小游戏</a><time datetime="2025-09-09T02:00:00.000Z" title="发表于 2025-09-09 10:00:00">2025-09-09</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/chunk.github.io/2025/09/08/%E7%AC%AC%E4%B8%80%E4%B8%AAHarmonyOS%E5%BA%94%E7%94%A8/" title="实验报告——第一个HarmonyOS应用">实验报告——第一个HarmonyOS应用</a><time datetime="2025-09-08T07:00:00.000Z" title="发表于 2025-09-08 15:00:00">2025-09-08</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/chunk.github.io/2025/09/02/%E9%9A%BE%E6%90%9E%E7%9A%84dp/" title="难搞的dp">难搞的dp</a><time datetime="2025-09-02T06:41:00.000Z" title="发表于 2025-09-02 14:41:00">2025-09-02</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/chunk.github.io/2025/09/02/%E8%A7%86%E9%A2%91%E6%92%AD%E6%94%BE%E5%B0%8F%E7%A8%8B%E5%BA%8F/" title="实验报告——视频播放小程序">实验报告——视频播放小程序</a><time datetime="2025-09-02T02:00:00.000Z" title="发表于 2025-09-02 10:00:00">2025-09-02</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/chunk.github.io/2025/09/01/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E4%BA%91%E5%BC%80%E5%8F%91/" title="实验报告——微信小程序云开发">实验报告——微信小程序云开发</a><time datetime="2025-09-01T07:10:00.000Z" title="发表于 2025-09-01 15:10:00">2025-09-01</time></div></div></div></div></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2025 By chunk</span></div><div class="footer_custom_text">专注资料分享，记录学习成长</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="前往评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/chunk.github.io/js/utils.js"></script><script src="/chunk.github.io/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><div class="js-pjax"><script>(() => {
+  const isShuoshuo = GLOBAL_CONFIG_SITE.pageType === 'shuoshuo'
+  const option = {"placeholder":"欢迎留言！支持 Markdown 语法","requiredFields":["nick"],"enableQQ":true,"recordIP":false}
+
+  const initValine = (el, path) => {
+    if (isShuoshuo) {
+      window.shuoshuoComment.destroyValine = () => {
+        if (el.children.length) {
+          el.innerHTML = ''
+          el.classList.add('no-comment')
+        }
+      }
+    }
+
+    const valineConfig = {
+      el: '#vcomment',
+      appId: 'e9sjHukfBcHrIxLhaKkvSH7P-gzGzoHsz',
+      appKey: '7S60BbRR1exbrVTsWUG5ITaL',
+      avatar: 'monsterid',
+      serverURLs: '',
+      emojiMaps: "",
+      visitor: false,
+      ...option,
+      path: isShuoshuo ? path : (option && option.path) || window.location.pathname
+    }
+
+    new Valine(valineConfig)
+  }
+
+  const loadValine = async (el, path) => {
+    if (typeof Valine === 'function') {
+      initValine(el, path)
+    } else {
+      await btf.getScript('https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js')
+      initValine(el, path)
+    }
+  }
+
+  if (isShuoshuo) {
+    'Valine' === 'Valine'
+      ? window.shuoshuoComment = { loadComment: loadValine }
+      : window.loadOtherComment = loadValine
+    return
+  }
+
+  if ('Valine' === 'Valine' || !false) {
+    if (false) btf.loadComment(document.getElementById('vcomment'),loadValine)
+    else setTimeout(loadValine, 0)
+  } else {
+    window.loadOtherComment = loadValine
+  }
+})()</script></div><script id="click-heart" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/click-heart.min.js" async="async" mobile="false"></script><script async data-pjax src="https://cdn.jsdelivr.net/npm/busuanzi@2.3.0/bsz.pure.mini.js"></script></div></body></html>
