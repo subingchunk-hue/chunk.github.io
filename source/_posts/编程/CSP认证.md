@@ -1,0 +1,749 @@
+---
+title: CSP认证
+date: 2025-08-30 9:23:00
+tags: [CSP认证，洛谷，编程]
+categories: [CSP认证，编程]
+---
+
+# 第36次CCF计算机软件能力认证
+
+#### [移动](https://sim.csp.thusaac.com/contest/36/problem/0)
+
+```c++
+#include<iostream>
+using namespace std;
+int dx = 0, dy = 0;
+int main() {
+
+    int n, k;
+    cin >> n >> k;
+    while (k--) {
+        int x, y;
+        string s;
+        cin >> x >> y >> s;
+        dx = x;
+        dy = y;
+        for (int i = 0; i < s.size(); i++) {
+            if (s[i] == 'f') dy = y + 1;
+            else if (s[i] == 'b') dy = y - 1;
+            else if (s[i] == 'l') dx = x - 1;
+            else if (s[i] == 'r') dx = x + 1;
+
+            if (dx <= n && dx >= 1 && dy <= n && dy >= 1) {
+                x = dx;
+                y = dy;
+            }
+            else {
+                dx = x;
+                dy = y;
+            }
+        }
+        cout << x << " " << y << endl;
+    }
+    return 0;
+}
+```
+
+#### [梦境巡查](https://sim.csp.thusaac.com/contest/36/problem/1)
+
+[前缀和]()
+
+```
+
+```
+
+#### [缓存模拟](https://sim.csp.thusaac.com/contest/36/problem/2)
+
+#### [跳房子](https://sim.csp.thusaac.com/contest/36/problem/3)
+
+```c++
+#include<iostream>
+using namespace std;
+#include<set>
+#include<algorithm>
+#include<queue>
+#include<cstring>
+#include<cmath>
+const int N = 1e5+5;
+typedef long long ll;
+int dp[N];
+
+ll a[N], k[N];
+ll n;
+int main() {
+	cin >> n;
+	for (int i = 1; i <= n; i++) cin >> a[i];
+	for (int i = 1; i <= n; i++) cin >> k[i];
+	memset(dp, -1, sizeof(dp));
+	dp[1] = 0;
+	queue<int> q;
+	q.push(1);
+	set<int> p;
+	for (int i = 2; i <= n; i++) p.insert(i);
+	while (!q.empty()) {
+		ll u = q.front();
+		q.pop();
+		ll l = u + 1, r = min(n, u + k[u]);
+		if (l > r) continue;
+		auto it = p.lower_bound(l);
+		while (it != p.end() && *it <= r) {
+			ll j = *it;
+			ll pos = j - a[j];
+			if (dp[pos] == -1) {
+				dp[pos] = dp[u] + 1;
+				q.push(pos);
+			}
+			it = p.erase(it);
+		}
+	}
+	cout << dp[n];
+	return 0;
+}
+```
+
+
+
+#### [梦魔](https://sim.csp.thusaac.com/contest/36/problem/4)
+
+
+
+#### [密码](https://sim.csp.thusaac.com/contest/35/problem/0)
+
+
+
+```c++
+#include<iostream>
+using namespace std;
+#include<unordered_map>
+int main() {
+	unordered_map<char, int> a;
+	int n;
+	cin >> n;
+	while (n--) {
+		string s;
+		cin >> s;
+		bool flag = false;
+		bool flag1 = false, flag2 = false, flag3 = false;
+		a.clear();
+		for (int i = 0; i < s.size(); i++) {
+			auto it = a.find(s[i]);
+			if (it != a.end()) a[s[i]]++;
+			else a.insert({ s[i],1 });
+			if (a[s[i]] > 2) flag = true;
+			if (s[i] >= 'a' && s[i] <= 'z') flag1 = true;
+			else if (s[i] >= 'A' && s[i] <= 'Z') flag1 = true;
+			else if (s[i] >= '0' && s[i] <= '9') flag2 = true;
+			else flag3 = true;
+		}
+		if (flag1 && flag2 && flag3) {
+			if (flag) cout << "1" << endl;
+			else cout << "2" << endl;
+		}
+		else cout << "0" << endl;
+	}
+
+
+	return 0;
+}
+```
+
+[字符串变换](https://sim.csp.thusaac.com/contest/35/problem/1)
+
+
+
+[补丁应用](https://sim.csp.thusaac.com/contest/35/problem/2)
+
+
+
+[通讯延迟](https://sim.csp.thusaac.com/contest/35/problem/3)
+
+根据题意很容易看出做法为建图用迪杰斯特拉算法求最短路径。
+
+但如果考虑简单建图，会把基站覆盖的点两两相连每个基站覆盖 $k$个点时建$ O(k^2)$条边，当k很大时复杂度会很高。
+
+则我们考虑用**虚拟节点**：(通俗点说，就是bfs里的节点定义变一下)
+
+1. 区间/集合压缩：一个集合内的点可以互相跳转、通信
+
+   为集合建一个虚拟节点s，对集合内每个实际节点u，令：u -> v : 0    v->u : w
+
+   此时任意u、v之间都要通过s到达，而代价等于原来全连接的权，但此时只需要O(K)条边。
+
+   ```c++
+   int n=5;  //原始点
+   int m=2;  //两个基站
+   typedef pair<int,int> PII;
+   vector<vector<PII> adj(n+m+1); //下标从1开始
+   
+   for(int i=1;i<=m;i++){
+   	int virtual_i=i+n;
+   	vector<int> nodes={1,3,5};  //假设覆盖点为1、3、5
+   	int w=2;  //权重
+   	for(int u:nodes){
+   		adj[u].push_back({virtual_i,0});
+   		adj[virtual_i].push_back({u,w});
+   	}
+   }
+   ```
+
+2. 状态压缩型：需要收集钥匙、物品才能通过
+
+   状态用掩码实现（难上加难！！！！！！！！！！）
+
+   [孤岛营救问题](https://www.luogu.com.cn/problem/P4011#ide)
+
+   ```c++
+   #include<iostream>
+   #include<algorithm>
+   #include<climits>
+   #include<cstring>
+   #include<queue>
+   using namespace std;
+   
+   struct node {
+   	int state;
+   	int x, y;
+   };
+   
+   int key[15][15];
+   int dist[1 << 15][15][15];
+   int door[15][15][15][15];
+   int dx[4] = { 0,0,-1,1 }, dy[4] = { 1,-1,0,0 };
+   int main() {
+   
+   	int n, m, p, k;
+   	cin >> n >> m >> p >> k;
+   	memset(key, 0, sizeof(key));
+   	for (int i = 0; i < (1 << 15); i++)
+   		for (int j = 0; j < 15; j++)
+   			for (int k = 0; k < 15; k++)
+   				dist[i][j][k] = INT_MAX;
+   	memset(door, -1, sizeof(door));
+   	for (int i = 1; i <= k; i++) {
+   		int x1, y1, x2, y2, g;
+   		cin >> x1 >> y1 >> x2 >> y2 >> g;
+   		door[x1][y1][x2][y2] = g;
+   		door[x2][y2][x1][y1] = g;
+   	}
+   	int s;
+   	cin >> s;
+   	for (int i = 1; i <= s; i++) {
+   		int x, y, q;
+   		cin >> x >> y >> q;
+   		key[x][y] |= (1 << q);
+   	}
+   
+   	queue<node> q;
+   	dist[key[1][1]][1][1] = 0;
+   	q.push({ key[1][1],1,1 });
+   	while (!q.empty()) {
+   		node u = q.front();
+   		q.pop();
+   		int step = dist[u.state][u.x][u.y];
+   
+   		if (u.x == n && u.y == m) {
+   			cout << step << endl;
+   			return 0;
+   		}
+   
+   		for (int i = 0; i < 4; i++) {
+   			int new_x = u.x + dx[i];
+   			int new_y = u.y + dy[i];
+   
+   			if (new_x<1 || new_x>n || new_y<1 || new_y>m) continue;
+   
+   			int barrier = door[u.x][u.y][new_x][new_y];
+   			if (barrier == 0) continue;
+   			if (barrier > 0) {
+   				if (!(u.state & (1 << barrier))) continue;
+   			}
+   			int new_state = u.state | key[new_x][new_y];
+   
+   			if (step + 1 < dist[new_state][new_x][new_y]) {
+   				dist[new_state][new_x][new_y] = step + 1;
+   				q.push({ new_state,new_x,new_y });
+   			}
+   		}
+   	}
+   	cout << "-1" << endl;
+   
+   	return 0;
+   }
+   ```
+
+   [关灯问题](https://www.luogu.com.cn/problem/P2622#ide)
+
+   ```c++
+   #include <iostream>
+   #include <queue>
+   #include <cstring>
+   using namespace std;
+   
+   const int MAX_STATE = (1 << 10) + 5;
+   int steps[MAX_STATE];
+   int a[105][15]; 
+   int n, m;
+   
+   int main() {
+       cin >> n >> m;
+   
+       for (int i = 0; i < m; i++)
+           for (int j = 0; j < n; j++)
+               cin >> a[i][j];
+   
+       memset(steps, -1, sizeof(steps)); 
+       int start = (1 << n) - 1;     
+   
+       queue<int> q;
+       steps[start] = 0;
+       q.push(start);
+   
+       while (!q.empty()) {
+           int state = q.front();
+           q.pop();
+           if (state == 0) {
+               cout << steps[state] << endl;
+               return 0;
+           }
+   
+           for (int i = 0; i < m; i++) {
+               int new_state = state;
+   
+               for (int j = 0; j < n; j++) {
+                   if (a[i][j] == 1 && (state & (1 << j))) {
+                       new_state &= ~(1 << j); 
+                   }
+                   else if (a[i][j] == -1 && !(state & (1 << j))) {
+                       new_state |= (1 << j);  
+                   }
+               }
+   
+               if (steps[new_state] == -1) {
+                   steps[new_state] = steps[state] + 1;
+                   q.push(new_state);
+               }
+           }
+       }
+   
+       cout << -1 << endl;
+       return 0;
+   }
+   ```
+
+   [宝藏](https://www.luogu.com.cn/problem/P3959)
+
+   ```c++
+   #include<iostream>
+   #include<vector>
+   #include<algorithm>
+   #include<climits>
+   using namespace std;
+   
+   int main() {
+   
+   	int n, m;
+   	cin >> n >> m;
+   	int ans = INT_MAX;
+   	vector<vector<int>> g(15,vector<int>(15,INT_MAX));
+   	for (int i = 0; i < n; i++) g[i][i] = 0;
+   	for (int i = 0; i < m; i++) {
+   		int u, v, w;
+   		cin >> u >> v >> w;
+   		u--;
+   		v--;
+   		g[u][v] = min(g[u][v], w);
+   		g[v][u] = min(g[v][u], w);
+   	}
+   	int all = (1 << n) - 1;
+   	
+   	for (int start = 0; start < n; start++) {
+   		vector<vector<int>> dp(1 << n, vector<int>(15, INT_MAX));
+   		dp[1 << start][0] = 0;
+   		vector<vector<int>> min_w(all+1, vector<int>(n, INT_MAX));
+   		for (int state = 0; state <= all; state++) {
+   			for (int u = 0; u < n; u++)
+   				for (int v = 0; v < n; v++)
+   					if ((state >> u & 1) && g[u][v] < INT_MAX)
+   						min_w[state][v] = min(min_w[state][v], g[u][v]);
+   		}
+   		for (int state = 0; state <= all; state++) {
+   			for (int depth = 0; depth < n; depth++) {
+   				if (dp[state][depth] == INT_MAX) continue;
+   				int s = all ^ state;
+   				for (int subset = s; subset; subset = (subset - 1) & s) {
+   					int cost = 0;
+   					bool flag = true;
+   					for (int u = 0; u < n; u++) {
+   						if (subset >> u & 1) {
+   							if (min_w[state][u] == INT_MAX) {
+   								flag = false;
+   								break;
+   							}
+   							cost += min_w[state][u];
+   						}
+   					}
+   					if (!flag) continue;
+   
+   					int new_state = state | subset;
+   					int new_cost = dp[state][depth] + cost * (depth + 1);
+   					if (dp[new_state][depth + 1] > new_cost) dp[new_state][depth + 1] = new_cost;
+   				}
+   			}
+   			for (int depth = 0; depth < n; depth++) ans = min(ans, dp[all][depth]);
+   		}
+   	}
+   
+   	cout << ans << endl;
+   	return 0;
+   }
+   ```
+
+3. 操作序列型：在不同状态间进行转换操作
+
+4. 时间维度型：图结构随时间变化，不同时间道路可用性不同
+
+5.  多目标型：需要同时优化多个目标，如最短路和次短路
+
+6. 免费次数型： K 次免费通过边的机会，求使用最多 K 次免费后的最短路
+
+   建多层图，每一层分别表示用了几次免费，$u_0,u_1,……,u_k$，建二维dist数组更新最小距离，有：
+
+   - 使用免费票：`dist[layer+1][v]=dist[layer][u]`
+   - 不使用免费票：`dist[layer][v]=dist[layer][u]+cost(v,u)`
+
+   [飞行路线](https://www.luogu.com.cn/problem/P4568)
+
+   ```c++
+   #include<iostream>
+   #include<vector>
+   #include<climits>
+   #include<queue>
+   #include<algorithm>
+   #include<utility>
+   using namespace std;
+   
+   struct edge {
+       int to, w;
+   };
+   
+   int main() {
+       int n, m, k;
+       cin >> n >> m >> k;
+       int s, t;
+       cin >> s >> t;
+       
+       vector<vector<edge>> adj(n+1);
+       for (int i = 0; i < m; i++) {
+           int a, b, c;
+           cin >> a >> b >> c;
+           adj[a].push_back({b, c});
+           adj[b].push_back({a, c});
+       }
+   
+       // 使用二维数组 dist[layer][node]
+       vector<vector<int>> dist(k+1, vector<int>(n+1, INT_MAX));
+       using State = pair<int, pair<int, int>>; // {distance, {layer, node}}
+       priority_queue<State, vector<State>, greater<State>> pq;
+       
+       dist[0][s] = 0;
+       pq.push({0, {0, s}});
+       
+       while (!pq.empty()) {
+           auto [d, state] = pq.top();
+           auto [layer, u] = state;
+           pq.pop();
+           
+           if (d != dist[layer][u]) continue;
+           if (u == t) continue; 
+           
+           for (auto& e : adj[u]) {
+               int v = e.to, w = e.w;
+               
+               // 不使用免费机会
+               if (dist[layer][v] > d + w) {
+                   dist[layer][v] = d + w;
+                   pq.push({dist[layer][v], {layer, v}});
+               }
+               
+               // 使用免费机会（如果还有）
+               if (layer < k && dist[layer+1][v] > d) {
+                   dist[layer+1][v] = d;
+                   pq.push({dist[layer+1][v], {layer+1, v}});
+               }
+           }
+       }
+       
+       int ans = INT_MAX;
+       for (int i = 0; i <= k; i++) {
+           ans = min(ans, dist[i][t]);
+       }
+       
+       cout << ans;
+       return 0;
+   }
+   ```
+
+   [电话线](https://www.luogu.com.cn/problem/P1948#ide)
+
+   ```c++
+   #include<iostream>
+   #include<vector>
+   #include<utility>
+   #include<queue>
+   #include<algorithm>
+   #include<cmath>
+   #include<climits>
+   using namespace std;
+   typedef long long ll;
+   typedef pair<ll, pair<int, int>> PII;
+   
+   struct edge {
+       int to;
+       ll w;
+   };
+   
+   int main() {
+       int n, p, k;
+       cin >> n >> p >> k;
+   
+       vector<vector<edge>> adj(n + 1);
+   
+       for (int i = 0; i < p; i++) {
+           int a, b, l;
+           cin >> a >> b >> l;
+           adj[a].push_back({ b, l });
+           adj[b].push_back({ a, l });
+       }
+   
+       vector<vector<ll>> dist(k + 1, vector<ll>(n + 1, LLONG_MAX));
+   
+       dist[0][1] = 0;
+       priority_queue<PII, vector<PII>, greater<PII>> pq;
+       pq.push(make_pair(0, make_pair(0, 1)));
+   
+       while (!pq.empty()) {
+           PII a = pq.top();
+           pq.pop();
+           ll d = a.first;
+           int layer = a.second.first;
+           int u = a.second.second;
+   
+           if (d != dist[layer][u]) continue;
+           if (u == n) continue;
+   
+           for (int i = 0; i < adj[u].size(); i++) {
+               edge e = adj[u][i];
+               int v = e.to;    
+               ll w = e.w; 
+   
+               ll new_cost = max(d, w);
+               if (new_cost < dist[layer][v]) {
+                   dist[layer][v] = new_cost;
+                   pq.push(make_pair(dist[layer][v], make_pair(layer, v)));
+               }
+   
+               if (layer < k && d < dist[layer + 1][v]) {
+                   dist[layer + 1][v] = d;
+                   pq.push(make_pair(d, make_pair(layer + 1, v)));
+               }
+           }
+       }
+   
+       ll ans = LLONG_MAX;
+       for (int i = 0; i <= k; i++) {
+           if (dist[i][n] < ans) {
+               ans = dist[i][n];
+           }
+       }
+   
+       if (ans == LLONG_MAX) cout << -1 << endl;
+       else cout << ans << endl;
+   
+       return 0;
+   }
+   ```
+   
+   [约翰的牛](https://www.luogu.com.cn/problem/P2939#ide)
+   
+   ```c++
+   #include<iostream>
+   #include<vector>
+   #include<utility>
+   #include<queue>
+   #include<climits>
+   using namespace std;
+   typedef long long ll;
+   
+   struct edge {
+       int to;
+       ll w;
+   };
+   
+   int main() {
+       ios::sync_with_stdio(0);
+       cin.tie(0);
+       int n, m, k;
+       cin >> n >> m >> k;
+       int s = 1, t = n; 
+   
+       vector<vector<edge>> adj(n + 1);
+       for (int i = 0; i < m; i++) {
+           int a, b;
+           ll t;
+           cin >> a >> b >> t;
+           adj[a].push_back({ b, t });
+           adj[b].push_back({ a, t });
+       }
+   
+       using pii = pair<ll, pair<int, int>>;
+       vector<vector<ll>> dist(k + 1, vector<ll>(n + 1, LLONG_MAX));
+   
+       priority_queue<pii, vector<pii>, greater<pii>> pq;
+       dist[0][s] = 0;
+       pq.push({ 0, {0, s} });
+   
+       while (!pq.empty()) {
+           pii p = pq.top();
+           pq.pop();
+           ll d = p.first;
+           int layer = p.second.first;
+           int u = p.second.second;
+   
+           if (d != dist[layer][u]) continue;
+           if (u == t) continue; 
+   
+           for (auto e : adj[u]) {
+               int v = e.to;
+               ll w = e.w;
+               if (layer < k) {
+                   if (dist[layer][u] < dist[layer + 1][v]) {
+                       dist[layer + 1][v] = dist[layer][u];
+                       pq.push({ dist[layer + 1][v], {layer + 1, v} });
+                   }
+               }
+               if (dist[layer][u] + w < dist[layer][v]) {
+                   dist[layer][v] = dist[layer][u] + w;
+                   pq.push({ dist[layer][v], {layer, v} });
+               }
+           }
+       }
+   
+       ll ans = LLONG_MAX;
+       for (int i = 0; i <= k; i++) {
+           if (dist[i][t] < ans) {
+               ans = dist[i][t];
+           }
+       }
+   
+       cout << ans << endl;
+       return 0;
+   }
+   ```
+   
+   
+
+```c++
+#include<iostream>
+#include<vector>
+#include<queue>
+#include<utility>
+#include <climits>
+using namespace std;
+typedef long long ll;
+typedef pair<ll, int> PII;
+
+struct Edge {
+    ll to, w;
+};
+struct Station {
+    ll x, y, r, t;
+};
+
+int main() {
+    ll n, m;
+    cin >> n >> m;
+    vector<ll> x(n + 1), y(n + 1);
+    for (int i = 1; i <= n; i++) cin >> x[i] >> y[i];
+    vector<Station> station(m + 1);
+    for (int i = 1; i <= m; i++) cin >> station[i].x >> station[i].y >> station[i].r >> station[i].t;
+
+    int N = n + m;
+    vector<vector<Edge>> adj(N + 1);
+
+    for (int i = 1; i <= m; i++) {
+        ll x1 = station[i].x - station[i].r, x2 = station[i].x + station[i].r;
+        ll y1 = station[i].y - station[i].r, y2 = station[i].y + station[i].r;
+        int virtualId = n + i;
+        for (int j = 1; j <= n; j++) {
+            if (x[j] >= x1 && x[j] <= x2 && y[j] >= y1 && y[j] <= y2) {
+                adj[j].push_back({ virtualId,0 });
+                adj[virtualId].push_back({ j,station[i].t });
+            }
+        }
+    }
+
+    vector<ll> dist(N + 1, LLONG_MAX);
+    dist[1] = 0;
+    priority_queue<PII, vector<PII>, greater<PII>> pq;
+    pq.push({ 0,1 });
+
+    while (!pq.empty()) {
+        auto edge= pq.top(); pq.pop();
+        ll d = edge.first;
+        int u = edge.second;
+        if (d != dist[u]) continue;  //状态过期判断，提高效率
+        if (u == n) continue;
+        for (auto& e : adj[u]) {
+            ll v = e.to;
+            ll w = e.w;
+            if (dist[u] + w < dist[v]) {
+                dist[v] = dist[u] + w;
+                pq.push({ dist[v], v });
+            }
+        }
+    }
+
+    if (dist[n] == LLONG_MAX) cout << "Nan\n";
+    else cout << dist[n] << "\n";
+
+    return 0;
+}
+```
+
+[木板切割](https://sim.csp.thusaac.com/contest/35/problem/4)
+
+
+
+
+
+
+
+
+
+34
+
+```
+#include<iostream>
+#include<vector>
+using namespace std;
+int main() {
+
+	int n, m, p, q;
+	cin >> n >> m >> p >> q;
+	vector<vector<int>> a(n, vector<int>(m));
+	for (int i = 0; i < n; i++)
+		for (int j = 0; j < m; j++)
+			cin >> a[i][j];
+	int count = 1;
+	for(int i=0;i<n;i++){
+		for (int j = 0; j < m; j++) {
+			if ((count) % q == 0) cout << a[i][j] << endl;
+			else cout << a[i][j] << " ";
+			count++;
+		}
+	}
+
+	return 0;
+}
+```
+

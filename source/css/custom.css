@@ -1,3 +1,209 @@
+/* 自定义样式 */
+
+/* 修复侧栏字体颜色 */
+.aside-content .card-widget .card-content,
+.aside-content .card-widget .card-info,
+.aside-content .card-widget .item-headline,
+.aside-content .card-widget .card-tag-cloud a,
+.aside-content .card-widget .card-archives ul li,
+.aside-content .card-widget .card-categories ul li {
+  color: #64f6d2 !important;
+}
+
+/* 强制侧边栏所有文字为浅蓝色 */
+#aside,
+#aside *,
+.aside-content,
+.aside-content *,
+.card-widget,
+.card-widget *,
+.card-info,
+.card-info *,
+.card-content,
+.card-content *,
+.item-headline,
+.card-info-data,
+.card-info-data *,
+.headline,
+.card-widget-info,
+.card-widget-info *,
+.site-data,
+.site-data *,
+.site-state,
+.site-state *,
+.site-uv,
+.site-pv,
+.card-announcement,
+.card-announcement *,
+.card-recent-post,
+.card-recent-post *,
+.card-tag-cloud,
+.card-tag-cloud *,
+.card-archives,
+.card-archives *,
+.card-categories,
+.card-categories * {
+  color: #64f6de !important;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.8) !important;
+}
+
+/* 修复目录字体可见性 */
+#aside .card-toc .toc-content .toc-link,
+#aside .card-toc .toc-content .toc-number {
+  color: #ac90f9 !important;
+}
+
+#aside .card-toc .toc-content .toc-link:hover {
+  color: #49b1f5 !important;
+}
+
+/* 当前激活的目录项 */
+#aside .card-toc .toc-content .active > .toc-link {
+  color: #49b1f5 !important;
+  font-weight: bold;
+}
+
+/* 修复评论区域字体可见性 */
+.valine-wrapper .vwrap .vheader .vinput,
+.valine-wrapper .vwrap .vedit .veditor,
+.valine-wrapper .vwrap .vcontrol .vicon,
+.valine-wrapper .vwrap .vcontrol .vpreview-btn,
+.valine-wrapper .vwrap .vcontrol .vsubmit,
+.valine-wrapper .vlist .vcard .vhead .vnick,
+.valine-wrapper .vlist .vcard .vhead .vsys,
+.valine-wrapper .vlist .vcard .vh .vmeta,
+.valine-wrapper .vlist .vcard .vcontent,
+.valine-wrapper .vempty,
+.valine-wrapper .vinfo {
+  color: #ffffff !important;
+}
+
+/* 强制设置特定元素的颜色为超级浅的灰色 */
+span, i, textarea, .fas, .fa-fw, .fa-comments, #veditor, .veditor, .vinput {
+    color: #e0e0e0 !important;
+}
+
+/* 修复页面底部区域样式 */
+.footer-other {
+    background: transparent !important;
+}
+
+/* 增强span字体可见性 */
+span {
+    color: #f0f0f0 !important;
+    text-shadow: 0 0 2px rgba(255, 255, 255, 0.3) !important;
+}
+
+/* 特别处理网站标题 */
+.site-name {
+    color: #ffffff !important;
+    font-weight: bold !important;
+    text-shadow: 0 0 3px rgba(255, 255, 255, 0.5) !important;
+}
+
+/* 评论输入框背景 */
+.valine-wrapper .vwrap .vedit .veditor {
+  background-color: transparent !important;
+  border: none !important;
+}
+
+/* 调整文章内容背景透明度 */
+#article-container {
+  background-color: transparent !important;
+  backdrop-filter: none;
+}
+
+/* 文章内容字体颜色 */
+#article-container p,
+#article-container h1,
+#article-container h2,
+#article-container h3,
+#article-container h4,
+#article-container h5,
+#article-container h6,
+#article-container li,
+#article-container span {
+  color: #ffffff !important;
+}
+
+/* 文章容器背景 */
+#article-container {
+  background-color: transparent !important;
+  border-radius: 10px;
+  padding: 20px;
+  margin: 20px 0;
+}
+
+/* 调整代码块背景 */
+#article-container pre,
+#article-container code {
+  background-color: transparent !important;
+}
+
+/* 调整引用块背景 */
+#article-container blockquote {
+  background-color: transparent !important;
+}
+
+/* 主页文章列表背景透明 */
+.recent-post-item {
+  background: transparent !important;
+  backdrop-filter: none;
+  border: none;
+  color: #ffffff !important;
+}
+
+.recent-post-item .post-title {
+  color: #ffffff !important;
+  font-weight: 600;
+}
+
+.recent-post-item .post-meta {
+  color: #e0e0e0 !important;
+}
+
+.recent-post-item .post-content {
+  color: #f0f0f0 !important;
+}
+
+/* 主内容包装器透明 */
+.layout {
+  background: transparent !important;
+}
+
+.main-content-wrap {
+  background: transparent !important;
+}
+
+.main-content {
+  background: transparent !important;
+  backdrop-filter: none;
+}
+
+/* 强制所有文章相关容器透明 */
+.post,
+.post-wrap,
+.post-container,
+article,
+.article,
+.content-wrap,
+.content-container,
+.post-body,
+.entry-content,
+#post,
+.post-block,
+.post-content,
+.content,
+.main-content,
+.article-container,
+.post-inner,
+.post-main {
+  background: transparent !important;
+  background-color: transparent !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+}
+
 /* 自定义分类页面样式 */
 .category-list {
   display: grid;
@@ -7,38 +213,38 @@
 }
 
 .category-list-item {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: transparent !important;
   border-radius: 15px;
   padding: 25px;
   transition: all 0.3s ease;
   position: relative;
   overflow: hidden;
-  border: 2px solid rgba(255,255,255,0.3);
+  border: none;
 }
 
 .category-list-item:hover {
   transform: translateY(-5px);
-  border-color: rgba(255,255,255,0.6);
+  border: none;
 }
 
 .category-list-item:nth-child(1) {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: transparent !important;
 }
 
 .category-list-item:nth-child(2) {
-  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  background: transparent !important;
 }
 
 .category-list-item:nth-child(3) {
-  background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+  background: transparent !important;
 }
 
 .category-list-item:nth-child(4) {
-  background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+  background: transparent !important;
 }
 
 .category-list-item:nth-child(5) {
-  background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+  background: transparent !important;
 }
 
 .category-list-item::before {
@@ -86,15 +292,15 @@
 }
 
 .category-list-item:nth-child(4) .category-list-link::before {
-  content: '🔧'; /* 工具 */
+  content: '🔧'; /* 心得 */
 }
 
 .category-list-item:nth-child(5) .category-list-link::before {
-  content: '📚'; /* 学习 */
+  content: '📚'; /* 大学学习 */
 }
 
 .category-list-count {
-  background: rgba(255,255,255,0.2);
+  background: transparent !important;
   color: white;
   padding: 5px 12px;
   border-radius: 20px;
@@ -105,9 +311,9 @@
 
 /* 文章卡片优化 */
 .recent-post-item {
-  background: rgba(255,255,255,0.95);
+  background: transparent !important;
   border-radius: 15px;
-  border: 2px solid rgba(102,126,234,0.2);
+  border: none;
   transition: all 0.3s ease;
   overflow: hidden;
   margin-bottom: 25px;
@@ -115,7 +321,7 @@
 
 .recent-post-item:hover {
   transform: translateY(-3px);
-  border-color: rgba(102,126,234,0.5);
+  border: none;
 }
 
 .recent-post-info {
@@ -147,7 +353,7 @@
 
 /* 标签样式优化 */
 .article-tag {
-  background: linear-gradient(135deg, #667eea, #764ba2);
+  background: transparent !important;
   color: white !important;
   padding: 4px 12px;
   border-radius: 15px;
@@ -157,14 +363,14 @@
   display: inline-block;
   text-decoration: none;
   transition: all 0.3s ease;
-  border: 1px solid rgba(255,255,255,0.3);
+  border: none;
   font-family: 'Arial', sans-serif;
   font-weight: 600;
 }
 
 .article-tag:hover {
   transform: scale(1.05);
-  border-color: rgba(255,255,255,0.8);
+  border: none;
 }
 
 /* 分类标签样式 */
@@ -191,11 +397,11 @@
 
 /* 留言板页面样式 */
 .comments-page {
-  background: rgba(255, 255, 255, 0.95);
+  background: transparent !important;
   border-radius: 15px;
   padding: 2rem;
   margin-bottom: 2rem;
-  border: 2px solid rgba(102,126,234,0.2);
+  border: none;
 }
 
 /* 文章内容文字颜色和字体优化 */
@@ -204,18 +410,20 @@
 article .content,
 .post .content,
 #post .post-content {
-  color: #2c3e50 !important;
+  color: #ffffff !important;
   font-family: 'KaiTi', '楷体', 'Microsoft YaHei', sans-serif !important;
   font-weight: normal !important;
+  background: transparent !important;
 }
 
 .post-content p,
 .post-content div,
 .post-content span,
 .post-content li {
-  color: #2c3e50 !important;
+  color: #ffffff !important;
   font-family: 'KaiTi', '楷体', 'Microsoft YaHei', sans-serif !important;
   font-weight: normal !important;
+  background: transparent !important;
 }
 
 /* 博客文章标题 - 浅蓝色粗体 */
@@ -232,10 +440,10 @@ article .content,
 #article-container h4,
 #article-container h5,
 #article-container h6 {
-  color: #87ceeb !important;
+  color: #ffffff !important;
   font-weight: bold !important;
   font-family: 'Microsoft YaHei', sans-serif !important;
-  text-shadow: none !important;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.8) !important;
 }
 
 /* 移除所有组件的特殊字体渲染和阴影效果 */
@@ -269,25 +477,25 @@ article .content,
 
 /* Valine 评论框美化 */
 .valine-wrapper {
-  background: rgba(255, 255, 255, 0.9);
+  background: transparent !important;
   border-radius: 12px;
   padding: 1.5rem;
-  border: 2px solid rgba(102,126,234,0.2);
+  border: none;
   margin-top: 2rem;
 }
 
 .valine-wrapper .vwrap {
-  border: 2px solid #e1e8ed;
+  border: none;
   border-radius: 8px;
   transition: all 0.3s ease;
 }
 
 .valine-wrapper .vwrap:focus-within {
-  border-color: #667eea;
+  border: none;
 }
 
 .valine-wrapper .vbtn {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: transparent !important;
   border: none;
   border-radius: 6px;
   color: white;
@@ -299,20 +507,20 @@ article .content,
 
 .valine-wrapper .vbtn:hover {
   transform: translateY(-2px);
-  border: 2px solid rgba(255,255,255,0.8);
+  border: none;
 }
 
 /* 评论列表美化 */
 .valine-wrapper .vcard {
-  background: rgba(255, 255, 255, 0.8);
+  background: transparent !important;
   border-radius: 8px;
-  border: 2px solid #f0f0f0;
+  border: none;
   margin-bottom: 1rem;
   transition: all 0.3s ease;
 }
 
 .valine-wrapper .vcard:hover {
-  border-color: rgba(102,126,234,0.5);
+  border: none;
   transform: translateY(-2px);
 }
 
@@ -385,18 +593,18 @@ body::after {
 
 /* 主要内容区域背景调整 */
 #page {
-    background: rgba(0, 0, 0, 0.3);
-    backdrop-filter: blur(10px);
+    background: transparent !important;
+    backdrop-filter: none;
     border-radius: 15px;
     margin: 20px;
-    border: 2px solid rgba(255, 255, 255, 0.2);
+    border: none;
 }
 
 /* 侧边栏留言板组件样式 */
 .card-comments {
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(15px);
-  border: 2px solid rgba(255, 255, 255, 0.2);
+  background: transparent !important;
+  backdrop-filter: none;
+  border: none;
   border-radius: 12px;
   margin-bottom: 20px;
   transition: all 0.3s ease;
@@ -404,8 +612,8 @@ body::after {
 
 .card-comments:hover {
   transform: translateY(-2px);
-  border-color: rgba(255, 255, 255, 0.4);
-  background: rgba(255, 255, 255, 0.15);
+  border-color: transparent;
+  background: transparent !important;
 }
 
 .card-comments .card-content {
@@ -427,7 +635,7 @@ body::after {
 }
 
 .recent-comment-item:hover {
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: transparent !important;
   border-radius: 6px;
 }
 
@@ -486,7 +694,7 @@ body::after {
 .btn-view-all {
   display: inline-block;
   padding: 8px 16px;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: transparent !important;
   color: white;
   text-decoration: none;
   border-radius: 20px;
@@ -495,12 +703,12 @@ body::after {
   transition: all 0.3s ease;
   letter-spacing: 0.3px;
   font-family: 'Segoe UI', 'Microsoft YaHei', sans-serif;
-  border: 2px solid rgba(255,255,255,0.3);
+  border: none;
 }
 
 .btn-view-all:hover {
   transform: translateY(-2px);
-  border-color: rgba(255,255,255,0.8);
+  border: none;
   color: white;
   text-decoration: none;
 }
@@ -519,7 +727,7 @@ body {
 
 /* 主要内容区域字体优化 */
 #page {
-    color: #f0f0f0;
+    color: #d2f990;
 }
 
 /* 文章标题优化 */
@@ -552,19 +760,19 @@ a:hover {
 
 /* 其他卡片组件也应用星空主题 */
 .card-widget {
-    background: rgba(255, 255, 255, 0.12) !important;
-    backdrop-filter: blur(20px);
-    border: 2px solid rgba(255, 255, 255, 0.25);
-    color: #f0f0f0;
+    background: transparent !important;
+    backdrop-filter: none;
+    border: none;
+    color: #90f9f7;
 }
 
 .card-widget .card-content {
-    color: #e8e8e8;
+    color: #72f67a;
     font-family: 'Verdana', sans-serif;
 }
 
 .card-widget .item-headline {
-    color: #ffffff !important;
+    color: #c7fc787f !important;
     font-weight: 600;
     font-size: 16px;
     letter-spacing: 0.8px;
@@ -573,7 +781,7 @@ a:hover {
 
 /* 导航栏优化 */
 .nav-link, .menu-item {
-    color: #f0f0f0 !important;
+    color: #90f9e77f !important;
     font-weight: 500;
     font-family: 'Arial', sans-serif;
 }
@@ -583,24 +791,118 @@ a:hover {
     text-decoration: underline;
 }
 
-/* 代码块优化 */
+/* 代码块样式优化 - 覆盖主题样式 */
 code {
-    background: rgba(0, 0, 0, 0.6) !important;
-    color: #90caf9 !important;
-    border: 2px solid rgba(255, 255, 255, 0.2);
-    font-family: 'Courier New', monospace;
-    font-weight: 600;
+    background-color: transparent !important;
+    color: #c792ea !important;
+    padding: 2px 4px !important;
+    border-radius: 3px !important;
+    font-family: 'Consolas', 'Monaco', 'Courier New', monospace !important;
+    border: none !important;
+    font-weight: bold !important;
 }
 
 pre {
-    background: rgba(0, 0, 0, 0.7) !important;
-    border: 2px solid rgba(255, 255, 255, 0.2);
+    background-color: transparent !important;
+    border: none !important;
+    border-radius: 5px !important;
+    padding: 15px !important;
     font-family: 'Consolas', monospace;
+}
+
+pre code {
+    background-color: transparent !important;
+    color: #c792ea !important;
+    font-family: 'Consolas', 'Monaco', 'Courier New', monospace !important;
+    border: none !important;
+    font-weight: normal !important;
+}
+
+/* 覆盖butterfly主题的代码高亮样式 */
+figure.highlight {
+    background-color: transparent !important;
+    border: none !important;
+    border-radius: 5px !important;
+}
+
+figure.highlight table {
+    background-color: transparent !important;
+    margin: 0 !important;
+}
+
+figure.highlight table td {
+    background-color: transparent !important;
+    border: none !important;
+}
+
+figure.highlight table td.gutter {
+    background-color: transparent !important;
+    border-right: none !important;
+}
+
+figure.highlight table td.code {
+    background-color: transparent !important;
+}
+
+figure.highlight pre {
+    background-color: transparent !important;
+    color: #c792ea !important;
+    margin: 0 !important;
+    padding: 10px !important;
+}
+
+figure.highlight .line {
+    color: #c792ea !important;
+}
+
+/* 确保代码块中的span元素显示为紫色 */
+figure.highlight span,
+figure.highlight .line span,
+figure.highlight pre span,
+figure.highlight code span {
+    color: #c792ea !important;
+}
+
+/* 语法高亮颜色覆盖 */
+figure.highlight .comment { color: #75715e !important; }
+figure.highlight .keyword { color: #66d9ef !important; }
+figure.highlight .string { color: #a6e22e !important; }
+figure.highlight .number { color: #ae81ff !important; }
+figure.highlight .function { color: #f92672 !important; }
+figure.highlight .type { color: #66d9ef !important; }
+figure.highlight .built_in { color: #a6e22e !important; }
+
+/* 行号样式 */
+figure.highlight .gutter pre {
+    color: rgba(199, 146, 234, 0.5) !important;
+    background-color: transparent !important;
+    text-align: right !important;
+    padding-right: 10px !important;
+}
+
+/* 数学公式样式 - 黄色 */
+.katex, .katex-display, .MathJax, .MathJax_Display {
+    color: #ffd700 !important;
+}
+
+/* 行内数学公式 */
+.katex .katex-mathml, .katex .katex-html {
+    color: #ffd700 !important;
+}
+
+/* MathJax 数学公式 */
+.MathJax * {
+    color: #ffd700 !important;
+}
+
+/* 通用数学公式选择器 */
+span[class*="math"], div[class*="math"] {
+    color: #ffd700 !important;
 }
 
 /* 引用块优化 */
 blockquote {
-    background: rgba(255, 255, 255, 0.08) !important;
+    background: transparent !important;
     border-left: 4px solid #64b5f6;
     color: #e0e0e0 !important;
     font-family: 'Georgia', serif;
@@ -609,13 +911,13 @@ blockquote {
 
 /* 表格优化 */
 table {
-    background: rgba(255, 255, 255, 0.08) !important;
+    background: transparent !important;
     color: #e8e8e8 !important;
-    border: 2px solid rgba(255, 255, 255, 0.2);
+    border: none;
 }
 
 th {
-    background: rgba(100, 181, 246, 0.3) !important;
+    background: transparent !important;
     color: #ffffff !important;
     font-family: 'Arial', sans-serif;
     font-weight: 700;

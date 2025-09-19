@@ -74,8 +74,8 @@ comments:
 
 # Valine评论配置
 valine:
-  appId: leancloud-appid-here  # 请替换为你的LeanCloud AppId
-  appKey: leancloud-appkey-here  # 请替换为你的LeanCloud AppKey
+  appId: e9sjHukfBcHrIxLhaKkvSH7P-gzGzoHsz
+  appKey: 7S60BbRR1exbrVTsWUG5ITaL
   avatar: monsterid
   serverURLs: 
   bg: 
@@ -84,6 +84,9 @@ valine:
     placeholder: '欢迎留言！支持 Markdown 语法'
     requiredFields: ['nick']
     enableQQ: true
+
+# 网站图标配置
+favicon: /favicon.ico
 
 # 头像配置
 avatar:
@@ -196,9 +199,9 @@ katex:
 # 图片懒加载
 lazyload:
   enable: true
-  field: site
-  placeholder:
-  blur: false
+  field: site # site/post
+  placeholder: # 占位图片
+  blur: false # 模糊效果
 
 # 图片灯箱
 medium_zoom: false
@@ -293,9 +296,6 @@ font:
   font-family:
   code-font-family:
 
-# 网站图标
-favicon: /img/favicon.png
-
 # 启用主页subtitle打字机特效
 subtitle:
   enable: true
@@ -310,20 +310,21 @@ subtitle:
     - 记录学习成长轨迹
     - 分享编程心得体会
 
-# 启用Loading动画
+# 启用Loading动画 - 优化用户体验
 loading:
   fullpage: false
-  pace: true
+  pace: true # 启用进度条
+  pace_css_url: # 使用默认样式
 
 # 404页面
 error_404:
   enable: false
 
-# CDN设置
+# CDN设置 - 优化加载速度
 CDN:
-  internal_provider: local
+  internal_provider: jsdelivr # 使用CDN加速
   third_party_provider: jsdelivr
-  version: false
+  version: true # 启用版本控制
   custom_format:
   option:
 
