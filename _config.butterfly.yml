@@ -1,335 +1,57 @@
-# Butterfly主题配置文件 - 简洁资料分享版
+# 极简博客配置
 
-# 导航菜单 - 简洁实用
+# 导航菜单
 menu:
   首页: / || fas fa-home
   归档: /archives/ || fas fa-archive
-  标签: /tags/ || fas fa-tags
   分类: /categories/ || fas fa-th-large
-  留言板: /comments/ || fas fa-comments
-  关于: /about/ || fas fa-user-circle
 
-# 代码配置 - 适合资料分享
-highlight_theme: darker # 选择darker主题，更酷炫
-highlight_copy: true # 代码复制按钮
-highlight_shrink: false # 代码框默认展开
-code_word_wrap: true # 代码换行
-highlight_height_limit: 400 # 代码高度限制
+# 代码高亮
+highlight_theme: darker
+highlight_copy: true
 
-# 关闭社交图标
-social:
-
-# 顶部图片配置 - 优雅现代风格
+# 关闭所有图片
 index_img: false
 default_top_img: false
 archive_img: false
 tag_img: false
 category_img: false
 
-# 文章封面 - 优雅现代风格
+# 关闭文章封面
 cover:
   index_enable: false
-  aside_enable: false
-  archives_enable: false
-  position: both
-  default_cover:
 
-# 文章meta显示
+# 文章meta - 极简
 post_meta:
   page:
-    date_type: both
-    date_format: date # 显示具体日期而非相对时间
-    categories: true
-    tags: true
-    label: true
-  post:
-    date_type: both
+    date_type: created
     date_format: date
     categories: true
-    tags: true
-    label: true
+    tags: false
+    label: false
+  post:
+    date_type: created
+    date_format: date
+    categories: true
+    tags: false
+    label: false
 
-# 网站背景 - 炫酷星空
-background: "linear-gradient(45deg, #0c0c0c 0%, #1a1a2e 25%, #16213e 50%, #0f3460 75%, #533483 100%)"
+# 首页只显示标题
+index_post_content: false
 
-# 文章版权 - 适合资料分享
-post_copyright:
-  enable: true
-  decode: false
-  author_href:
-  license: CC BY-NC-SA 4.0
-  license_url: https://creativecommons.org/licenses/by-nc-sa/4.0/
+# 星空黑背景
+background: "#0f1419"
 
-# 关闭打赏功能
-reward:
-  enable: false
-
-# 评论系统配置
-comments:
-  use: Valine
-  text: true
-  lazyload: false
-  count: false
-  card_post_count: false
-
-# Valine评论配置
-valine:
-  appId: e9sjHukfBcHrIxLhaKkvSH7P-gzGzoHsz
-  appKey: 7S60BbRR1exbrVTsWUG5ITaL
-  avatar: monsterid
-  serverURLs: 
-  bg: 
-  visitor: false
-  option:
-    placeholder: '欢迎留言！支持 Markdown 语法'
-    requiredFields: ['nick']
-    enableQQ: true
-
-# 网站图标配置
+# 网站图标
 favicon: /favicon.ico
 
-# 头像配置
-avatar:
-  img: /images/blog.jpg
-  effect: false
-
-# 文章目录TOC - 重要功能
+# 文章目录 - 保留用于跳转
 toc:
   post: true
   page: false
   number: true
-  expand: true # 默认展开目录
-  style_simple: false
+  expand: true
 
-# 相关文章推荐
-related_post:
-  enable: true
-  limit: 6
-  date_type: created
-
-# 文章锚点
-anchor: true
-
-# 文章过期提醒
-noticeOutdate:
-  enable: true
-  style: flat
-  limit_day: 180 # 6个月提醒
-  position: top
-  message_prev: 本文最后更新于
-  message_next: 天前，内容可能已过时，请注意甄别。
-
-# 侧边栏设置 - 简化版
+# 关闭侧边栏
 aside:
-  enable: true
-  hide: false
-  button: true
-  mobile: true
-  position: right
-  display:
-    archive: true
-    tag: true
-    category: true
-  card_comments:
-    enable: true
-    title: 💬 最新留言
-    limit: 5
-    sort_order: 1 # 设置为第一个显示
-  card_author:
-    enable: true
-    description: 专注技术资料分享
-    button:
-      enable: false # 关闭按钮
-    sort_order: 2
-  card_announcement:
-    enable: true
-    content: 欢迎来到我的资料分享博客！这里整理和分享各种学习笔记和资料。
-    sort_order: 3
-  card_recent_post:
-    enable: true
-    limit: 5
-    sort: date
-    sort_order: 4
-  card_categories:
-    enable: true
-    limit: 10
-    expand: none
-    sort_order: 5
-  card_tags:
-    enable: true
-    limit: 30
-    color: false
-    orderby: random
-    order: 1
-    sort_order: 6
-  card_archives:
-    enable: true
-    type: monthly
-    format: YYYY年MM月
-    order: -1
-    limit: 12
-    sort_order: 7
-  card_webinfo:
-    enable: true
-    post_count: true
-    last_push_date: true
-    sort_order: 8
-
-# 访问者统计
-busuanzi:
-  site_uv: true
-  site_pv: true
-  page_pv: true
-  # 使用更稳定的CDN
-  cdn: 'https://cdn.jsdelivr.net/npm/busuanzi@2.3.0/bsz.pure.mini.js'
-
-# 搜索功能 - 重要
-local_search:
-  enable: true
-  preload: false
-  CDN:
-
-# 关闭数学公式
-mathjax:
   enable: false
-
-katex:
-  enable: false
-
-# 图片懒加载
-lazyload:
-  enable: true
-  field: site # site/post
-  placeholder: # 占位图片
-  blur: false # 模糊效果
-
-# 图片灯箱
-medium_zoom: false
-fancybox: true
-
-# 关闭Pjax
-pjax:
-  enable: false
-
-# 关闭PWA
-pwa:
-  enable: false
-
-# 字数统计
-wordcount:
-  enable: true
-  post_wordcount: true
-  min2read: true
-  total_wordcount: true
-
-# 页脚设置
-footer:
-  owner:
-    enable: true
-    since: 2025
-  custom_text: 专注资料分享，记录学习成长
-  copyright: true
-
-# 右下角按钮 - 酷炫配置
-rightside:
-  enable: true
-  hide_rightside: false
-  show_percent: true
-  readmode: true
-  darkmode:
-    enable: true
-    button: true
-    autoChangeMode: 2 # 自动切换暗色模式
-
-# 背景特效配置 - 简洁酷炫
-canvas_ribbon:
-  enable: false
-
-canvas_fluttering_ribbon:
-  enable: false
-
-# 禁用动态背景，使用静态背景
-canvas_nest:
-  enable: false
-
-# 设置优雅静态背景
-body_bg_url: https://cdn.jsdelivr.net/gh/jerryc127/CDN@latest/cover/subtle-gradient.jpg
-body_bg_opacity: 0.95
-
-# 启用酷炫鼠标点击效果
-click_heart:
-  enable: true
-
-ClickShowText:
-  enable: true
-  text:
-    - 酷！
-    - 棒！
-    - 666
-    - 牛逼！
-    - 厉害！
-    - 赞！
-  fontSize: 15
-  random: true
-  mobile: false
-
-# 启用页面加载动画
-preloader:
-  enable: true
-  source: 1
-  pace_css_url:
-
-# 网站验证
-site_verification:
-
-# 启用美化配置
-beatify:
-  enable: true
-  field: post
-  title-prefix-icon: '\f0c1'
-  title-prefix-icon-color: '#F47466'
-
-# 字体设置 - 保持默认
-font:
-  global-font-size:
-  code-font-size:
-  font-family:
-  code-font-family:
-
-# 启用主页subtitle打字机特效
-subtitle:
-  enable: true
-  effect: true
-  startDelay: 300
-  typeSpeed: 150
-  backSpeed: 50
-  loop: true
-  source: false
-  sub:
-    - 专注学习资料分享
-    - 记录学习成长轨迹
-    - 分享编程心得体会
-
-# 启用Loading动画 - 优化用户体验
-loading:
-  fullpage: false
-  pace: true # 启用进度条
-  pace_css_url: # 使用默认样式
-
-# 404页面
-error_404:
-  enable: false
-
-# CDN设置 - 优化加载速度
-CDN:
-  internal_provider: jsdelivr # 使用CDN加速
-  third_party_provider: jsdelivr
-  version: true # 启用版本控制
-  custom_format:
-  option:
-
-# 自定义CSS
-inject:
-  head:
-    - <link rel="stylesheet" href="/chunk.github.io/css/custom.css">
-  bottom:

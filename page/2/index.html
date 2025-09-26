@@ -1,0 +1,237 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>Chunk Blog - 我的个人博客</title><meta name="author" content="chunk"><meta name="copyright" content="chunk"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="Hexo 搭建的个人博客，用于分享学习笔记和经验">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Chunk Blog">
+<meta property="og:url" content="https://subingchunk-hue.github.io/chunk.github.io/page/2/index.html">
+<meta property="og:site_name" content="Chunk Blog">
+<meta property="og:description" content="Hexo 搭建的个人博客，用于分享学习笔记和经验">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://subingchunk-hue.github.io/chunk.github.io/images/blog.jpg">
+<meta property="article:author" content="chunk">
+<meta property="article:tag" content="Hexo, 博客, 学习, 笔记">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://subingchunk-hue.github.io/chunk.github.io/images/blog.jpg"><script type="application/ld+json"></script><link rel="shortcut icon" href="/chunk.github.io/favicon.ico"><link rel="canonical" href="https://subingchunk-hue.github.io/chunk.github.io/page/2/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/chunk.github.io/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/chunk.github.io/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: true,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Chunk Blog',
+  isHighlightShrink: false,
+  isToc: false,
+  pageType: 'home'
+}</script><link rel="stylesheet" href="/chunk.github.io/css/custom.css"><meta name="generator" content="Hexo 7.3.0"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><script>(()=>{
+  const $loadingBox = document.getElementById('loading-box')
+  const $body = document.body
+  const preloader = {
+    endLoading: () => {
+      if ($loadingBox.classList.contains('loaded')) return
+      $body.style.overflow = ''
+      $loadingBox.classList.add('loaded')
+    },
+    initLoading: () => {
+      $body.style.overflow = 'hidden'
+      $loadingBox.classList.remove('loaded')
+    }
+  }
+
+  preloader.initLoading()
+
+  if (document.readyState === 'complete') {
+    preloader.endLoading()
+  } else {
+    window.addEventListener('load', preloader.endLoading)
+    document.addEventListener('DOMContentLoaded', preloader.endLoading)
+    // Add timeout protection: force end after 7 seconds
+    setTimeout(preloader.endLoading, 7000)
+  }
+
+  if (false) {
+    btf.addGlobalFn('pjaxSend', preloader.initLoading, 'preloader_init')
+    btf.addGlobalFn('pjaxComplete', preloader.endLoading, 'preloader_end')
+  }
+})()</script><div id="web_bg" style="background: linear-gradient(45deg, #0c0c0c 0%, #1a1a2e 25%, #16213e 50%, #0f3460 75%, #533483 100%);"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/chunk.github.io/images/blog.jpg" onerror="this.onerror=null;this.src='/chunk.github.io/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/chunk.github.io/archives/"><div class="headline">文章</div><div class="length-num">28</div></a><a href="/chunk.github.io/tags/"><div class="headline">标签</div><div class="length-num">5</div></a><a href="/chunk.github.io/categories/"><div class="headline">分类</div><div class="length-num">5</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/chunk.github.io/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/chunk.github.io/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/chunk.github.io/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/chunk.github.io/categories/"><i class="fa-fw fas fa-th-large"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/chunk.github.io/comments/"><i class="fa-fw fas fa-comments"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/chunk.github.io/about/"><i class="fa-fw fas fa-user-circle"></i><span> 关于</span></a></div></div></div></div><div class="page" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/chunk.github.io/"><span class="site-name">Chunk Blog</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/chunk.github.io/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/chunk.github.io/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/chunk.github.io/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/chunk.github.io/categories/"><i class="fa-fw fas fa-th-large"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/chunk.github.io/comments/"><i class="fa-fw fas fa-comments"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/chunk.github.io/about/"><i class="fa-fw fas fa-user-circle"></i><span> 关于</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><h1 class="title-seo">Chunk Blog</h1></header><main class="layout" id="content-inner"><div class="recent-posts nc" id="recent-posts"><div class="recent-post-items"><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/chunk.github.io/2025/08/25/%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91/%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/" title="实验报告——第一个微信小程序">实验报告——第一个微信小程序</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time class="post-meta-date-created" datetime="2025-08-25T12:15:00.000Z" title="发表于 2025-08-25 20:15:00">2025-08-25</time><span class="article-meta-separator">|</span><i class="fas fa-history"></i><span class="article-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-09-09T06:27:18.057Z" title="更新于 2025-09-09 14:27:18">2025-09-09</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/chunk.github.io/categories/%E5%B0%8F%E7%A8%8B%E5%BA%8F/">小程序</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/chunk.github.io/tags/%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91/">小程序开发</a><span class="article-meta-link">•</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/chunk.github.io/tags/%E5%AE%9E%E9%AA%8C/">实验</a></span></div><div class="content">实验目标1、学习使用快速启动模板创建小程序的方法； 2、学习不使用模板手动创建小程序的方法。 实验步骤自动生成小程序 在微信开发者工具中选择模板创建项目，如图所示； 依次填写项目名称、目录和 AppID 就可以新建一个小程序项目。其中项目名称为开发者自定义，仅供开发者工具管理使用；目录即为项目文件存放的路径地址；AppID为管理员在微信公众平台上注册的小程序ID（以登录微信公众平台https://mp.weixin.qq.com查看）。   编译预览小程序。   手动创建小程序 不选取模板创建空白项目     进行页面配置  创建页面文件 page文件内存储页面文件，一般来说，首页默认命名为index，表示小程序运行的第一个页面。   删除index.wxml、index.wxss和app.wxss中的所有代码；      删除index.js中的所有代码并输入&quot;page&quot;使其自动补全函数；    删除app.js中的所有代码并输入&quot;app&quot;使其自动补全函数。    视图设计  导航栏设计 在app.json文件中对windows属性进行重...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/chunk.github.io/2025/08/25/%E7%BC%96%E7%A8%8B/%E6%95%B0%E8%AE%BA/" title="数论">数论</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time class="post-meta-date-created" datetime="2025-08-25T06:07:00.000Z" title="发表于 2025-08-25 14:07:00">2025-08-25</time><span class="article-meta-separator">|</span><i class="fas fa-history"></i><span class="article-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-09-19T01:14:01.896Z" title="更新于 2025-09-19 09:14:01">2025-09-19</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/chunk.github.io/categories/%E7%BC%96%E7%A8%8B/">编程</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/chunk.github.io/tags/%E7%BC%96%E7%A8%8B%EF%BC%8C%E7%AB%9E%E8%B5%9B/">编程，竞赛</a></span></div><div class="content">大指数幂的相关计算大整数：__ int128 $$a^b$$：快速幂，将b化为二进制表示，$$b&#x3D;b_1+b_2+……+b_n$$，则$$a^b&#x3D;a^{b_1}a^{b_2}…*a^{b_n}$$ 123456789long long cal(long long a,long long b)&#123;	long long ans=1;    while(b)&#123;		if(b&amp;1) res=res*a;        a=a*a;        b&gt;&gt;=1;    &#125;    return ans;&#125;  $a(mod$ $m),a\le10^{100}$：大整数取模 $(a+b)$ $(mod)$ $m&#x3D;(a(mod$ $m)+b(mod$ $m))mod$ $m$  对于大整数$a$，可以化作：$a&#x3D;(((a_0*10+a_1)*10+a_2)*10+……)$ 123456long long cal(string a, long long m)&#123;	long long ans=0;  ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/chunk.github.io/2025/05/21/%E5%AF%86%E7%A0%81%E5%AD%A6/%E9%87%8F%E5%AD%90%E5%AF%86%E7%A0%81/" title="量子密码">量子密码</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time class="post-meta-date-created" datetime="2025-05-21T05:07:00.000Z" title="发表于 2025-05-21 13:07:00">2025-05-21</time><span class="article-meta-separator">|</span><i class="fas fa-history"></i><span class="article-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-09-19T02:30:28.222Z" title="更新于 2025-09-19 10:30:28">2025-09-19</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/chunk.github.io/categories/%E5%AF%86%E7%A0%81%E5%AD%A6/">密码学</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/chunk.github.io/tags/%E5%AF%86%E7%A0%81%E5%AD%A6%EF%BC%8C%E7%AC%94%E8%AE%B0/">密码学，笔记</a></span></div><div class="content">量子计算机 量子比特有1&#x2F;2的概率为状态|0&gt;和|1&gt;，所以&#x3D;&#x3D;量子计算机可以生成令传统电子计算机头疼的真正随机数&#x3D;&#x3D;。  在所有问题基本上都是可计算的情况下，如何构建新的密码体制   量子密码学 &#x3D;&#x3D;量子密码学不是用来取代现代密码学&#x3D;&#x3D;，而是要将量子密码学的优势和现代密码体制(如公钥密码体制)的优势结合起来，寻找新的应用领域。 量子密码的安全性基于量子状态的特性 目前，量子密码学主要用来实现对称密钥的分发，其优点：   密钥在公开信道中传输不必担心被窃听   &#x3D;&#x3D;能检查出密钥在传输过程中是否被窃听&#x3D;&#x3D;   量子密钥分发体制(QKD)的分类   基于不确定性原理   基于量子纠缠态   量子密钥学发展史   1970年，Wiesner（美国）提出量子密码学的思想。   1984年，Bennett（IBM）和Brassard（Montreal大- 学）提出第一个量子密码的密钥分配协议，称为BB84协议。   1991年，Ekert（牛津大学）...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/chunk.github.io/2025/05/20/%E5%AF%86%E7%A0%81%E5%AD%A6/%E5%AE%89%E5%85%A8%E5%8D%8F%E8%AE%AE/" title="安全协议">安全协议</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time class="post-meta-date-created" datetime="2025-05-19T22:47:00.000Z" title="发表于 2025-05-20 06:47:00">2025-05-20</time><span class="article-meta-separator">|</span><i class="fas fa-history"></i><span class="article-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-09-19T02:28:53.912Z" title="更新于 2025-09-19 10:28:53">2025-09-19</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/chunk.github.io/categories/%E5%AF%86%E7%A0%81%E5%AD%A6/">密码学</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/chunk.github.io/tags/%E5%AF%86%E7%A0%81%E5%AD%A6%EF%BC%8C%E7%AC%94%E8%AE%B0/">密码学，笔记</a></span></div><div class="content">安全协议概述协议   两个或两个以上的参与者为完成某项特定任务而采取的一系列步骤 协议的复杂性 协议必须把所有不利条件事先都估计到，而不能假定一切都是正常的和非常理想的。  看一个协议是否正确，不能光看在正常情况下是否正确，而且还必须非常仔细地检查这个协议能否应付各种异常情况。  两个经典例子 两军问题：有些问题考虑太全面则无法解决 尾生抱柱：有些问题考虑不全面会导致严重后果  安全协议 又称密码协议，使用密码技术完成某项特定任务，并满足安全需求的协议。  在安全协议中，经常使用对称密码、公钥密码、Hash函数、PRG等密码工具。  安全协议的安全性需求   1234567机密性 完整性 认证性非否认性公平性匿名性……（根据应用场合不同进行组合） 安全协议中的角色 协议参与者 攻击者 内部&#x2F;外部攻击者 被动&#x2F;主动攻击者   可信第三方(TTP, Trusted Third Party) 用户都信任的实体，通常与每个用户共享密钥 功能：使用户之间确认彼此身份 或 共享会话密钥    安全协议设计与分析的困难性 安全目标本身的微妙性表面上十分简单的目标，实际上十分...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/chunk.github.io/2025/05/12/%E5%AF%86%E7%A0%81%E5%AD%A6/%E5%9F%BA%E4%BA%8E%E8%BA%AB%E4%BB%BD%E7%9A%84%E5%AF%86%E7%A0%81%E5%AD%A6/" title="基于身份的密码学">基于身份的密码学</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time class="post-meta-date-created" datetime="2025-05-12T06:07:00.000Z" title="发表于 2025-05-12 14:07:00">2025-05-12</time><span class="article-meta-separator">|</span><i class="fas fa-history"></i><span class="article-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-09-19T02:28:53.888Z" title="更新于 2025-09-19 10:28:53">2025-09-19</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/chunk.github.io/categories/%E5%AF%86%E7%A0%81%E5%AD%A6/">密码学</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/chunk.github.io/tags/%E5%AF%86%E7%A0%81%E5%AD%A6%EF%BC%8C%E7%AC%94%E8%AE%B0/">密码学，笔记</a></span></div><div class="content">基于身份的密码学（identity-based cryptography, IBC）提出者：Adi Shamir解决问题：如何以较小的代价保证公钥的真实性 IBC的原理传统公钥密码中公钥的产生   先选择私钥，再计算公钥，公钥必然显得“一片混乱”   公钥证书，PKI IBC产生公钥的原理 先选择公钥，再计算私钥 公钥可选择email地址、身份证号等，称之为用户的身份，记为ID    (注意：公钥就是ID，或从ID直接推导而来) 私钥看起来杂乱无章，没关系，反而有利 ID必须是每个用户唯一确定的信息，比如身份证号、电子邮箱等  基于身份的加密体制（IBE, Identity-based Encryption）定义   一个IBE包含以下算法：  Setup (1^λ): 产生系统公开参数 param，生成随机主密钥 msk KeyGen (param, ID, msk)：生成身份 ID 对应的用户私钥 sk Enc (param, ID, m): 给定明文 m∈M，输出密文 c ∈C Dec (param, sk,c): 给定密文 c∈C，输出 m∈M (或 ⊥)一致性要求: S...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/chunk.github.io/2025/04/26/%E5%AF%86%E7%A0%81%E5%AD%A6/%E8%BA%AB%E4%BB%BD%E8%AE%A4%E8%AF%81/" title="身份认证">身份认证</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time class="post-meta-date-created" datetime="2025-04-26T01:46:00.000Z" title="发表于 2025-04-26 09:46:00">2025-04-26</time><span class="article-meta-separator">|</span><i class="fas fa-history"></i><span class="article-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-09-19T02:28:54.055Z" title="更新于 2025-09-19 10:28:54">2025-09-19</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/chunk.github.io/categories/%E5%AF%86%E7%A0%81%E5%AD%A6/">密码学</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/chunk.github.io/tags/%E5%AF%86%E7%A0%81%E5%AD%A6%EF%BC%8C%E7%AC%94%E8%AE%B0/">密码学，笔记</a></span></div><div class="content">分类 单向认证通信一方认证另一方的身份 双向认证通信双方彼此认证身份  方法 Know sth.: 知道什么可用于识别身份的信息? Have sth.：拥有什么可用于识别身份的东西? Be sth.：有什么独特的特征？  Know sth. 口令 最常用的身份认证机制，但安全性较差 易受到泄露、猜测、窃听、社会工程学等形式的攻击 什么是弱口令？ 短口令   常见单词   生日   电话号码   系统预设口令   口令管理措施 口令空间 口令应具有一定的长度，包含多种字符类型 口令不应使用易猜测的数字或字母组合   口令时间 口令应具有一定的生存期 口令不应使用一定时间内的历史口令   口令保护 用户登录不同系统应使用不同的口令 系统应设定口令登录失败次数限制     好记又安全的口令我爱吃苹果5iChiapplewoaieatApple…… 口令的存储利用Hash函数存储口令，防范攻击者偷取数据库后得到口令  Have sth. 令牌 存储卡：在磁卡上保存用户信息；与PIN配合使用 智能卡：由一个或多个集成电路芯片组成，包含CPU和存储器，具有数据存储能力和逻辑处理功能……   ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/chunk.github.io/2025/04/21/%E5%AF%86%E7%A0%81%E5%AD%A6/%E6%B6%88%E6%81%AF%E8%AE%A4%E8%AF%81/" title="消息认证">消息认证</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time class="post-meta-date-created" datetime="2025-04-21T08:34:00.000Z" title="发表于 2025-04-21 16:34:00">2025-04-21</time><span class="article-meta-separator">|</span><i class="fas fa-history"></i><span class="article-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-09-19T02:28:54.045Z" title="更新于 2025-09-19 10:28:54">2025-09-19</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/chunk.github.io/categories/%E5%AF%86%E7%A0%81%E5%AD%A6/">密码学</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/chunk.github.io/tags/%E5%AF%86%E7%A0%81%E5%AD%A6%EF%BC%8C%E7%AC%94%E8%AE%B0/">密码学，笔记</a></span></div><div class="content">概述主要目标 完整性：消息是否被改动过 真实性：消息是否是指定发送者发来的  认证加密——同时保证机密性和完整性认证加密（AE,authenticated encryption） 确认消息的来源  定义一个AE系统 (E,D) 是一个对称加密体制  加密算法:  E:  K × M × N ⟶ C 解密算法:  D:  K × C × N ⟶  M ∪ {⊥} &#x2F;&#x2F;密文不合法时，拒绝接收 N是nonce空间（可选）  安全性对(E,D)的要求:  CPA安全性 密文完整性 (攻击者不能伪造出可以正确解密的新密文)  密文完整性（安全模型）    (E,D) 具有密文完整性，则对于任意高效攻击者A，在上述安全模型中伪造成功的概率Adv &#x3D; Pr[ A伪造成功 ]  是可忽略的 AE的性质 保证真实性 攻击者不能欺骗 Bob，使他认为消息来自于Alice 如果  Dₖ(c) ≠ ⊥, Bob 知道消息来自 Alice (因为她知道密钥 k)(但不能抵抗旧消息重放)   AE  ⇒ CCA安全性  CCA安全性攻击者攻击能力 CPA（选择明文攻击）选择任意...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/chunk.github.io/2025/04/15/%E5%AF%86%E7%A0%81%E5%AD%A6/%E6%95%B0%E6%8D%AE%E5%AE%8C%E6%95%B4%E6%80%A7%E6%8A%80%E6%9C%AF/" title="数据完整性技术">数据完整性技术</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time class="post-meta-date-created" datetime="2025-04-14T23:17:00.000Z" title="发表于 2025-04-15 07:17:00">2025-04-15</time><span class="article-meta-separator">|</span><i class="fas fa-history"></i><span class="article-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-09-19T02:28:54.009Z" title="更新于 2025-09-19 10:28:54">2025-09-19</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/chunk.github.io/categories/%E5%AF%86%E7%A0%81%E5%AD%A6/">密码学</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/chunk.github.io/tags/%E5%AF%86%E7%A0%81%E5%AD%A6%EF%BC%8C%E7%AC%94%E8%AE%B0/">密码学，笔记</a></span></div><div class="content">引例 如果传输&#x2F;存储的数据被篡改，怎么知道？ 使用“数据完整性技术” 当消息发生改变时，可以检查出来   若将 m 与 H(m) 一起发送，接收方用接受的 m’ 计算 H(m’) ，比较两个散列值是否可以知道消息是否被篡改 不能 攻击者可伪造 m₀ 与 H(m₀) 发送 问题关键：Hash函数没有密钥(给定消息，任何人都可以计算)   数据完整性技术 当设计一个带密钥的算法时可以抵抗伪造 分类 消息认证码(MAC&#x2F;message authentication code) 对称密码技术   数字签名(digital signature) 公钥密码技术        消息认证码MAC定义 MAC是实现数据完整性的重要工具 MAC : K × M -&gt;T ，其中， m ∈ M 称为消息， t ∈ T 称为“MAC” Alice与Bob知道密钥k，Bob收到Alice的消息 m 和 MAC值t 后，利用密钥算出 MAC(k,m) 与t比较，若相同则说明未被篡改  MAC的安全性 攻击者攻击能力 选择消息攻击(CMA,chosen-message attack) ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/chunk.github.io/2025/04/15/%E5%AF%86%E7%A0%81%E5%AD%A6/%E6%A4%AD%E5%9C%86%E6%9B%B2%E7%BA%BF%E5%AF%86%E7%A0%81%E5%AD%A6/" title="数据完整性技术">数据完整性技术</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time class="post-meta-date-created" datetime="2025-04-14T23:17:00.000Z" title="发表于 2025-04-15 07:17:00">2025-04-15</time><span class="article-meta-separator">|</span><i class="fas fa-history"></i><span class="article-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-09-19T02:28:54.024Z" title="更新于 2025-09-19 10:28:54">2025-09-19</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/chunk.github.io/categories/%E5%AF%86%E7%A0%81%E5%AD%A6/">密码学</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/chunk.github.io/tags/%E5%AF%86%E7%A0%81%E5%AD%A6%EF%BC%8C%E7%AC%94%E8%AE%B0/">密码学，笔记</a></span></div><div class="content">ECC      ECC版DH协议ECC版DH协议   选择椭圆曲线E（Fₚ），选择其上一点P，P的阶是一个非常大的素数。    安全性   窃听者看到：E(Fₚ) , P,   Yᴀ&#x3D;xP,  Yʙ&#x3D;yP ——&gt; xyP   如果 xyP 难以计算，那么ECC版Diffie-Hellman密钥交换协议可以抵抗窃听   安全性基于 椭圆曲线上的Diffie-Hellman 问题   缺少认证 可被中间人攻击 椭圆曲线上的Diffie-Hellman问题（都在计算上不可行）   给定 E(Fₚ)，以及 (P,  xP, yP)  计算Diffie-Hellman问题 (CDH)计算 xyP 判定Diffie-Hellman问题 (DDH)给定 点 T∈ E(Fp) ，判断 T 是否等于 xyP  双线性映射超奇异椭圆曲线是有限域上一种特殊的椭圆曲线双线性映射：一种可以将曲线上两个点映射到基域上的一个元素的算法     性质   设p是大素数，加法群 G₁ 和乘法群 G₂ 都是p阶循环群。双线性映射 e:G₁×G₁→G₂满足以下性质：      通常，取G₁...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/chunk.github.io/2025/04/10/%E5%AF%86%E7%A0%81%E5%AD%A6/%E5%85%AC%E9%92%A5%E5%AF%86%E7%A0%81%E5%AD%A6/" title="公钥密码学">公钥密码学</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time class="post-meta-date-created" datetime="2025-04-10T02:47:00.000Z" title="发表于 2025-04-10 10:47:00">2025-04-10</time><span class="article-meta-separator">|</span><i class="fas fa-history"></i><span class="article-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-09-19T02:28:53.795Z" title="更新于 2025-09-19 10:28:53">2025-09-19</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/chunk.github.io/categories/%E5%AF%86%E7%A0%81%E5%AD%A6/">密码学</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/chunk.github.io/tags/%E5%AF%86%E7%A0%81%E5%AD%A6%EF%BC%8C%E7%AC%94%E8%AE%B0/">密码学，笔记</a></span></div><div class="content">概述 由于对称加密体制存在的许多问题，公钥密码学被提出  提出 1976年，Diffie与Hellman提出公钥密码体制的设想 Diffie-Hellman 密钥交换协议 公钥技术是二十世纪最伟大的思想之一，密码学的一次伟大革命  解决问题 从未见过面的两个人如何实现秘密通信 Diffie-Hellman 密钥交换协议 只设想了该种可能，并未提出解决方案  RSA的发明 1978年，MIT的三位密码学家 Rivest，Shamir，Adleman联合发明RSA加密体制  Diffie-Hellman密钥交换协议概述    ##### 安全性        - Diffie-Hellman问题            安全性基于在有限域上的离散对数问题！    - 攻击手段      > 中间人攻击（Man-in-the-Middle Attack）：主动攻击下不安全        &lt;img src=&quot;/chunk.github.io/images/03574744b6adf0783c0ac388dc0f889a.jpg&quot; alt=&quot;0357474...</div></div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/chunk.github.io/"><i class="fas fa-chevron-left fa-fw"></i></a><a class="page-number" href="/chunk.github.io/">1</a><span class="page-number current">2</span><a class="page-number" href="/chunk.github.io/page/3/#content-inner">3</a><a class="extend next" rel="next" href="/chunk.github.io/page/3/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/chunk.github.io/images/blog.jpg" onerror="this.onerror=null;this.src='/chunk.github.io/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">chunk</div><div class="author-info-description">专注技术资料分享</div><div class="site-data"><a href="/chunk.github.io/archives/"><div class="headline">文章</div><div class="length-num">28</div></a><a href="/chunk.github.io/tags/"><div class="headline">标签</div><div class="length-num">5</div></a><a href="/chunk.github.io/categories/"><div class="headline">分类</div><div class="length-num">5</div></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">欢迎来到我的资料分享博客！这里整理和分享各种学习笔记和资料。</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/chunk.github.io/2025/09/18/%E7%BC%96%E7%A8%8B/%E6%95%B0%E7%BB%84%E6%93%8D%E4%BD%9C%E5%87%A0%E5%85%84%E5%BC%9F/" title="数组操作几兄弟">数组操作几兄弟</a><time datetime="2025-09-17T23:17:00.000Z" title="发表于 2025-09-18 07:17:00">2025-09-18</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/chunk.github.io/2025/09/09/%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91/%E6%8E%A8%E7%AE%B1%E5%AD%90%E5%B0%8F%E6%B8%B8%E6%88%8F/" title="实验报告——推箱子小游戏">实验报告——推箱子小游戏</a><time datetime="2025-09-09T02:00:00.000Z" title="发表于 2025-09-09 10:00:00">2025-09-09</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/chunk.github.io/2025/09/08/%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91/%E7%AC%AC%E4%B8%80%E4%B8%AAHarmonyOS%E5%BA%94%E7%94%A8/" title="实验报告——第一个HarmonyOS应用">实验报告——第一个HarmonyOS应用</a><time datetime="2025-09-08T07:00:00.000Z" title="发表于 2025-09-08 15:00:00">2025-09-08</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/chunk.github.io/2025/09/07/%E7%BC%96%E7%A8%8B/%E9%9A%BE%E6%90%9E%E7%9A%84dp/" title="难搞的dp">难搞的dp</a><time datetime="2025-09-07T06:41:00.000Z" title="发表于 2025-09-07 14:41:00">2025-09-07</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/chunk.github.io/2025/09/07/%E7%BC%96%E7%A8%8B/%E8%AE%A1%E7%AE%97%E5%87%A0%E4%BD%95/" title="计算几何">计算几何</a><time datetime="2025-09-07T06:25:00.000Z" title="发表于 2025-09-07 14:25:00">2025-09-07</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
+            <i class="fas fa-folder-open"></i>
+            <span>分类</span>
+            
+          </div>
+          <ul class="card-category-list" id="aside-cat-list">
+            <li class="card-category-list-item "><a class="card-category-list-link" href="/chunk.github.io/categories/CSP%E8%AE%A4%E8%AF%81%EF%BC%8C%E7%BC%96%E7%A8%8B/"><span class="card-category-list-name">CSP认证，编程</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/chunk.github.io/categories/%E5%AF%86%E7%A0%81%E5%AD%A6/"><span class="card-category-list-name">密码学</span><span class="card-category-list-count">15</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/chunk.github.io/categories/%E5%B0%8F%E7%A8%8B%E5%BA%8F/"><span class="card-category-list-name">小程序</span><span class="card-category-list-count">6</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/chunk.github.io/categories/%E7%BC%96%E7%A8%8B/"><span class="card-category-list-name">编程</span><span class="card-category-list-count">4</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/chunk.github.io/categories/%E7%BC%96%E7%A8%8B%EF%BC%8C%E3%80%8A%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B%E5%85%A5%E9%97%A8%E7%BB%8F%E5%85%B8%E3%80%8B/"><span class="card-category-list-name">编程，《算法竞赛入门经典》</span><span class="card-category-list-count">2</span></a></li>
+          </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/chunk.github.io/tags/%E7%BC%96%E7%A8%8B%EF%BC%8C%E7%AB%9E%E8%B5%9B/" style="font-size: 1.3em; color: #99a1ac">编程，竞赛</a> <a href="/chunk.github.io/tags/CSP%E8%AE%A4%E8%AF%81%EF%BC%8C%E6%B4%9B%E8%B0%B7%EF%BC%8C%E7%BC%96%E7%A8%8B/" style="font-size: 1.1em; color: #999">CSP认证，洛谷，编程</a> <a href="/chunk.github.io/tags/%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91/" style="font-size: 1.3em; color: #99a1ac">小程序开发</a> <a href="/chunk.github.io/tags/%E5%AE%9E%E9%AA%8C/" style="font-size: 1.3em; color: #99a1ac">实验</a> <a href="/chunk.github.io/tags/%E5%AF%86%E7%A0%81%E5%AD%A6%EF%BC%8C%E7%AC%94%E8%AE%B0/" style="font-size: 1.5em; color: #99a9bf">密码学，笔记</a></div></div><div class="card-widget card-archives">
+    <div class="item-headline">
+      <i class="fas fa-archive"></i>
+      <span>归档</span>
+      
+    </div>
+  
+    <ul class="card-archive-list">
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/chunk.github.io/archives/2025/09/">
+            <span class="card-archive-list-date">
+              2025年09月
+            </span>
+            <span class="card-archive-list-count">7</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/chunk.github.io/archives/2025/08/">
+            <span class="card-archive-list-date">
+              2025年08月
+            </span>
+            <span class="card-archive-list-count">5</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/chunk.github.io/archives/2025/05/">
+            <span class="card-archive-list-date">
+              2025年05月
+            </span>
+            <span class="card-archive-list-count">3</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/chunk.github.io/archives/2025/04/">
+            <span class="card-archive-list-date">
+              2025年04月
+            </span>
+            <span class="card-archive-list-count">7</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/chunk.github.io/archives/2025/03/">
+            <span class="card-archive-list-date">
+              2025年03月
+            </span>
+            <span class="card-archive-list-count">6</span>
+          </a>
+        </li>
+      
+    </ul>
+  </div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站信息</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">28</div></div><div class="webinfo-item"><div class="item-name">本站总字数 :</div><div class="item-count">33.7k</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总浏览量 :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2025-09-19T02:34:04.180Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2025 By chunk</span></div><div class="footer_custom_text">专注资料分享，记录学习成长</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/chunk.github.io/js/utils.js"></script><script src="/chunk.github.io/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><div class="js-pjax"></div><script id="click-heart" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/click-heart.min.js" async="async" mobile="false"></script><script async data-pjax src="https://cdn.jsdelivr.net/npm/busuanzi@2.3.0/bsz.pure.mini.js"></script></div></body></html>
