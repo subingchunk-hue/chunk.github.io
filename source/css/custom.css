@@ -26,26 +26,49 @@
   display: none !important;
 }
 
-/* 文章内容样式 */
+/* 优化div组件大小 - 只显示标题部分 */
+div {
+  padding: 5px 10px !important;
+  margin: 5px 0 !important;
+  min-height: auto !important;
+  height: auto !important;
+}
+
+/* 文章内容样式 - 紧凑布局 */
 .post {
-  margin-bottom: 40px !important;
-  padding: 30px !important;
+  margin-bottom: 20px !important;
+  padding: 15px 20px !important;
   background: rgba(255, 255, 255, 0.05) !important;
-  border-radius: 10px !important;
+  border-radius: 8px !important;
   backdrop-filter: blur(10px) !important;
 }
 
-/* 文章标题 */
+/* 文章标题 - 紧凑显示 */
 .post-title {
   color: #ffffff !important;
-  font-size: 2em !important;
-  margin-bottom: 20px !important;
+  font-size: 1.8em !important;
+  margin-bottom: 10px !important;
+  padding: 5px 0 !important;
 }
 
-/* 文章内容 */
-.post-content {
-  color: #e0e0e0 !important;
-  line-height: 1.8 !important;
+/* 文章内容 - 确保所有文字为白色 */
+.post-content,
+.post-content p,
+.post-content div,
+.post-content span,
+.post-content li,
+.post-content h1,
+.post-content h2,
+.post-content h3,
+.post-content h4,
+.post-content h5,
+.post-content h6,
+#article-container,
+#article-container *,
+.content,
+.content * {
+  color: #ffffff !important;
+  line-height: 1.6 !important;
 }
 
 /* 目录样式 */
@@ -70,6 +93,65 @@
   background: rgba(0, 0, 0, 0.3) !important;
   border-radius: 8px !important;
   margin: 20px 0 !important;
+}
+
+/* Markdown格式字符特殊颜色 */
+/* 代码块标记 ``` 为浅蓝色 */
+code,
+pre,
+.highlight,
+figure.highlight,
+.highlight pre,
+.highlight code,
+.language-*::before,
+.code-block::before {
+  color: #87CEEB !important; /* 浅蓝色 */
+  background: rgba(0, 0, 0, 0.3) !important;
+}
+
+/* 行内代码 ` ` 为浅黄色 */
+p code,
+li code,
+.post-content code:not(.highlight code),
+.inline-code {
+  color: #F0E68C !important; /* 浅黄色 */
+  background: rgba(0, 0, 0, 0.2) !important;
+  padding: 2px 4px !important;
+  border-radius: 3px !important;
+}
+
+/* 引用块 > 为浅紫色 */
+blockquote,
+blockquote p,
+blockquote *,
+.blockquote {
+  color: #DDA0DD !important; /* 浅紫色 */
+  border-left: 4px solid #DDA0DD !important;
+  background: rgba(221, 160, 221, 0.1) !important;
+  padding: 10px 15px !important;
+  margin: 15px 0 !important;
+  border-radius: 5px !important;
+}
+
+/* 确保代码块内的所有元素都是浅蓝色 */
+.highlight *,
+figure.highlight *,
+pre *,
+.code-block * {
+  color: #87CEEB !important;
+}
+
+/* 强制覆盖所有可能的代码样式 */
+.hljs,
+.hljs *,
+.language-javascript,
+.language-python,
+.language-html,
+.language-css,
+.language-java,
+.language-cpp,
+.language-c {
+  color: #87CEEB !important;
 }
 
 /* 导航栏样式 */
