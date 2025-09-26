@@ -4,7 +4,7 @@
 
 ## Site
 title: Chunk Blog           # 博客标题
-subtitle: 我的个人博客       # 博客副标题
+subtitle: ""                # 博客副标题
 description: Hexo 搭建的个人博客，用于分享学习笔记和经验
 keywords: Hexo, 博客, 学习, 笔记
 author: chunk               # 博主名字

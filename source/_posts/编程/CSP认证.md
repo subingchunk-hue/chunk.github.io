@@ -3,6 +3,7 @@ title: CSP认证
 date: 2025-08-30 9:23:00
 tags: [CSP认证，洛谷，编程]
 categories: [CSP认证，编程]
+excerpt: 往届CSP认证题目解析，一战220分
 ---
 
 ## 第36次CSP认证

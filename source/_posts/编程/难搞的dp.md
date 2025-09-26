@@ -2,7 +2,8 @@
 title: 难搞的dp
 date: 2025-09-07 14:41
 tags: [编程，竞赛]
-categories: [编程，《算法竞赛入门经典》]  
+categories: [编程，《算法竞赛入门经典》]
+excerpt: 复杂动态规划问题解析，包括DAG上的DP、状态压缩DP等高级技巧。
 ---
 
 本文例题均来自于刘汝佳老师的《算法竞赛入门经典》，均可在 [UVa](https://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=827) 提交

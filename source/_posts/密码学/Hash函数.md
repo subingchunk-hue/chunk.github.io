@@ -3,6 +3,7 @@ title: Hash函数
 date: 2025-04-03 13:01:00
 tags: [密码学，笔记]
 categories: [密码学]
+excerpt: Hash函数基础知识，包括定义、碰撞概念、安全性要求和常见Hash算法介绍。
 ---
 
 #### 定义
