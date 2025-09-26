@@ -17,6 +17,11 @@
             <%= post.title || 'Untitled' %>
           </a>
         </h2>
+        <% if (post.excerpt){ %>
+          <p class="post-excerpt">
+            <%= post.excerpt %>
+          </p>
+        <% } %>
       </div>
     <% }) %>
   </div>
