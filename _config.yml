@@ -86,11 +86,11 @@ ignore:
 # Theme
 theme: landscape
 
-# Deployment
-deploy:
-  type: git
-  repo: git@github.com:subingchunk-hue/chunk.github.io.git
-  branch: main
+# Deployment - 使用GitHub Actions自动部署
+# deploy:
+#   type: git
+#   repo: git@github.com:subingchunk-hue/chunk.github.io.git
+#   branch: main
 
 # 压缩优化 - 提升网站性能
 neat_enable: true
