@@ -87,11 +87,10 @@ ignore:
 theme: butterfly
 
 # Deployment
-# GitHub Actions will handle deployment automatically
-# deploy:
-#   type: git
-#   repo: git@github.com:subingchunk-hue/chunk.github.io.git
-#   branch: main
+deploy:
+  type: git
+  repo: git@github.com:subingchunk-hue/subingchunk-hue.github.io.git
+  branch: main
 
 # 压缩优化 - 提升网站性能
 neat_enable: true
