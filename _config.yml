@@ -12,8 +12,8 @@ language: zh-CN             # 语言
 timezone: Asia/Shanghai      # 时区
 
 # URL
-url: https://subingchunk-hue.github.io/chunk.github.io   # 项目页完整 URL
-root: /chunk.github.io/                                  # 项目页根路径
+url: https://subingchunk-hue.github.io   # 用户页面 URL
+root: /                                   # 用户页面根路径
 permalink: :year/:month/:day/:title/
 permalink_defaults:
 pretty_urls:
