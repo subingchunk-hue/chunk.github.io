@@ -1,8 +1,10 @@
 name: Pages
+
 on:
   push:
     branches:
-      - main
+      - main  # 确保这里填写的是你存放代码的分支名称（通常是 main 或 master）
+
 jobs:
   pages:
     runs-on: ubuntu-latest
@@ -10,16 +12,20 @@ jobs:
       contents: write
     steps:
       - uses: actions/checkout@v4
+      
       - name: Use Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: '22'  # 使用较新的 Node 版本，兼容性更好
+          
       - name: Install dependencies
         run: npm install
+        
       - name: Build
         run: npm run build
+        
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./public
+          publish_dir: ./public  # Hexo 默认生成的静态文件目录
