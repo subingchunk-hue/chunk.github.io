@@ -84,7 +84,7 @@ exclude:
 ignore:
 
 # Theme
-theme: butterfly
+theme: landscape
 
 # Deployment - 使用GitHub Actions自动部署
 # deploy:
