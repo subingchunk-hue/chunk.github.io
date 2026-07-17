@@ -1,10 +1,8 @@
 # ===============
 # Header
 # ===============
-# Navigation menu
-menu:
-  Home: /
-  Archives: /archives
+# Navigation menu - will be overridden by _config.landscape.yml
+menu: {}
 # RSS link
 rss: /atom.xml
 # Path of title banner image of page top

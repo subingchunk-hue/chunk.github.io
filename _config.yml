@@ -92,19 +92,11 @@ theme: landscape
 #   repo: git@github.com:subingchunk-hue/chunk.github.io.git
 #   branch: main
 
-# 压缩优化 - 提升网站性能
-neat_enable: true
+# 压缩优化 - 暂时禁用，避免HTML为空问题
+neat_enable: false
 neat_html:
-  enable: true
-  exclude:
+  enable: false
 neat_css:
-  enable: true
-  exclude:
-    - '*.min.css'
+  enable: false
 neat_js:
-  enable: true
-  mangle: true
-  output:
-  compress:
-  exclude:
-    - '*.min.js'
+  enable: false

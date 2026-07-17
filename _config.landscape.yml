@@ -1,7 +1,7 @@
 # ===============
 # Header - 页头配置
 # ===============
-# Navigation menu - 导航菜单
+# Navigation menu - 导航菜单 (覆盖默认的英文菜单)
 menu:
   首页: /
   归档: /archives
@@ -50,10 +50,9 @@ sidebar: right
 
 # Widgets displaying in sidebar - 侧边栏组件
 widgets:
+  - profile       # 个人信息
   - category      # 分类
   - tag           # 标签
-  - tagcloud      # 标签云
-  - archive       # 归档
   - recent_posts  # 最新文章
 
 # ===============
