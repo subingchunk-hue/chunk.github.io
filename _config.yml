@@ -13,7 +13,7 @@ timezone: Asia/Shanghai      # 时区
 
 # URL
 url: https://subingchunk-hue.github.io/chunk.github.io
-root: /
+root: /chunk.github.io/
 permalink: :year/:month/:day/:title/
 permalink_defaults:
 pretty_urls:
