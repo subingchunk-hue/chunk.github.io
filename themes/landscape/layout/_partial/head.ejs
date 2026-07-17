@@ -30,27 +30,26 @@
     <%- favicon_tag(theme.favicon) %>
   <% } %>
   <% if (config.highlight.enable){ %>
-    <%- css('https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css') %>
+    <style>
+      code, pre { font-family: "Consolas", "Monaco", "Courier New", monospace; }
+    </style>
   <% } %>
   <%- css('css/style') %>
   <% if (theme.fancybox){ %>
     <%- css('fancybox/jquery.fancybox.min.css') %>
   <% } %>
-  <%- css('https://cdn.jsdelivr.net/npm/fork-awesome@1.2.0/css/fork-awesome.min.css') %>
   
-  <!-- MathJax 数学公式支持 -->
-  <script>
-    MathJax = {
-      tex: {
-        inlineMath: [['$', '$'], ['\\(', '\\)']],
-        displayMath: [['$$', '$$'], ['\\[', '\\]']],
-        processEscapes: true,
-        processEnvironments: true
-      },
-      options: {
-        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
-      }
-    };
-  </script>
-  <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <style>
+    .fa { display: inline-block; font: normal normal normal 14px/1 FontAwesome; font-size: inherit; text-rendering: auto; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+    .fa-github:before { content: "\f09b"; }
+    .fa-home:before { content: "\f015"; }
+    .fa-archive:before { content: "\f187"; }
+    .fa-tags:before { content: "\f02c"; }
+    .fa-folder:before { content: "\f07b"; }
+    .fa-calendar:before { content: "\f073"; }
+    .fa-comment:before { content: "\f075"; }
+    .fa-rss:before { content: "\f09e"; }
+  </style>
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
