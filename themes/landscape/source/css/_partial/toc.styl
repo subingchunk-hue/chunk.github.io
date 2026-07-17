@@ -1,0 +1,97 @@
+// 目录样式
+.toc-container
+  background: #f8f9fa
+  border: 1px solid #e9ecef
+  border-radius: 6px
+  margin: 20px 0
+  padding: 0
+  font-size: 14px
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1)
+
+.toc-header
+  background: #e9ecef
+  padding: 12px 16px
+  border-bottom: 1px solid #dee2e6
+  display: flex
+  align-items: center
+  justify-content: space-between
+  border-radius: 6px 6px 0 0
+  
+  i.fa-list
+    margin-right: 8px
+    color: #6c757d
+  
+  span
+    font-weight: 600
+    color: #495057
+    flex: 1
+  
+  .toc-toggle
+    background: none
+    border: none
+    cursor: pointer
+    padding: 4px
+    color: #6c757d
+    transition: color 0.2s
+    
+    &:hover
+      color: #495057
+
+.toc-content
+  padding: 16px
+  max-height: 400px
+  overflow-y: auto
+
+.toc-list
+  list-style: none
+  margin: 0
+  padding: 0
+  
+  .toc-item
+    margin: 0
+    padding: 0
+    
+    a
+      display: block
+      padding: 4px 0
+      color: #495057
+      text-decoration: none
+      transition: color 0.2s
+      line-height: 1.4
+      
+      &:hover
+        color: #007bff
+        text-decoration: none
+    
+    // 不同级别的缩进
+    &.toc-level-1
+      padding-left: 0
+      font-weight: 600
+      
+    &.toc-level-2
+      padding-left: 16px
+      
+    &.toc-level-3
+      padding-left: 32px
+      
+    &.toc-level-4
+      padding-left: 48px
+      
+    &.toc-level-5
+      padding-left: 64px
+      
+    &.toc-level-6
+      padding-left: 80px
+
+// 响应式设计
+@media (max-width: 768px)
+  .toc-container
+    margin: 15px 0
+    font-size: 13px
+    
+  .toc-header
+    padding: 10px 12px
+    
+  .toc-content
+    padding: 12px
+    max-height: 300px

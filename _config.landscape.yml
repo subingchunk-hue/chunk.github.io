@@ -1,0 +1,110 @@
+# ===============
+# Header - 页头配置
+# ===============
+# Navigation menu - 导航菜单
+menu:
+  首页: /
+  归档: /archives
+  分类: /categories
+  标签: /tags
+
+# RSS link
+rss: /atom.xml
+
+# Path of title banner image of page top - 页面顶部横幅图片路径
+banner: "images/banner.jpg"
+
+# Subtitle of page top - 页面顶部副标题
+subtitle: "分享学习笔记和经验"
+
+# Header links with icon - 页头链接图标
+# 在页面右上角显示的链接
+links:
+  github: https://github.com/subingchunk-hue
+
+# ===============
+# Content - 内容配置
+# ===============
+# "Read More" link at the bottom of excerpted articles - 文章摘要底部的"阅读更多"链接
+excerpt_link: 阅读全文
+
+# Enable fancybox - 启用fancybox图片查看器
+fancybox: true
+
+# ===============
+# Footer - 页脚配置
+# ===============
+# Copyright notice - 版权声明
+copyright: |-
+  <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">
+    <img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" />
+  </a>
+  <br/>
+  本博客所有文章采用 <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">CC BY 4.0</a> 协议
+
+# ===============
+# Sidebar - 侧边栏配置
+# ===============
+# Sidebar style - 侧边栏位置（left/right/bottom/false）
+sidebar: right
+
+# Widgets displaying in sidebar - 侧边栏组件
+widgets:
+  - category      # 分类
+  - tag           # 标签
+  - tagcloud      # 标签云
+  - archive       # 归档
+  - recent_posts  # 最新文章
+
+# ===============
+# Widget behavior - 组件行为
+# ===============
+# Archive type - 归档类型
+archive_type: 'monthly'
+
+# Show count - 显示文章计数
+show_count: true
+
+# How many posts display in Home page - 主页显示文章数量
+recent_posts_limits: 5
+
+# ===============
+# Miscellaneous - 其他配置
+# ===============
+# Favicon path - 网站图标路径
+favicon: /favicon.ico
+
+# Google Analytics ID - Google分析ID（如果有）
+google_analytics:
+# Gauges Analytics
+gauges_analytics:
+
+# Social media - 社交媒体
+twitter:
+fb_admins:
+fb_app_id:
+
+# ===============
+# Comment system - 评论系统
+# ===============
+# Disqus comment system - Disqus评论系统
+disqus_shortname:
+
+# Valine comment system - Valine评论系统
+valine:
+  enable: false  # 如果需要启用，设置为true
+  appId:         # leancloud application app id
+  appKey:        # leancloud application app key
+  notify: false  # 邮件通知
+  verify: false  # 验证码
+  pageSize: 10   # 评论列表每页条数
+  avatar: mm     # gravatar头像样式
+  lang: zh-cn    # 语言
+  placeholder: 欢迎留言交流 # 评论输入框提示
+  guest_info: nick,mail,link # 评论者信息字段
+
+# ===============
+# Custom Settings - 自定义设置
+# ===============
+# 是否加载自定义CSS
+custom_css: true
