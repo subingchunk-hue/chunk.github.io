@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>公钥密码学 | Chunk Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="公钥密码学基础知识，包括Diffie-Hellman密钥交换协议、RSA算法和椭圆曲线密码学等核心概念。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="公钥密码学">
+<meta property="og:url" content="https://subingchunk-hue.github.io/chunk.github.io/2025/04/10/%E5%AF%86%E7%A0%81%E5%AD%A6/%E5%85%AC%E9%92%A5%E5%AF%86%E7%A0%81%E5%AD%A6/index.html">
+<meta property="og:site_name" content="Chunk Blog">
+<meta property="og:description" content="公钥密码学基础知识，包括Diffie-Hellman密钥交换协议、RSA算法和椭圆曲线密码学等核心概念。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://subingchunk-hue.github.io/chunk.github.io/images/830dc41f80d9cf9a0c0ab752ab94cc22.jpg">
+<meta property="og:image" content="https://subingchunk-hue.github.io/chunk.github.io/images/229d83b58fa7e05091991bc63a5ad5c6.jpg">
+<meta property="og:image" content="https://subingchunk-hue.github.io/chunk.github.io/images/c298dc7d3dd61bcced0b2fb98e13ca5e.jpg">
+<meta property="og:image" content="https://subingchunk-hue.github.io/chunk.github.io/images/c65b1970dced63ac545eb9879e800a84.jpg">
+<meta property="og:image" content="https://subingchunk-hue.github.io/chunk.github.io/images/6dae3a9ffbc4010c5061efec10fa15f1.jpg">
+<meta property="og:image" content="https://subingchunk-hue.github.io/chunk.github.io/images/e19a3ae45c199b8c193fc9fb9b177b54.jpg">
+<meta property="og:image" content="https://subingchunk-hue.github.io/chunk.github.io/images/be61d5eb4a502f27aefd4470b12d195a.jpg">
+<meta property="og:image" content="https://subingchunk-hue.github.io/chunk.github.io/images/df775d8de55375e0745afe59ea2eda67.jpg">
+<meta property="og:image" content="https://subingchunk-hue.github.io/chunk.github.io/images/f092b37256061a59396b91be163cef50.jpg">
+<meta property="og:image" content="https://subingchunk-hue.github.io/chunk.github.io/images/6423ee38c905ff34526d175912aa4225.jpg">
+<meta property="og:image" content="https://subingchunk-hue.github.io/chunk.github.io/images/ed3ff269cd4aa4bd0da866fbeb36bd08.jpg">
+<meta property="og:image" content="https://subingchunk-hue.github.io/chunk.github.io/images/da093d60f74d75bb951275c6fdf8c32d.jpg">
+<meta property="og:image" content="https://subingchunk-hue.github.io/chunk.github.io/images/98832b14f770ad4a460cb1e3ba326c20.jpg">
+<meta property="og:image" content="https://subingchunk-hue.github.io/chunk.github.io/images/eb9b5771c556f2b2d4bfb82e98536171.jpg">
+<meta property="og:image" content="https://subingchunk-hue.github.io/chunk.github.io/images/4e35cb1e0c8564250fc74a89a7af3ac7.jpg">
+<meta property="og:image" content="https://subingchunk-hue.github.io/chunk.github.io/images/f931f16485675a8c5bf7628964e7eb56.jpg">
+<meta property="og:image" content="https://subingchunk-hue.github.io/chunk.github.io/images/334abbb5681acf21f5bbf7734a23c658.jpg">
+<meta property="og:image" content="https://subingchunk-hue.github.io/chunk.github.io/images/4a73de3696ff8525e011539ef10f48e4.jpg">
+<meta property="og:image" content="https://subingchunk-hue.github.io/chunk.github.io/images/defb5709c4fcd876cdcef4ea185be854.jpg">
+<meta property="og:image" content="https://subingchunk-hue.github.io/chunk.github.io/images/b3a70b592a0ad5d3a4512f4e5a71fe5b.jpg">
+<meta property="og:image" content="https://subingchunk-hue.github.io/chunk.github.io/images/1360d8c44ca1be1f146017219815d44a.jpg">
+<meta property="article:published_time" content="2025-04-10T02:47:00.000Z">
+<meta property="article:modified_time" content="2026-07-17T13:32:02.263Z">
+<meta property="article:author" content="chunk">
+<meta property="article:tag" content="密码学，笔记">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://subingchunk-hue.github.io/chunk.github.io/images/830dc41f80d9cf9a0c0ab752ab94cc22.jpg">
+  
+    <link rel="alternate" href="/chunk.github.io/atom.xml" title="Chunk Blog" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/chunk.github.io/favicon.ico">
+  
+  
+  
+<link rel="stylesheet" href="/chunk.github.io/css/style.css">
+
+  <link rel="stylesheet" href="/chunk.github.io/css/custom.css">
+  
+    
+<link rel="stylesheet" href="/chunk.github.io/fancybox/jquery.fancybox.min.css">
+
+  
+  
+  <style>
+    .fa { display: inline-block; font: normal normal normal 14px/1 FontAwesome; font-size: inherit; text-rendering: auto; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+    .fa-github:before { content: "\f09b"; }
+    .fa-home:before { content: "\f015"; }
+    .fa-archive:before { content: "\f187"; }
+    .fa-tags:before { content: "\f02c"; }
+    .fa-folder:before { content: "\f07b"; }
+    .fa-calendar:before { content: "\f073"; }
+    .fa-comment:before { content: "\f075"; }
+    .fa-rss:before { content: "\f09e"; }
+  </style>
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<meta name="generator" content="Hexo 7.3.0"></head>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/chunk.github.io/" id="logo">Chunk Blog</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/chunk.github.io/" id="subtitle">分享学习笔记和经验</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/chunk.github.io/">首页</a>
+        
+          <a class="main-nav-link" href="/chunk.github.io/archives">归档</a>
+        
+          <a class="main-nav-link" href="/chunk.github.io/categories">分类</a>
+        
+          <a class="main-nav-link" href="/chunk.github.io/tags">标签</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          
+            <a class="nav-icon" target="_blank" rel="noopener" href="https://github.com/subingchunk-hue"><span class="fa fa-github"></span></a>
+          
+        
+        
+          <a class="nav-icon" href="/chunk.github.io/atom.xml" title="RSS 订阅"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="搜索"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="搜索"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://subingchunk-hue.github.io/chunk.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-密码学/公钥密码学" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/chunk.github.io/2025/04/10/%E5%AF%86%E7%A0%81%E5%AD%A6/%E5%85%AC%E9%92%A5%E5%AF%86%E7%A0%81%E5%AD%A6/" class="article-date">
+  <time class="dt-published" datetime="2025-04-10T02:47:00.000Z" itemprop="datePublished">2025-04-10</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/chunk.github.io/categories/%E5%AF%86%E7%A0%81%E5%AD%A6/">密码学</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      公钥密码学
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h4 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h4><blockquote>
+<p>由于对称加密体制存在的许多问题，公钥密码学被提出</p>
+</blockquote>
+<h5 id="提出"><a href="#提出" class="headerlink" title="提出"></a>提出</h5><ul>
+<li>1976年，Diffie与Hellman提出公钥密码体制的设想</li>
+<li>Diffie-Hellman 密钥交换协议</li>
+<li>公钥技术是二十世纪最伟大的思想之一，密码学的一次伟大革命</li>
+</ul>
+<h5 id="解决问题"><a href="#解决问题" class="headerlink" title="解决问题"></a>解决问题</h5><ul>
+<li>从未见过面的两个人如何实现秘密通信</li>
+<li>Diffie-Hellman 密钥交换协议 只设想了该种可能，并未提出解决方案</li>
+</ul>
+<h5 id="RSA的发明"><a href="#RSA的发明" class="headerlink" title="RSA的发明"></a>RSA的发明</h5><blockquote>
+<p>1978年，MIT的三位密码学家 Rivest，Shamir，Adleman联合发明RSA加密体制</p>
+</blockquote>
+<h4 id="Diffie-Hellman密钥交换协议"><a href="#Diffie-Hellman密钥交换协议" class="headerlink" title="Diffie-Hellman密钥交换协议"></a>Diffie-Hellman密钥交换协议</h4><h5 id="概述-1"><a href="#概述-1" class="headerlink" title="概述"></a>概述</h5>   <img src="/chunk.github.io/images/830dc41f80d9cf9a0c0ab752ab94cc22.jpg" alt="830dc41f80d9cf9a0c0ab752ab94cc22" style="zoom:50%;" />
+##### 安全性
+   <img src="/chunk.github.io/images/229d83b58fa7e05091991bc63a5ad5c6.jpg" alt="229d83b58fa7e05091991bc63a5ad5c6" style="zoom:50%;" />
+   - Diffie-Hellman问题
+     <img src="/chunk.github.io/images/c298dc7d3dd61bcced0b2fb98e13ca5e.jpg" alt="c298dc7d3dd61bcced0b2fb98e13ca5e" style="zoom:50%;" />
+     安全性基于在有限域上的离散对数问题！
+   - 攻击手段
+     > 中间人攻击（Man-in-the-Middle Attack）：主动攻击下不安全
+     
+<pre><code> &lt;img src=&quot;/chunk.github.io/images/03574744b6adf0783c0ac388dc0f889a.jpg&quot; alt=&quot;03574744b6adf0783c0ac388dc0f889a&quot; style=&quot;zoom:50%;&quot; /&gt;
+</code></pre>
+<blockquote>
+<p>如何抵抗中间人攻击——需要对交换的数据进行&#x3D;&#x3D;认证&#x3D;&#x3D;，以使通信双方知道到底在与谁进行密钥交换</p>
+</blockquote>
+<h4 id="公钥加密体制"><a href="#公钥加密体制" class="headerlink" title="公钥加密体制"></a>公钥加密体制</h4><ul>
+<li><h5 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h5><blockquote>
+<p>一个公钥加密体制包含以下算法:</p>
+<img src="/chunk.github.io/images/c65b1970dced63ac545eb9879e800a84.jpg" alt="c65b1970dced63ac545eb9879e800a84" style="zoom:50%;" />
+一致性要求: <p>Setup输出的 ∀(pk,  sk) : 对于∀m∈M，有 Dec(sk, Enc(pk, m)) &#x3D; m</p>
+</blockquote>
+</li>
+<li><h5 id="密码通信模型"><a href="#密码通信模型" class="headerlink" title="密码通信模型"></a>密码通信模型</h5><img src="/chunk.github.io/images/6dae3a9ffbc4010c5061efec10fa15f1.jpg" alt="6dae3a9ffbc4010c5061efec10fa15f1" style="zoom:50%;" />
+</li>
+<li><h5 id="陷门函数（trapdoor-function-TDF-）"><a href="#陷门函数（trapdoor-function-TDF-）" class="headerlink" title="陷门函数（trapdoor function, TDF ）"></a>陷门函数（trapdoor function, TDF ）</h5><h5 id=""><a href="#" class="headerlink" title=""></a><img src="/chunk.github.io/images/e19a3ae45c199b8c193fc9fb9b177b54.jpg" alt="e19a3ae45c199b8c193fc9fb9b177b54" style="zoom:50%;" /></h5><ul>
+<li><h5 id="单向陷门函数"><a href="#单向陷门函数" class="headerlink" title="单向陷门函数"></a>单向陷门函数</h5><img src="/chunk.github.io/images/be61d5eb4a502f27aefd4470b12d195a.jpg" alt="be61d5eb4a502f27aefd4470b12d195a" style="zoom:50%;" />
+
+<ul>
+<li>安全性<blockquote>
+<p>如果所有高效的攻击者 A，在上述安全模型中<br>                              Adv :&#x3D;  Pr[ x &#x3D; x’ ]</p>
+</blockquote>
+</li>
+</ul>
+<p>  </p>
+<blockquote>
+<p>是可忽略的，则 (G, F, F^-1)  是安全的陷门函数 (此时称之为单向陷门函数，one-way trapdoor function, one-way TDF) </p>
+</blockquote>
+</li>
+<li><h5 id="基于one-way-TDF构造公钥加密体制"><a href="#基于one-way-TDF构造公钥加密体制" class="headerlink" title="基于one-way TDF构造公钥加密体制"></a>基于one-way TDF构造公钥加密体制</h5><img src="/chunk.github.io/images/df775d8de55375e0745afe59ea2eda67.jpg" alt="df775d8de55375e0745afe59ea2eda67" style="zoom:50%;" />
+
+<img src="/chunk.github.io/images/f092b37256061a59396b91be163cef50.jpg" alt="f092b37256061a59396b91be163cef50" style="zoom:50%;" />
+
+<ul>
+<li>应用避坑指南<img src="/chunk.github.io/images/6423ee38c905ff34526d175912aa4225.jpg" alt="6423ee38c905ff34526d175912aa4225" style="zoom:50%;" /></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><h5 id="陷门置换"><a href="#陷门置换" class="headerlink" title="陷门置换"></a>陷门置换</h5><ul>
+<li><h6 id="定义-1"><a href="#定义-1" class="headerlink" title="定义"></a>定义</h6><img src="/chunk.github.io/images/ed3ff269cd4aa4bd0da866fbeb36bd08.jpg" alt="ed3ff269cd4aa4bd0da866fbeb36bd08" style="zoom:50%;" /></li>
+<li><h6 id="单向陷门置换（one-way-trapdoor-permutation-one-way-TDP）"><a href="#单向陷门置换（one-way-trapdoor-permutation-one-way-TDP）" class="headerlink" title="单向陷门置换（one-way trapdoor permutation, one-way TDP）"></a>单向陷门置换（one-way trapdoor permutation, one-way TDP）</h6><img src="/chunk.github.io/images/da093d60f74d75bb951275c6fdf8c32d.jpg" alt="da093d60f74d75bb951275c6fdf8c32d" style="zoom:50%;" /></li>
+</ul>
+</li>
+</ul>
+<h4 id="RSA"><a href="#RSA" class="headerlink" title="RSA"></a>RSA</h4><h5 id="RSA-1"><a href="#RSA-1" class="headerlink" title="RSA"></a>RSA</h5><ul>
+<li><h6 id="RSA陷门置换"><a href="#RSA陷门置换" class="headerlink" title="RSA陷门置换"></a>RSA陷门置换</h6><img src="/chunk.github.io/images/98832b14f770ad4a460cb1e3ba326c20.jpg" alt="98832b14f770ad4a460cb1e3ba326c20" style="zoom:50%;" />
+
+<img src="/chunk.github.io/images/eb9b5771c556f2b2d4bfb82e98536171.jpg" alt="eb9b5771c556f2b2d4bfb82e98536171" style="zoom:50%;" />
+</li>
+<li><p>RSA陷门置换的计算问题</p>
+<ul>
+<li>如何产生两个大素数？<br>素数检测</li>
+<li>如何计算d？<br>ed ≡ 1(mod ø(n))，事实上&#x3D;&#x3D;d和e在模ø(n)下互为逆元&#x3D;&#x3D;</li>
+<li>接着计算模运算下的整数求模</li>
+</ul>
+</li>
+<li><h6 id="RSA假设"><a href="#RSA假设" class="headerlink" title="RSA假设"></a>RSA假设</h6><img src="/chunk.github.io/images/4e35cb1e0c8564250fc74a89a7af3ac7.jpg" alt="4e35cb1e0c8564250fc74a89a7af3ac7" style="zoom:50%;" /></li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">RSA 是否是one-way TDP (安全的陷门置换)？           未知</span><br></pre></td></tr></table></figure>
+<ul>
+<li><h6 id="教科书式RSA"><a href="#教科书式RSA" class="headerlink" title="教科书式RSA"></a>教科书式RSA</h6><img src="/chunk.github.io/images/f931f16485675a8c5bf7628964e7eb56.jpg" alt="f931f16485675a8c5bf7628964e7eb56" style="zoom:50%;" /></li>
+<li>不安全的加密方法 ！！！<br>不是语义安全的，存在很多攻击方法<br>⇒ <strong>&#x3D;&#x3D;RSA 陷门置换只是个函数，不是加密体制&#x3D;&#x3D;，不能直接拿来用!</strong></li>
+<li>安全性<ul>
+<li>？可看作大整数分解问题—未定<br>已知 n 是两个大素数 p 和 q 的乘积，对 n 进行分解，求出 p 和 q</li>
+<li><h6 id="安全隐患-实际应用RSA时要注意很多问题，否则攻击者即使不知道陷门信息，仍可以发动各种形式的攻击"><a href="#安全隐患-实际应用RSA时要注意很多问题，否则攻击者即使不知道陷门信息，仍可以发动各种形式的攻击" class="headerlink" title="安全隐患   实际应用RSA时要注意很多问题，否则攻击者即使不知道陷门信息，仍可以发动各种形式的攻击"></a>安全隐患   实际应用RSA时要注意很多问题，否则攻击者即使不知道陷门信息，仍可以发动各种形式的攻击</h6><ul>
+<li>共模攻击</li>
+<li>低加密指数攻击</li>
+<li>低解密指数攻击</li>
+<li>选择密文攻击<br>……</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>共模攻击</li>
+</ul>
+<img src="/chunk.github.io/images/334abbb5681acf21f5bbf7734a23c658.jpg" alt="334abbb5681acf21f5bbf7734a23c658" style="zoom:50%;" /></li>
+<li><h6 id="参数和性能"><a href="#参数和性能" class="headerlink" title="参数和性能"></a>参数和性能</h6><ul>
+<li>一般选择p、q为安全素数<ul>
+<li>安全素数：形如p&#x3D;2m+1的素数，m也是素数</li>
+<li>目的：确保p-1、q-1都有大的素因子，增加猜测φ(n)的难度</li>
+</ul>
+</li>
+<li>e的选择<ul>
+<li>一般选 &#x3D;&#x3D;<strong>e&#x3D;3、17、65537(2^16+1）</strong>&#x3D;&#x3D;</li>
+</ul>
+</li>
+<li>d要大于某个值，否则易遭攻击（Wiener’s attack）</li>
+<li>执行的非对称性:  加密快 &#x2F; 解密慢</li>
+</ul>
+</li>
+<li><h6 id="主要缺点"><a href="#主要缺点" class="headerlink" title="主要缺点"></a>主要缺点</h6><ul>
+<li>安全性问题<ul>
+<li>还无法证明对RSA的破译是否等同于大整数分解问题</li>
+<li>只是到目前为止，RSA似乎是安全的</li>
+</ul>
+</li>
+<li>速度问题<ul>
+<li>增大p和q将使计算开销指数级增长</li>
+</ul>
+</li>
+<li>选择合适的p和q对普通用户很困难</li>
+</ul>
+</li>
+</ul>
+<h5 id="PKCS"><a href="#PKCS" class="headerlink" title="PKCS"></a>PKCS</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">永远不要使用“教科书式RSA”，实际应用中如何使用？</span><br></pre></td></tr></table></figure>
+<img src="/chunk.github.io/images/4a73de3696ff8525e011539ef10f48e4.jpg" alt="4a73de3696ff8525e011539ef10f48e4" style="zoom:50%;" />
+
+<ul>
+<li><p>优化的非对称加密填充:  OAEP ——是CCA安全的</p>
+<img src="/chunk.github.io/images/defb5709c4fcd876cdcef4ea185be854.jpg" alt="defb5709c4fcd876cdcef4ea185be854" style="zoom:50%;" />
+</li>
+<li><p>OAEP的变种</p>
+<img src="/chunk.github.io/images/b3a70b592a0ad5d3a4512f4e5a71fe5b.jpg" alt="b3a70b592a0ad5d3a4512f4e5a71fe5b" style="zoom:50%;" />
+
+<img src="/chunk.github.io/images/1360d8c44ca1be1f146017219815d44a.jpg" alt="1360d8c44ca1be1f146017219815d44a" style="zoom:50%;" /></li>
+</ul>
+<h4 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h4><h5 id="公钥密码的缺点"><a href="#公钥密码的缺点" class="headerlink" title="公钥密码的缺点"></a>公钥密码的缺点</h5><ul>
+<li>计算速度慢</li>
+<li>密钥长（公钥密码的密钥分发并不简单）</li>
+<li>应用历史短</li>
+</ul>
+<h5 id="关于公钥密码的错误认识"><a href="#关于公钥密码的错误认识" class="headerlink" title="关于公钥密码的错误认识"></a>关于公钥密码的错误认识</h5><ul>
+<li>公钥密码更安全</li>
+<li>对称密码体制已经过时<ul>
+<li>RSA最快的情况也比DES慢上100倍，速度一直是公钥密码体制的缺陷。</li>
+</ul>
+</li>
+<li>公钥分发十分简单</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://subingchunk-hue.github.io/chunk.github.io/2025/04/10/%E5%AF%86%E7%A0%81%E5%AD%A6/%E5%85%AC%E9%92%A5%E5%AF%86%E7%A0%81%E5%AD%A6/" data-id="cmroz94vj0003uy1m4nzgamq3" data-title="公钥密码学" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/chunk.github.io/tags/%E5%AF%86%E7%A0%81%E5%AD%A6%EF%BC%8C%E7%AC%94%E8%AE%B0/" rel="tag">密码学，笔记</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/chunk.github.io/2025/04/14/%E5%AF%86%E7%A0%81%E5%AD%A6/%E6%95%B0%E6%8D%AE%E5%AE%8C%E6%95%B4%E6%80%A7%E6%8A%80%E6%9C%AF/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">前一篇</strong>
+      <div class="article-nav-title">
+        
+          数据完整性技术
+        
+      </div>
+    </a>
+  
+  
+    <a href="/chunk.github.io/2025/04/07/%E7%BC%96%E7%A8%8B/%E7%AB%9E%E8%B5%9B%E9%A2%98%E9%A2%98%E5%B9%B2%E5%A6%82%E4%BD%95%E5%88%86%E6%9E%90/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">后一篇</strong>
+      <div class="article-nav-title">算法分析</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/chunk.github.io/categories/CSP%E8%AE%A4%E8%AF%81%EF%BC%8C%E7%BC%96%E7%A8%8B/">CSP认证，编程</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/chunk.github.io/categories/%E5%AF%86%E7%A0%81%E5%AD%A6/">密码学</a><span class="category-list-count">15</span></li><li class="category-list-item"><a class="category-list-link" href="/chunk.github.io/categories/%E5%B0%8F%E7%A8%8B%E5%BA%8F/">小程序</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/chunk.github.io/categories/%E7%BC%96%E7%A8%8B/">编程</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/chunk.github.io/categories/%E7%BC%96%E7%A8%8B%EF%BC%8C%E3%80%8A%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B%E5%85%A5%E9%97%A8%E7%BB%8F%E5%85%B8%E3%80%8B/">编程，《算法竞赛入门经典》</a><span class="category-list-count">2</span></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/chunk.github.io/tags/CSP%E8%AE%A4%E8%AF%81%EF%BC%8C%E6%B4%9B%E8%B0%B7%EF%BC%8C%E7%BC%96%E7%A8%8B/" rel="tag">CSP认证，洛谷，编程</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/chunk.github.io/tags/%E5%AE%9E%E9%AA%8C/" rel="tag">实验</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/chunk.github.io/tags/%E5%AF%86%E7%A0%81%E5%AD%A6%EF%BC%8C%E7%AC%94%E8%AE%B0/" rel="tag">密码学，笔记</a><span class="tag-list-count">15</span></li><li class="tag-list-item"><a class="tag-list-link" href="/chunk.github.io/tags/%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91/" rel="tag">小程序开发</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/chunk.github.io/tags/%E6%B4%9B%E8%B0%B7%EF%BC%8C%E7%BC%96%E7%A8%8B/" rel="tag">洛谷，编程</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/chunk.github.io/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/chunk.github.io/tags/%E7%BC%96%E7%A8%8B%EF%BC%8C%E7%AB%9E%E8%B5%9B/" rel="tag">编程，竞赛</a><span class="tag-list-count">8</span></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/chunk.github.io/tags/CSP%E8%AE%A4%E8%AF%81%EF%BC%8C%E6%B4%9B%E8%B0%B7%EF%BC%8C%E7%BC%96%E7%A8%8B/" style="font-size: 12.5px;">CSP认证，洛谷，编程</a> <a href="/chunk.github.io/tags/%E5%AE%9E%E9%AA%8C/" style="font-size: 15px;">实验</a> <a href="/chunk.github.io/tags/%E5%AF%86%E7%A0%81%E5%AD%A6%EF%BC%8C%E7%AC%94%E8%AE%B0/" style="font-size: 20px;">密码学，笔记</a> <a href="/chunk.github.io/tags/%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91/" style="font-size: 15px;">小程序开发</a> <a href="/chunk.github.io/tags/%E6%B4%9B%E8%B0%B7%EF%BC%8C%E7%BC%96%E7%A8%8B/" style="font-size: 10px;">洛谷，编程</a> <a href="/chunk.github.io/tags/%E7%AC%94%E8%AE%B0/" style="font-size: 10px;">笔记</a> <a href="/chunk.github.io/tags/%E7%BC%96%E7%A8%8B%EF%BC%8C%E7%AB%9E%E8%B5%9B/" style="font-size: 17.5px;">编程，竞赛</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/chunk.github.io/archives/2026/07/">七月 2026</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/chunk.github.io/archives/2025/09/">九月 2025</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/chunk.github.io/archives/2025/08/">八月 2025</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/chunk.github.io/archives/2025/05/">五月 2025</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/chunk.github.io/archives/2025/04/">四月 2025</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/chunk.github.io/archives/2025/03/">三月 2025</a><span class="archive-list-count">6</span></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/chunk.github.io/2026/07/15/%E7%BC%96%E7%A8%8B/%E7%AC%94%E8%AE%B0/">笔记</a>
+          </li>
+        
+          <li>
+            <a href="/chunk.github.io/2025/09/25/%E7%BC%96%E7%A8%8B/%E5%B9%B6%E6%9F%A5%E9%9B%86/">并查集</a>
+          </li>
+        
+          <li>
+            <a href="/chunk.github.io/2025/09/20/%E7%BC%96%E7%A8%8B/%E7%BB%8F%E5%85%B8%E8%83%8C%E5%8C%85/">经典背包</a>
+          </li>
+        
+          <li>
+            <a href="/chunk.github.io/2025/09/17/%E7%BC%96%E7%A8%8B/%E6%95%B0%E7%BB%84%E6%93%8D%E4%BD%9C%E5%87%A0%E5%85%84%E5%BC%9F/">数组操作几兄弟</a>
+          </li>
+        
+          <li>
+            <a href="/chunk.github.io/2025/09/12/%E7%BC%96%E7%A8%8B/%E8%99%9A%E6%8B%9F%E8%8A%82%E7%82%B9/">虚拟节点</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+    <div class="widget profile-card">
+  <img src="/chunk.github.io/my.jpg" alt="chunk" class="profile-avatar">
+  <h2 class="profile-name">chunk</h2>
+  <p class="profile-desc">专注技术资料分享</p>
+  
+  <div class="profile-stats">
+    <div class="profile-stat">
+      <span class="profile-stat-number">28</span>
+      <span class="profile-stat-label">文章</span>
+    </div>
+    <div class="profile-stat">
+      <span class="profile-stat-number">5</span>
+      <span class="profile-stat-label">标签</span>
+    </div>
+    <div class="profile-stat">
+      <span class="profile-stat-number">5</span>
+      <span class="profile-stat-label">分类</span>
+    </div>
+  </div>
+  
+  <div class="profile-section">
+    <div class="profile-section-title">📢 公告</div>
+    <div class="profile-section-content">
+      欢迎来到我的资料分享博客！这里整理和分享各种学习笔记和资料。
+    </div>
+  </div>
+  
+  <div class="profile-section">
+    <div class="profile-section-title">🔗 社交</div>
+    <div class="profile-section-content">
+      <a href="https://github.com/subingchunk-hue" target="_blank" style="color: #40E0D0; margin-right: 10px;">
+        <i class="fa fa-github"></i> GitHub
+      </a>
+    </div>
+  </div>
+</div>
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+        <a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by/4.0/">
+  <img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" />
+</a>
+<br/>
+本博客所有文章采用 <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">CC BY 4.0</a> 协议
+      
+      &copy; 2026 chunk<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/chunk.github.io/" class="mobile-nav-link">首页</a>
+  
+    <a href="/chunk.github.io/archives" class="mobile-nav-link">归档</a>
+  
+    <a href="/chunk.github.io/categories" class="mobile-nav-link">分类</a>
+  
+    <a href="/chunk.github.io/tags" class="mobile-nav-link">标签</a>
+  
+</nav>
+    
+
+
+<script src="/chunk.github.io/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/chunk.github.io/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/chunk.github.io/js/script.js"></script>
+
+
+<script src="/chunk.github.io/js/toc.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

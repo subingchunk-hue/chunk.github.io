@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>消息认证 | Chunk Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="消息认证技术基础，包括完整性验证、真实性确认和认证加密方法。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="消息认证">
+<meta property="og:url" content="https://subingchunk-hue.github.io/chunk.github.io/2025/04/21/%E5%AF%86%E7%A0%81%E5%AD%A6/%E6%B6%88%E6%81%AF%E8%AE%A4%E8%AF%81/index.html">
+<meta property="og:site_name" content="Chunk Blog">
+<meta property="og:description" content="消息认证技术基础，包括完整性验证、真实性确认和认证加密方法。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://subingchunk-hue.github.io/chunk.github.io/images/5275fd290f8768982566aac5981b4af7.jpg">
+<meta property="og:image" content="https://subingchunk-hue.github.io/chunk.github.io/images/64c1141717bc0c8945824c6d10509467.jpg">
+<meta property="og:image" content="https://subingchunk-hue.github.io/chunk.github.io/images/832fd60e6fa5e7e0752a1604f69bd322.jpg">
+<meta property="og:image" content="https://subingchunk-hue.github.io/chunk.github.io/images/8e51c8d99d9830ae7f986fa105ab0fd6.jpg">
+<meta property="og:image" content="https://subingchunk-hue.github.io/chunk.github.io/images/2ca6355f3329935dceb7c612f115e265.jpg">
+<meta property="og:image" content="https://subingchunk-hue.github.io/chunk.github.io/images/de10e43e7b18d191f57c7effb8c8105a.jpg">
+<meta property="og:image" content="https://subingchunk-hue.github.io/chunk.github.io/images/3fe00474631f3f8c5ac7a755a69c04a3.jpg">
+<meta property="og:image" content="https://subingchunk-hue.github.io/chunk.github.io/images/ac0db0f35eeb2c79395b6683aae32ae4.jpg">
+<meta property="article:published_time" content="2025-04-21T08:34:00.000Z">
+<meta property="article:modified_time" content="2026-07-17T13:32:02.263Z">
+<meta property="article:author" content="chunk">
+<meta property="article:tag" content="密码学，笔记">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://subingchunk-hue.github.io/chunk.github.io/images/5275fd290f8768982566aac5981b4af7.jpg">
+  
+    <link rel="alternate" href="/chunk.github.io/atom.xml" title="Chunk Blog" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/chunk.github.io/favicon.ico">
+  
+  
+  
+<link rel="stylesheet" href="/chunk.github.io/css/style.css">
+
+  <link rel="stylesheet" href="/chunk.github.io/css/custom.css">
+  
+    
+<link rel="stylesheet" href="/chunk.github.io/fancybox/jquery.fancybox.min.css">
+
+  
+  
+  <style>
+    .fa { display: inline-block; font: normal normal normal 14px/1 FontAwesome; font-size: inherit; text-rendering: auto; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+    .fa-github:before { content: "\f09b"; }
+    .fa-home:before { content: "\f015"; }
+    .fa-archive:before { content: "\f187"; }
+    .fa-tags:before { content: "\f02c"; }
+    .fa-folder:before { content: "\f07b"; }
+    .fa-calendar:before { content: "\f073"; }
+    .fa-comment:before { content: "\f075"; }
+    .fa-rss:before { content: "\f09e"; }
+  </style>
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<meta name="generator" content="Hexo 7.3.0"></head>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/chunk.github.io/" id="logo">Chunk Blog</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/chunk.github.io/" id="subtitle">分享学习笔记和经验</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/chunk.github.io/">首页</a>
+        
+          <a class="main-nav-link" href="/chunk.github.io/archives">归档</a>
+        
+          <a class="main-nav-link" href="/chunk.github.io/categories">分类</a>
+        
+          <a class="main-nav-link" href="/chunk.github.io/tags">标签</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          
+            <a class="nav-icon" target="_blank" rel="noopener" href="https://github.com/subingchunk-hue"><span class="fa fa-github"></span></a>
+          
+        
+        
+          <a class="nav-icon" href="/chunk.github.io/atom.xml" title="RSS 订阅"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="搜索"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="搜索"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://subingchunk-hue.github.io/chunk.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-密码学/消息认证" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/chunk.github.io/2025/04/21/%E5%AF%86%E7%A0%81%E5%AD%A6/%E6%B6%88%E6%81%AF%E8%AE%A4%E8%AF%81/" class="article-date">
+  <time class="dt-published" datetime="2025-04-21T08:34:00.000Z" itemprop="datePublished">2025-04-21</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/chunk.github.io/categories/%E5%AF%86%E7%A0%81%E5%AD%A6/">密码学</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      消息认证
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><h6 id="主要目标"><a href="#主要目标" class="headerlink" title="主要目标"></a>主要目标</h6><ul>
+<li>完整性：消息是否被改动过</li>
+<li>真实性：消息是否是指定发送者发来的</li>
+</ul>
+<h6 id="认证加密——同时保证机密性和完整性"><a href="#认证加密——同时保证机密性和完整性" class="headerlink" title="认证加密——同时保证机密性和完整性"></a>认证加密——同时保证机密性和完整性</h6><h3 id="认证加密（AE-authenticated-encryption）"><a href="#认证加密（AE-authenticated-encryption）" class="headerlink" title="认证加密（AE,authenticated encryption）"></a>认证加密（AE,authenticated encryption）</h3><blockquote>
+<p>确认消息的来源</p>
+</blockquote>
+<h5 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h5><p>一个AE系统 (E,D) 是一个对称加密体制</p>
+<ul>
+<li>加密算法:  E:  K × M × N ⟶ C</li>
+<li>解密算法:  D:  K × C × N ⟶  M ∪ {⊥} &#x2F;&#x2F;密文不合法时，拒绝接收</li>
+<li>N是nonce空间（可选）</li>
+</ul>
+<h5 id="安全性"><a href="#安全性" class="headerlink" title="安全性"></a>安全性</h5><p>对(E,D)的要求:</p>
+<ul>
+<li>CPA安全性</li>
+<li>密文完整性 (攻击者不能伪造出可以正确解密的新密文)</li>
+</ul>
+<h5 id="密文完整性（安全模型）"><a href="#密文完整性（安全模型）" class="headerlink" title="密文完整性（安全模型）"></a>密文完整性（安全模型）</h5><img src="/chunk.github.io/images/5275fd290f8768982566aac5981b4af7.jpg" alt="5275fd290f8768982566aac5981b4af7" style="zoom:50%;" />
+
+<img src="/chunk.github.io/images/64c1141717bc0c8945824c6d10509467.jpg" alt="64c1141717bc0c8945824c6d10509467" style="zoom:50%;" />
+
+<p>(E,D) 具有密文完整性，则对于任意高效攻击者A，在上述安全模型中伪造成功的概率<br>Adv &#x3D; Pr[ A伪造成功 ]  是可忽略的</p>
+<h4 id="AE的性质"><a href="#AE的性质" class="headerlink" title="AE的性质"></a>AE的性质</h4><ul>
+<li><h5 id="保证真实性"><a href="#保证真实性" class="headerlink" title="保证真实性"></a>保证真实性</h5><ul>
+<li>攻击者不能欺骗 Bob，使他认为消息来自于Alice</li>
+<li>如果  Dₖ(c) ≠ ⊥, Bob 知道消息来自 Alice (因为她知道密钥 k)<br>(但不能抵抗旧消息重放)</li>
+</ul>
+</li>
+<li><h5 id="AE-⇒-CCA安全性"><a href="#AE-⇒-CCA安全性" class="headerlink" title="AE  ⇒ CCA安全性"></a>AE  ⇒ CCA安全性</h5></li>
+</ul>
+<h3 id="CCA安全性"><a href="#CCA安全性" class="headerlink" title="CCA安全性"></a>CCA安全性</h3><h4 id="攻击者攻击能力"><a href="#攻击者攻击能力" class="headerlink" title="攻击者攻击能力"></a>攻击者攻击能力</h4><ul>
+<li><h5 id="CPA（选择明文攻击）"><a href="#CPA（选择明文攻击）" class="headerlink" title="CPA（选择明文攻击）"></a>CPA（选择明文攻击）</h5>选择任意明文，并获得相应的密文</li>
+<li><h5 id="CCA（选择密文攻击）"><a href="#CCA（选择密文攻击）" class="headerlink" title="CCA（选择密文攻击）"></a>CCA（选择密文攻击）</h5>选择任意密文 (除了挑战密文)，并获得相应的明文</li>
+</ul>
+<h4 id="攻击者攻击目的"><a href="#攻击者攻击目的" class="headerlink" title="攻击者攻击目的"></a>攻击者攻击目的</h4><ul>
+<li>破坏语义安全性</li>
+</ul>
+<h4 id="安全模型"><a href="#安全模型" class="headerlink" title="安全模型"></a>安全模型</h4><img src="/chunk.github.io/images/832fd60e6fa5e7e0752a1604f69bd322.jpg" alt="832fd60e6fa5e7e0752a1604f69bd322" style="zoom:50%;" />
+
+<img src="/chunk.github.io/images/8e51c8d99d9830ae7f986fa105ab0fd6.jpg" alt="8e51c8d99d9830ae7f986fa105ab0fd6" style="zoom:50%;" />
+
+<img src="/chunk.github.io/images/2ca6355f3329935dceb7c612f115e265.jpg" alt="2ca6355f3329935dceb7c612f115e265" style="zoom:50%;" />
+
+<p>如果一个对称加密体制是CCA安全的，则对于任意高效的攻击者A, 在上述安全模型中<br>Adv &#x3D; | Pr[EXP(0)&#x3D;1] – Pr[EXP(1)&#x3D;1] |         是可忽略的。</p>
+<h3 id="AE的构造"><a href="#AE的构造" class="headerlink" title="AE的构造"></a>AE的构造</h3><h4 id="ENC-MAC"><a href="#ENC-MAC" class="headerlink" title="ENC+MAC"></a>ENC+MAC</h4><ul>
+<li><h5 id="MAC-then-Enc"><a href="#MAC-then-Enc" class="headerlink" title="MAC-then-Enc"></a>MAC-then-Enc</h5><ul>
+<li>CCA攻击下可能不安全</li>
+<li>当IV是随机数时，采用CBC和CTR模式是CCA安全的</li>
+<li>标准：CCM</li>
+</ul>
+</li>
+<li><h5 id="Enc-then-MAC-MAC密文"><a href="#Enc-then-MAC-MAC密文" class="headerlink" title="&#x3D;&#x3D;Enc-then-MAC (MAC密文)&#x3D;&#x3D;"></a>&#x3D;&#x3D;Enc-then-MAC (MAC密文)&#x3D;&#x3D;</h5><ul>
+<li>标准：GCM</li>
+</ul>
+</li>
+<li><h5 id="Enc-and-MAC-MAC明文"><a href="#Enc-and-MAC-MAC明文" class="headerlink" title="Enc-and-MAC (MAC明文)"></a>Enc-and-MAC (MAC明文)</h5><ul>
+<li>不推荐使用</li>
+<li>标准：EAX</li>
+</ul>
+</li>
+</ul>
+<h4 id="MAC安全性暗示"><a href="#MAC安全性暗示" class="headerlink" title="MAC安全性暗示"></a>MAC安全性暗示</h4><p>(m , t) ⇏ (m , t’)<br>假设攻击者可以做到:  (m , t)   ⟶  (m , t’)<br>那么 Enc-then-MAC 就不是CCA安全的 (将无法保证密文完整性) !!<br><img src="/chunk.github.io/images/de10e43e7b18d191f57c7effb8c8105a.jpg" alt="de10e43e7b18d191f57c7effb8c8105a" style="zoom:50%;" /></p>
+<img src="/chunk.github.io/images/3fe00474631f3f8c5ac7a755a69c04a3.jpg" alt="3fe00474631f3f8c5ac7a755a69c04a3" style="zoom:50%;" />
+
+<h4 id="OCB模式"><a href="#OCB模式" class="headerlink" title="OCB模式"></a>OCB模式</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">基于PRP直接构造认证加密</span><br></pre></td></tr></table></figure>
+<p>简述：比 ENC+MAC 方式更快，完全可并行<br><img src="/chunk.github.io/images/ac0db0f35eeb2c79395b6683aae32ae4.jpg" alt="ac0db0f35eeb2c79395b6683aae32ae4" style="zoom:50%;" /></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://subingchunk-hue.github.io/chunk.github.io/2025/04/21/%E5%AF%86%E7%A0%81%E5%AD%A6/%E6%B6%88%E6%81%AF%E8%AE%A4%E8%AF%81/" data-id="cmroz94vw0011uy1mhh8g61ac" data-title="消息认证" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/chunk.github.io/tags/%E5%AF%86%E7%A0%81%E5%AD%A6%EF%BC%8C%E7%AC%94%E8%AE%B0/" rel="tag">密码学，笔记</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/chunk.github.io/2025/04/26/%E5%AF%86%E7%A0%81%E5%AD%A6/%E8%BA%AB%E4%BB%BD%E8%AE%A4%E8%AF%81/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">前一篇</strong>
+      <div class="article-nav-title">
+        
+          身份认证
+        
+      </div>
+    </a>
+  
+  
+    <a href="/chunk.github.io/2025/04/20/%E5%AF%86%E7%A0%81%E5%AD%A6/%E6%A4%AD%E5%9C%86%E6%9B%B2%E7%BA%BF%E5%AF%86%E7%A0%81%E5%AD%A6/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">后一篇</strong>
+      <div class="article-nav-title">椭圆曲线密码学</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/chunk.github.io/categories/CSP%E8%AE%A4%E8%AF%81%EF%BC%8C%E7%BC%96%E7%A8%8B/">CSP认证，编程</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/chunk.github.io/categories/%E5%AF%86%E7%A0%81%E5%AD%A6/">密码学</a><span class="category-list-count">15</span></li><li class="category-list-item"><a class="category-list-link" href="/chunk.github.io/categories/%E5%B0%8F%E7%A8%8B%E5%BA%8F/">小程序</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/chunk.github.io/categories/%E7%BC%96%E7%A8%8B/">编程</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/chunk.github.io/categories/%E7%BC%96%E7%A8%8B%EF%BC%8C%E3%80%8A%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B%E5%85%A5%E9%97%A8%E7%BB%8F%E5%85%B8%E3%80%8B/">编程，《算法竞赛入门经典》</a><span class="category-list-count">2</span></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/chunk.github.io/tags/CSP%E8%AE%A4%E8%AF%81%EF%BC%8C%E6%B4%9B%E8%B0%B7%EF%BC%8C%E7%BC%96%E7%A8%8B/" rel="tag">CSP认证，洛谷，编程</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/chunk.github.io/tags/%E5%AE%9E%E9%AA%8C/" rel="tag">实验</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/chunk.github.io/tags/%E5%AF%86%E7%A0%81%E5%AD%A6%EF%BC%8C%E7%AC%94%E8%AE%B0/" rel="tag">密码学，笔记</a><span class="tag-list-count">15</span></li><li class="tag-list-item"><a class="tag-list-link" href="/chunk.github.io/tags/%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91/" rel="tag">小程序开发</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/chunk.github.io/tags/%E6%B4%9B%E8%B0%B7%EF%BC%8C%E7%BC%96%E7%A8%8B/" rel="tag">洛谷，编程</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/chunk.github.io/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/chunk.github.io/tags/%E7%BC%96%E7%A8%8B%EF%BC%8C%E7%AB%9E%E8%B5%9B/" rel="tag">编程，竞赛</a><span class="tag-list-count">8</span></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/chunk.github.io/tags/CSP%E8%AE%A4%E8%AF%81%EF%BC%8C%E6%B4%9B%E8%B0%B7%EF%BC%8C%E7%BC%96%E7%A8%8B/" style="font-size: 12.5px;">CSP认证，洛谷，编程</a> <a href="/chunk.github.io/tags/%E5%AE%9E%E9%AA%8C/" style="font-size: 15px;">实验</a> <a href="/chunk.github.io/tags/%E5%AF%86%E7%A0%81%E5%AD%A6%EF%BC%8C%E7%AC%94%E8%AE%B0/" style="font-size: 20px;">密码学，笔记</a> <a href="/chunk.github.io/tags/%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91/" style="font-size: 15px;">小程序开发</a> <a href="/chunk.github.io/tags/%E6%B4%9B%E8%B0%B7%EF%BC%8C%E7%BC%96%E7%A8%8B/" style="font-size: 10px;">洛谷，编程</a> <a href="/chunk.github.io/tags/%E7%AC%94%E8%AE%B0/" style="font-size: 10px;">笔记</a> <a href="/chunk.github.io/tags/%E7%BC%96%E7%A8%8B%EF%BC%8C%E7%AB%9E%E8%B5%9B/" style="font-size: 17.5px;">编程，竞赛</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/chunk.github.io/archives/2026/07/">七月 2026</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/chunk.github.io/archives/2025/09/">九月 2025</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/chunk.github.io/archives/2025/08/">八月 2025</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/chunk.github.io/archives/2025/05/">五月 2025</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/chunk.github.io/archives/2025/04/">四月 2025</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/chunk.github.io/archives/2025/03/">三月 2025</a><span class="archive-list-count">6</span></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/chunk.github.io/2026/07/15/%E7%BC%96%E7%A8%8B/%E7%AC%94%E8%AE%B0/">笔记</a>
+          </li>
+        
+          <li>
+            <a href="/chunk.github.io/2025/09/25/%E7%BC%96%E7%A8%8B/%E5%B9%B6%E6%9F%A5%E9%9B%86/">并查集</a>
+          </li>
+        
+          <li>
+            <a href="/chunk.github.io/2025/09/20/%E7%BC%96%E7%A8%8B/%E7%BB%8F%E5%85%B8%E8%83%8C%E5%8C%85/">经典背包</a>
+          </li>
+        
+          <li>
+            <a href="/chunk.github.io/2025/09/17/%E7%BC%96%E7%A8%8B/%E6%95%B0%E7%BB%84%E6%93%8D%E4%BD%9C%E5%87%A0%E5%85%84%E5%BC%9F/">数组操作几兄弟</a>
+          </li>
+        
+          <li>
+            <a href="/chunk.github.io/2025/09/12/%E7%BC%96%E7%A8%8B/%E8%99%9A%E6%8B%9F%E8%8A%82%E7%82%B9/">虚拟节点</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+    <div class="widget profile-card">
+  <img src="/chunk.github.io/my.jpg" alt="chunk" class="profile-avatar">
+  <h2 class="profile-name">chunk</h2>
+  <p class="profile-desc">专注技术资料分享</p>
+  
+  <div class="profile-stats">
+    <div class="profile-stat">
+      <span class="profile-stat-number">28</span>
+      <span class="profile-stat-label">文章</span>
+    </div>
+    <div class="profile-stat">
+      <span class="profile-stat-number">5</span>
+      <span class="profile-stat-label">标签</span>
+    </div>
+    <div class="profile-stat">
+      <span class="profile-stat-number">5</span>
+      <span class="profile-stat-label">分类</span>
+    </div>
+  </div>
+  
+  <div class="profile-section">
+    <div class="profile-section-title">📢 公告</div>
+    <div class="profile-section-content">
+      欢迎来到我的资料分享博客！这里整理和分享各种学习笔记和资料。
+    </div>
+  </div>
+  
+  <div class="profile-section">
+    <div class="profile-section-title">🔗 社交</div>
+    <div class="profile-section-content">
+      <a href="https://github.com/subingchunk-hue" target="_blank" style="color: #40E0D0; margin-right: 10px;">
+        <i class="fa fa-github"></i> GitHub
+      </a>
+    </div>
+  </div>
+</div>
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+        <a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by/4.0/">
+  <img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" />
+</a>
+<br/>
+本博客所有文章采用 <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">CC BY 4.0</a> 协议
+      
+      &copy; 2026 chunk<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/chunk.github.io/" class="mobile-nav-link">首页</a>
+  
+    <a href="/chunk.github.io/archives" class="mobile-nav-link">归档</a>
+  
+    <a href="/chunk.github.io/categories" class="mobile-nav-link">分类</a>
+  
+    <a href="/chunk.github.io/tags" class="mobile-nav-link">标签</a>
+  
+</nav>
+    
+
+
+<script src="/chunk.github.io/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/chunk.github.io/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/chunk.github.io/js/script.js"></script>
+
+
+<script src="/chunk.github.io/js/toc.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

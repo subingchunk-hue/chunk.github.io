@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>安全协议 | Chunk Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="安全协议基础知识，包括协议设计原则、安全性分析和经典协议案例研究。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="安全协议">
+<meta property="og:url" content="https://subingchunk-hue.github.io/chunk.github.io/2025/05/19/%E5%AF%86%E7%A0%81%E5%AD%A6/%E5%AE%89%E5%85%A8%E5%8D%8F%E8%AE%AE/index.html">
+<meta property="og:site_name" content="Chunk Blog">
+<meta property="og:description" content="安全协议基础知识，包括协议设计原则、安全性分析和经典协议案例研究。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://subingchunk-hue.github.io/chunk.github.io/images/f1c171a7eeb80296c14073598833cd63.jpg">
+<meta property="og:image" content="https://subingchunk-hue.github.io/chunk.github.io/images/cea9af653d31cdc69d3049752072d5ad.jpg">
+<meta property="og:image" content="https://subingchunk-hue.github.io/chunk.github.io/images/d81e8641b8cd962f951466494f3f56a8.jpg">
+<meta property="og:image" content="https://subingchunk-hue.github.io/chunk.github.io/images/29f21ffb48236ee040d45644d8667775.jpg">
+<meta property="article:published_time" content="2025-05-19T22:47:00.000Z">
+<meta property="article:modified_time" content="2026-07-17T13:32:02.263Z">
+<meta property="article:author" content="chunk">
+<meta property="article:tag" content="密码学，笔记">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://subingchunk-hue.github.io/chunk.github.io/images/f1c171a7eeb80296c14073598833cd63.jpg">
+  
+    <link rel="alternate" href="/chunk.github.io/atom.xml" title="Chunk Blog" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/chunk.github.io/favicon.ico">
+  
+  
+  
+<link rel="stylesheet" href="/chunk.github.io/css/style.css">
+
+  <link rel="stylesheet" href="/chunk.github.io/css/custom.css">
+  
+    
+<link rel="stylesheet" href="/chunk.github.io/fancybox/jquery.fancybox.min.css">
+
+  
+  
+  <style>
+    .fa { display: inline-block; font: normal normal normal 14px/1 FontAwesome; font-size: inherit; text-rendering: auto; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+    .fa-github:before { content: "\f09b"; }
+    .fa-home:before { content: "\f015"; }
+    .fa-archive:before { content: "\f187"; }
+    .fa-tags:before { content: "\f02c"; }
+    .fa-folder:before { content: "\f07b"; }
+    .fa-calendar:before { content: "\f073"; }
+    .fa-comment:before { content: "\f075"; }
+    .fa-rss:before { content: "\f09e"; }
+  </style>
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<meta name="generator" content="Hexo 7.3.0"></head>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/chunk.github.io/" id="logo">Chunk Blog</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/chunk.github.io/" id="subtitle">分享学习笔记和经验</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/chunk.github.io/">首页</a>
+        
+          <a class="main-nav-link" href="/chunk.github.io/archives">归档</a>
+        
+          <a class="main-nav-link" href="/chunk.github.io/categories">分类</a>
+        
+          <a class="main-nav-link" href="/chunk.github.io/tags">标签</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          
+            <a class="nav-icon" target="_blank" rel="noopener" href="https://github.com/subingchunk-hue"><span class="fa fa-github"></span></a>
+          
+        
+        
+          <a class="nav-icon" href="/chunk.github.io/atom.xml" title="RSS 订阅"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="搜索"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="搜索"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://subingchunk-hue.github.io/chunk.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-密码学/安全协议" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/chunk.github.io/2025/05/19/%E5%AF%86%E7%A0%81%E5%AD%A6/%E5%AE%89%E5%85%A8%E5%8D%8F%E8%AE%AE/" class="article-date">
+  <time class="dt-published" datetime="2025-05-19T22:47:00.000Z" itemprop="datePublished">2025-05-20</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/chunk.github.io/categories/%E5%AF%86%E7%A0%81%E5%AD%A6/">密码学</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      安全协议
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h3 id="安全协议概述"><a href="#安全协议概述" class="headerlink" title="安全协议概述"></a>安全协议概述</h3><h4 id="协议"><a href="#协议" class="headerlink" title="协议"></a>协议</h4><p>   两个或两个以上的参与者为完成某项特定任务而采取的一系列步骤</p>
+<h4 id="协议的复杂性"><a href="#协议的复杂性" class="headerlink" title="协议的复杂性"></a>协议的复杂性</h4><ul>
+<li>协议必须把所有<strong>不利条件</strong>事先都估计到，而<strong>不能假定</strong>一切都是正常的和非常理想的。 </li>
+<li>看一个协议是否正确，不能光看在正常情况下是否正确，而且还必须非常仔细地检查这个协议<strong>能否应付各种异常情况</strong>。</li>
+</ul>
+<h4 id="两个经典例子"><a href="#两个经典例子" class="headerlink" title="两个经典例子"></a>两个经典例子</h4><ul>
+<li>两军问题：有些问题考虑太全面则无法解决</li>
+<li>尾生抱柱：有些问题考虑不全面会导致严重后果</li>
+</ul>
+<h4 id="安全协议"><a href="#安全协议" class="headerlink" title="安全协议"></a>安全协议</h4><ul>
+<li>又称密码协议，使用密码技术完成某项特定任务，并满足安全需求的协议。 </li>
+<li>在安全协议中，经常使用对称密码、公钥密码、Hash函数、PRG等密码工具。</li>
+</ul>
+<h4 id="安全协议的安全性需求"><a href="#安全协议的安全性需求" class="headerlink" title="安全协议的安全性需求"></a>安全协议的安全性需求</h4>   <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">机密性 </span><br><span class="line">完整性 </span><br><span class="line">认证性</span><br><span class="line">非否认性</span><br><span class="line">公平性</span><br><span class="line">匿名性</span><br><span class="line">……（根据应用场合不同进行组合）</span><br></pre></td></tr></table></figure>
+<h4 id="安全协议中的角色"><a href="#安全协议中的角色" class="headerlink" title="安全协议中的角色"></a>安全协议中的角色</h4><ul>
+<li>协议参与者</li>
+<li>攻击者<ul>
+<li>内部&#x2F;外部攻击者</li>
+<li>被动&#x2F;主动攻击者</li>
+</ul>
+</li>
+<li>可信第三方(TTP, Trusted Third Party)<ul>
+<li>用户都信任的实体，通常与每个用户共享密钥</li>
+<li>功能：使用户之间确认彼此身份 或 共享会话密钥</li>
+</ul>
+</li>
+</ul>
+<h4 id="安全协议设计与分析的困难性"><a href="#安全协议设计与分析的困难性" class="headerlink" title="安全协议设计与分析的困难性"></a>安全协议设计与分析的困难性</h4><ul>
+<li><h5 id="安全目标本身的微妙性"><a href="#安全目标本身的微妙性" class="headerlink" title="安全目标本身的微妙性"></a>安全目标本身的微妙性</h5>表面上十分简单的目标，实际上十分微妙</li>
+<li><h5 id="运行环境的复杂性"><a href="#运行环境的复杂性" class="headerlink" title="运行环境的复杂性"></a>运行环境的复杂性</h5>实际上,当安全协议运行在一个十分复杂的公开环境时,攻击者处处存在</li>
+<li><h5 id="攻击者模型的复杂性"><a href="#攻击者模型的复杂性" class="headerlink" title="攻击者模型的复杂性"></a>攻击者模型的复杂性</h5>必须形式化地描述攻击者的能力，对攻击者和攻击行为进进行分类和形式化的分析</li>
+<li><h5 id="分类和形式化的分析"><a href="#分类和形式化的分析" class="headerlink" title="分类和形式化的分析"></a>分类和形式化的分析</h5>安全协议本身具有“高并发性”</li>
+</ul>
+<h4 id="好的安全协议应满足的条件"><a href="#好的安全协议应满足的条件" class="headerlink" title="好的安全协议应满足的条件"></a>好的安全协议应满足的条件</h4><ul>
+<li>满足目标(应用目标,安全目标)</li>
+<li>易于实现</li>
+<li>各参与者所需计算量小、存储量小</li>
+<li>通信负载小(延迟小,占用带宽小)</li>
+<li>交互轮数少</li>
+</ul>
+<h3 id="经典安全协议"><a href="#经典安全协议" class="headerlink" title="经典安全协议"></a>经典安全协议</h3><h4 id="秘密共享"><a href="#秘密共享" class="headerlink" title="秘密共享"></a>秘密共享</h4><pre><code>两种实现方案：秘密共享➕视觉密码（图像化的秘密共享）
+</code></pre>
+<h5 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h5><ul>
+<li>定义：将秘密信息分割存储的密码技术</li>
+<li>目的：防止秘密过于集中，以达到分散风险和容忍入侵的目的<ul>
+<li>分散风险：避免权力过于集中</li>
+<li>容忍入侵：混进几个攻击者不影响安全性</li>
+</ul>
+</li>
+</ul>
+<h5 id="门限方案—Adi-Shamir"><a href="#门限方案—Adi-Shamir" class="headerlink" title="门限方案—Adi Shamir"></a>门限方案—Adi Shamir</h5><blockquote>
+<p>(m,n) 门限方案：<br>   将秘密信息SK拆成n份，任意m(m≤n)份或更多份都可以恢复SK<br>   任何少于m份都不能得到关于SK的任何有用信息<br>   其中，每一份都称为一个share</p>
+</blockquote>
+<h5 id="Shamir的门限方案"><a href="#Shamir的门限方案" class="headerlink" title="Shamir的门限方案"></a>Shamir的门限方案</h5><img src="/chunk.github.io/images/f1c171a7eeb80296c14073598833cd63.jpg" style="zoom:50%;" />
+
+<img src="/chunk.github.io/images/cea9af653d31cdc69d3049752072d5ad.jpg" style="zoom:50%;" />
+
+<h6 id="安全性原理"><a href="#安全性原理" class="headerlink" title="安全性原理"></a>安全性原理</h6><p>  对于m-1次多项式，给出不少于m个点就可以唯一地重构，少于m个则不行。<br>  保证K可从m个share中获得，少于m个则办不到。</p>
+<h6 id="例题"><a href="#例题" class="headerlink" title="例题"></a>例题</h6><p>  (3,5)的门限方案</p>
+<blockquote>
+<p>设 m &#x3D; 3，n &#x3D; 5，p &#x3D; 17，K &#x3D; 13</p>
+<img src="/chunk.github.io/images/d81e8641b8cd962f951466494f3f56a8.jpg" style="zoom:50%;" /></blockquote>
+<img src="/chunk.github.io/images/29f21ffb48236ee040d45644d8667775.jpg" style="zoom:50%;" />
+
+<h5 id="视觉密码"><a href="#视觉密码" class="headerlink" title="视觉密码"></a>视觉密码</h5><ul>
+<li>方法<br>将写有秘密信息的图片拆分成n张,至少m张(m≤n)才能恢复原来的图片</li>
+<li>优点<ul>
+<li>安全性高</li>
+<li>计算开销低：恢复原图片时，用幻灯机即可，无需计算机参与</li>
+</ul>
+</li>
+</ul>
+<h4 id="零知识证明"><a href="#零知识证明" class="headerlink" title="零知识证明"></a>零知识证明</h4><ol>
+<li><h5 id="设P掌握某些信息-并希望向V证明这一事实"><a href="#设P掌握某些信息-并希望向V证明这一事实" class="headerlink" title="设P掌握某些信息,并希望向V证明这一事实"></a>设P掌握某些信息,并希望向V证明这一事实</h5><ul>
+<li>最小泄露证明<br>P向V证明自己的确掌握该信息，但V无法推断出这些信息是什么</li>
+<li>零知识证明<br>V除了知道P能够证明该信息，不能得到任何额外的知识</li>
+</ul>
+</li>
+<li><h5 id="最小泄露证明满足下述两个性质："><a href="#最小泄露证明满足下述两个性质：" class="headerlink" title="最小泄露证明满足下述两个性质："></a>最小泄露证明满足下述两个性质：</h5><ul>
+<li>正确性：P不知道该信息，使V相信他知道该信息的概率很低（P无法欺骗V）</li>
+<li>完备性：P知道该信息，他能以绝对优势使V相信他确实知道。</li>
+</ul>
+</li>
+<li><h5 id="零知识证明除满足上述两个性质外，还满足下述性质："><a href="#零知识证明除满足上述两个性质外，还满足下述性质：" class="headerlink" title="零知识证明除满足上述两个性质外，还满足下述性质："></a>零知识证明除满足上述两个性质外，还满足下述性质：</h5><ul>
+<li>  零知识性：V无法获取任何额外的知识 (V无法欺骗P)<blockquote>
+<p>获得知识——原来你自己不能干的事，现在可以自己干了<br>例：老师教授知识不属于零知识证明，学生学会了某个知识点。</p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://subingchunk-hue.github.io/chunk.github.io/2025/05/19/%E5%AF%86%E7%A0%81%E5%AD%A6/%E5%AE%89%E5%85%A8%E5%8D%8F%E8%AE%AE/" data-id="cmroz94vq000fuy1mhbt57g75" data-title="安全协议" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/chunk.github.io/tags/%E5%AF%86%E7%A0%81%E5%AD%A6%EF%BC%8C%E7%AC%94%E8%AE%B0/" rel="tag">密码学，笔记</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/chunk.github.io/2025/05/21/%E5%AF%86%E7%A0%81%E5%AD%A6/%E9%87%8F%E5%AD%90%E5%AF%86%E7%A0%81/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">前一篇</strong>
+      <div class="article-nav-title">
+        
+          量子密码
+        
+      </div>
+    </a>
+  
+  
+    <a href="/chunk.github.io/2025/05/12/%E5%AF%86%E7%A0%81%E5%AD%A6/%E5%9F%BA%E4%BA%8E%E8%BA%AB%E4%BB%BD%E7%9A%84%E5%AF%86%E7%A0%81%E5%AD%A6/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">后一篇</strong>
+      <div class="article-nav-title">基于身份的密码学</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/chunk.github.io/categories/CSP%E8%AE%A4%E8%AF%81%EF%BC%8C%E7%BC%96%E7%A8%8B/">CSP认证，编程</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/chunk.github.io/categories/%E5%AF%86%E7%A0%81%E5%AD%A6/">密码学</a><span class="category-list-count">15</span></li><li class="category-list-item"><a class="category-list-link" href="/chunk.github.io/categories/%E5%B0%8F%E7%A8%8B%E5%BA%8F/">小程序</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/chunk.github.io/categories/%E7%BC%96%E7%A8%8B/">编程</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/chunk.github.io/categories/%E7%BC%96%E7%A8%8B%EF%BC%8C%E3%80%8A%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B%E5%85%A5%E9%97%A8%E7%BB%8F%E5%85%B8%E3%80%8B/">编程，《算法竞赛入门经典》</a><span class="category-list-count">2</span></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/chunk.github.io/tags/CSP%E8%AE%A4%E8%AF%81%EF%BC%8C%E6%B4%9B%E8%B0%B7%EF%BC%8C%E7%BC%96%E7%A8%8B/" rel="tag">CSP认证，洛谷，编程</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/chunk.github.io/tags/%E5%AE%9E%E9%AA%8C/" rel="tag">实验</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/chunk.github.io/tags/%E5%AF%86%E7%A0%81%E5%AD%A6%EF%BC%8C%E7%AC%94%E8%AE%B0/" rel="tag">密码学，笔记</a><span class="tag-list-count">15</span></li><li class="tag-list-item"><a class="tag-list-link" href="/chunk.github.io/tags/%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91/" rel="tag">小程序开发</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/chunk.github.io/tags/%E6%B4%9B%E8%B0%B7%EF%BC%8C%E7%BC%96%E7%A8%8B/" rel="tag">洛谷，编程</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/chunk.github.io/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/chunk.github.io/tags/%E7%BC%96%E7%A8%8B%EF%BC%8C%E7%AB%9E%E8%B5%9B/" rel="tag">编程，竞赛</a><span class="tag-list-count">8</span></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/chunk.github.io/tags/CSP%E8%AE%A4%E8%AF%81%EF%BC%8C%E6%B4%9B%E8%B0%B7%EF%BC%8C%E7%BC%96%E7%A8%8B/" style="font-size: 12.5px;">CSP认证，洛谷，编程</a> <a href="/chunk.github.io/tags/%E5%AE%9E%E9%AA%8C/" style="font-size: 15px;">实验</a> <a href="/chunk.github.io/tags/%E5%AF%86%E7%A0%81%E5%AD%A6%EF%BC%8C%E7%AC%94%E8%AE%B0/" style="font-size: 20px;">密码学，笔记</a> <a href="/chunk.github.io/tags/%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91/" style="font-size: 15px;">小程序开发</a> <a href="/chunk.github.io/tags/%E6%B4%9B%E8%B0%B7%EF%BC%8C%E7%BC%96%E7%A8%8B/" style="font-size: 10px;">洛谷，编程</a> <a href="/chunk.github.io/tags/%E7%AC%94%E8%AE%B0/" style="font-size: 10px;">笔记</a> <a href="/chunk.github.io/tags/%E7%BC%96%E7%A8%8B%EF%BC%8C%E7%AB%9E%E8%B5%9B/" style="font-size: 17.5px;">编程，竞赛</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/chunk.github.io/archives/2026/07/">七月 2026</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/chunk.github.io/archives/2025/09/">九月 2025</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/chunk.github.io/archives/2025/08/">八月 2025</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/chunk.github.io/archives/2025/05/">五月 2025</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/chunk.github.io/archives/2025/04/">四月 2025</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/chunk.github.io/archives/2025/03/">三月 2025</a><span class="archive-list-count">6</span></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/chunk.github.io/2026/07/15/%E7%BC%96%E7%A8%8B/%E7%AC%94%E8%AE%B0/">笔记</a>
+          </li>
+        
+          <li>
+            <a href="/chunk.github.io/2025/09/25/%E7%BC%96%E7%A8%8B/%E5%B9%B6%E6%9F%A5%E9%9B%86/">并查集</a>
+          </li>
+        
+          <li>
+            <a href="/chunk.github.io/2025/09/20/%E7%BC%96%E7%A8%8B/%E7%BB%8F%E5%85%B8%E8%83%8C%E5%8C%85/">经典背包</a>
+          </li>
+        
+          <li>
+            <a href="/chunk.github.io/2025/09/17/%E7%BC%96%E7%A8%8B/%E6%95%B0%E7%BB%84%E6%93%8D%E4%BD%9C%E5%87%A0%E5%85%84%E5%BC%9F/">数组操作几兄弟</a>
+          </li>
+        
+          <li>
+            <a href="/chunk.github.io/2025/09/12/%E7%BC%96%E7%A8%8B/%E8%99%9A%E6%8B%9F%E8%8A%82%E7%82%B9/">虚拟节点</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+    <div class="widget profile-card">
+  <img src="/chunk.github.io/my.jpg" alt="chunk" class="profile-avatar">
+  <h2 class="profile-name">chunk</h2>
+  <p class="profile-desc">专注技术资料分享</p>
+  
+  <div class="profile-stats">
+    <div class="profile-stat">
+      <span class="profile-stat-number">28</span>
+      <span class="profile-stat-label">文章</span>
+    </div>
+    <div class="profile-stat">
+      <span class="profile-stat-number">5</span>
+      <span class="profile-stat-label">标签</span>
+    </div>
+    <div class="profile-stat">
+      <span class="profile-stat-number">5</span>
+      <span class="profile-stat-label">分类</span>
+    </div>
+  </div>
+  
+  <div class="profile-section">
+    <div class="profile-section-title">📢 公告</div>
+    <div class="profile-section-content">
+      欢迎来到我的资料分享博客！这里整理和分享各种学习笔记和资料。
+    </div>
+  </div>
+  
+  <div class="profile-section">
+    <div class="profile-section-title">🔗 社交</div>
+    <div class="profile-section-content">
+      <a href="https://github.com/subingchunk-hue" target="_blank" style="color: #40E0D0; margin-right: 10px;">
+        <i class="fa fa-github"></i> GitHub
+      </a>
+    </div>
+  </div>
+</div>
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+        <a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by/4.0/">
+  <img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" />
+</a>
+<br/>
+本博客所有文章采用 <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">CC BY 4.0</a> 协议
+      
+      &copy; 2026 chunk<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/chunk.github.io/" class="mobile-nav-link">首页</a>
+  
+    <a href="/chunk.github.io/archives" class="mobile-nav-link">归档</a>
+  
+    <a href="/chunk.github.io/categories" class="mobile-nav-link">分类</a>
+  
+    <a href="/chunk.github.io/tags" class="mobile-nav-link">标签</a>
+  
+</nav>
+    
+
+
+<script src="/chunk.github.io/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/chunk.github.io/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/chunk.github.io/js/script.js"></script>
+
+
+<script src="/chunk.github.io/js/toc.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

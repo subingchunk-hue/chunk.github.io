@@ -1,3 +1,493 @@
-/* build time:Fri Jul 17 2026 11:36:59 GMT+0000 (Coordinated Universal Time)*/
-body,html{background:#1a1a2e;color:#e0e0e0}#container{background:#1a1a2e}#wrap{background:#1a1a2e}#header{background:#16213e}#header-outer{background:#16213e}#header-title{background:0 0}#logo{color:#fff}#logo:hover{color:#64b5f6}#subtitle{color:#b0b0b0}#main-nav{background:0 0}.main-nav-link{color:#e0e0e0}.main-nav-link:hover{color:#64b5f6}#sub-nav{background:0 0}.nav-icon{color:#e0e0e0}.nav-icon:hover{color:#64b5f6}#search-form-wrap{background:rgba(255,255,255,.1)}.search-form-input{color:#e0e0e0;background:0 0}#main{background:#1a1a2e}.outer{background:#1a1a2e}.archives-wrap{background:#1a1a2e}.archive-year-wrap{background:0 0}.archive-year{color:#64b5f6}.archive-year:hover{color:#90caf9}.archives{background:0 0}.archive-article{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.1);border-radius:6px;margin-bottom:10px;padding:12px}.archive-article:hover{background:rgba(255,255,255,.06)}.archive-article-inner{background:0 0}.archive-article-header{background:0 0}.archive-article-date{color:#b0b0b0}.archive-article-title{color:#e0e0e0}.archive-article-title:hover{color:#64b5f6}#page-nav{background:0 0}.page-number{color:#e0e0e0;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2)}.page-number:hover{background:rgba(255,255,255,.2)}.current{color:#fff;background:#64b5f6}.extend{color:#e0e0e0}.extend:hover{color:#64b5f6}#footer{background:#16213e;color:#e0e0e0}#footer-info{background:0 0}#footer-info a{color:#64b5f6}#footer-info a:hover{color:#90caf9}#sidebar{background:#1a1a2e}.widget{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.1);border-radius:6px;margin-bottom:15px;padding:15px}.widget-title{color:#fff;border-bottom:1px solid rgba(255,255,255,.2);padding-bottom:8px;margin-bottom:10px}.widget a{color:#e0e0e0}.widget a:hover{color:#64b5f6}.article{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.1);border-radius:6px;padding:20px}.article-header{background:0 0}.article-title{color:#fff}.article-entry{color:#e0e0e0}.article-entry h1,.article-entry h2,.article-entry h3,.article-entry h4,.article-entry h5,.article-entry h6{color:#fff}.article-entry a{color:#64b5f6}.article-entry a:hover{color:#90caf9}.article-entry p{color:#e0e0e0}.article-entry li{color:#e0e0e0}.highlight{background:rgba(0,0,0,.3);border-radius:6px}pre{background:rgba(0,0,0,.3)}code{color:#87ceeb;background:rgba(0,0,0,.2);padding:2px 6px;border-radius:3px}pre code{color:#87ceeb;background:0 0;padding:0}blockquote{color:plum;border-left:4px solid plum;background:rgba(221,160,221,.1);padding:10px 15px;border-radius:5px}table{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.1)}th{background:rgba(255,255,255,.1);color:#fff}td{color:#e0e0e0;border:1px solid rgba(255,255,255,.1)}.article-tag-list-link,.tagcloud a{color:#e0e0e0;background:rgba(255,255,255,.1);padding:2px 8px;border-radius:3px;text-decoration:none}.article-tag-list-link:hover,.tagcloud a:hover{background:rgba(255,255,255,.2)}.article-category-link{color:#64b5f6}.article-category-link:hover{color:#90caf9}.mobile-nav-on #wrap{background:rgba(0,0,0,.8)}
-/* rebuild by neat */
+/* 深色主题自定义样式 - 与 landscape 主题兼容 */
+
+/* 星空动画背景 - 蓝绿星空风格 */
+body {
+  background: linear-gradient(135deg, #020c1b 0%, #0a192f 30%, #0d2538 60%, #061a20 100%);
+  color: #e0e0e0;
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    radial-gradient(2px 2px at 20px 30px, #ffffff, transparent),
+    radial-gradient(2px 2px at 40px 70px, rgba(255,255,255,0.8), transparent),
+    radial-gradient(1px 1px at 90px 40px, #ffffff, transparent),
+    radial-gradient(2px 2px at 160px 120px, rgba(255,255,255,0.9), transparent),
+    radial-gradient(1px 1px at 230px 80px, #ffffff, transparent),
+    radial-gradient(2px 2px at 300px 150px, rgba(255,255,255,0.7), transparent),
+    radial-gradient(1px 1px at 370px 60px, #ffffff, transparent),
+    radial-gradient(2px 2px at 450px 200px, rgba(255,255,255,0.8), transparent),
+    radial-gradient(1px 1px at 520px 100px, #ffffff, transparent),
+    radial-gradient(2px 2px at 600px 180px, rgba(255,255,255,0.6), transparent),
+    radial-gradient(1px 1px at 680px 50px, #ffffff, transparent),
+    radial-gradient(2px 2px at 750px 220px, rgba(255,255,255,0.7), transparent),
+    radial-gradient(1px 1px at 850px 140px, #ffffff, transparent),
+    radial-gradient(2px 2px at 920px 80px, rgba(255,255,255,0.9), transparent),
+    radial-gradient(1px 1px at 1000px 190px, #ffffff, transparent),
+    radial-gradient(2px 2px at 1100px 130px, rgba(255,255,255,0.8), transparent),
+    radial-gradient(1px 1px at 1200px 70px, #ffffff, transparent);
+  background-repeat: repeat;
+  background-size: 1250px 250px;
+  animation: twinkle 8s ease-in-out infinite;
+  z-index: -1;
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+body::after {
+  content: '';
+  position: fixed;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: 
+    radial-gradient(circle at 20% 30%, rgba(64, 224, 208, 0.12) 0%, transparent 50%),
+    radial-gradient(circle at 80% 70%, rgba(30, 144, 255, 0.12) 0%, transparent 50%),
+    radial-gradient(circle at 40% 80%, rgba(0, 255, 127, 0.08) 0%, transparent 50%),
+    radial-gradient(circle at 60% 20%, rgba(72, 209, 204, 0.1) 0%, transparent 50%);
+  animation: float 20s ease-in-out infinite;
+  z-index: -2;
+}
+
+@keyframes float {
+  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+  25% { transform: translate(5%, 5%) rotate(1deg); }
+  50% { transform: translate(0, 10%) rotate(0deg); }
+  75% { transform: translate(-5%, 5%) rotate(-1deg); }
+}
+
+html, body {
+  background: transparent;
+  color: #e0e0e0;
+}
+
+/* 主容器 - 透明以显示星空背景 */
+#container {
+  background: transparent;
+}
+
+#wrap {
+  background: transparent;
+}
+
+/* 页眉 - 半透明毛玻璃效果 */
+#header {
+  background: rgba(6, 26, 38, 0.7);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(64, 224, 208, 0.2);
+}
+
+#header-outer {
+  background: transparent;
+}
+
+#header-title {
+  background: transparent;
+}
+
+#logo {
+  color: #ffffff;
+}
+
+#logo:hover {
+  color: #40E0D0;
+}
+
+#subtitle {
+  color: #b0b0b0;
+}
+
+/* 导航 */
+#main-nav {
+  background: transparent;
+}
+
+.main-nav-link {
+  color: #e0e0e0;
+}
+
+.main-nav-link:hover {
+  color: #40E0D0;
+}
+
+#sub-nav {
+  background: transparent;
+}
+
+.nav-icon {
+  color: #e0e0e0;
+}
+
+.nav-icon:hover {
+  color: #40E0D0;
+}
+
+/* 搜索框 */
+#search-form-wrap {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.search-form-input {
+  color: #e0e0e0;
+  background: transparent;
+}
+
+/* 主内容区 - 透明 */
+#main {
+  background: transparent;
+}
+
+.outer {
+  background: transparent;
+}
+
+/* 文章列表 - 兼容 landscape 原始类名 */
+.archives-wrap {
+  background: transparent;
+}
+
+.archive-year-wrap {
+  background: transparent;
+}
+
+.archive-year {
+  color: #40E0D0;
+  font-size: 1.8em;
+  text-shadow: 0 0 10px rgba(64, 224, 208, 0.5);
+}
+
+.archive-year:hover {
+  color: #7FFFD4;
+}
+
+.archives {
+  background: transparent;
+}
+
+.archive-article {
+  background: rgba(6, 26, 38, 0.5);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(64, 224, 208, 0.15);
+  border-radius: 8px;
+  margin-bottom: 12px;
+  padding: 15px;
+  transition: all 0.3s ease;
+}
+
+.archive-article:hover {
+  background: rgba(6, 26, 38, 0.7);
+  transform: translateX(5px);
+  box-shadow: 0 0 20px rgba(64, 224, 208, 0.25);
+}
+
+.archive-article-inner {
+  background: transparent;
+}
+
+.archive-article-header {
+  background: transparent;
+}
+
+.archive-article-date {
+  color: #b0b0b0;
+}
+
+.archive-article-title {
+  color: #e0e0e0;
+}
+
+.archive-article-title:hover {
+  color: #40E0D0;
+}
+
+/* 分页 */
+#page-nav {
+  background: transparent;
+}
+
+.page-number {
+  color: #e0e0e0;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.page-number:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.current {
+  color: #ffffff;
+  background: #40E0D0;
+}
+
+.extend {
+  color: #e0e0e0;
+}
+
+.extend:hover {
+  color: #40E0D0;
+}
+
+/* 页脚 */
+#footer {
+  background: rgba(6, 26, 38, 0.8);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  color: #e0e0e0;
+  border-top: 1px solid rgba(64, 224, 208, 0.2);
+}
+
+#footer-info {
+  background: transparent;
+}
+
+#footer-info a {
+  color: #40E0D0;
+}
+
+#footer-info a:hover {
+  color: #7FFFD4;
+}
+
+/* 侧边栏 - 如果启用 */
+#sidebar {
+  background: transparent;
+}
+
+.widget {
+  background: rgba(6, 26, 38, 0.6);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(64, 224, 208, 0.15);
+  border-radius: 12px;
+  margin-bottom: 15px;
+  padding: 20px;
+}
+
+/* 个人信息卡片 */
+.profile-card {
+  text-align: center;
+  padding: 25px 20px;
+  background: linear-gradient(135deg, rgba(64, 224, 208, 0.12), rgba(0, 255, 127, 0.12));
+  border: 1px solid rgba(64, 224, 208, 0.3);
+}
+
+.profile-avatar {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: 3px solid rgba(64, 224, 208, 0.5);
+  margin-bottom: 15px;
+  box-shadow: 0 0 20px rgba(64, 224, 208, 0.3);
+  object-fit: cover;
+}
+
+.profile-name {
+  font-size: 1.5em;
+  font-weight: bold;
+  color: #ffffff;
+  text-shadow: 0 0 10px rgba(64, 224, 208, 0.5);
+  margin-bottom: 5px;
+}
+
+.profile-desc {
+  font-size: 0.9em;
+  color: #a0a0a0;
+  margin-bottom: 20px;
+}
+
+.profile-stats {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-bottom: 20px;
+}
+
+.profile-stat {
+  text-align: center;
+}
+
+.profile-stat-number {
+  display: block;
+  font-size: 1.8em;
+  font-weight: bold;
+  color: #40E0D0;
+}
+
+.profile-stat-label {
+  display: block;
+  font-size: 0.75em;
+  color: #808080;
+}
+
+.profile-section {
+  margin-bottom: 15px;
+}
+
+.profile-section-title {
+  font-size: 0.85em;
+  color: #808080;
+  margin-bottom: 8px;
+  padding-left: 5px;
+}
+
+.profile-section-content {
+  font-size: 0.9em;
+  color: #e0e0e0;
+  line-height: 1.6;
+}
+
+.widget-title {
+  color: #ffffff;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  padding-bottom: 8px;
+  margin-bottom: 10px;
+}
+
+.widget a {
+  color: #e0e0e0;
+}
+
+.widget a:hover {
+  color: #40E0D0;
+}
+
+/* 文章详情页 */
+.article {
+  background: rgba(6, 26, 38, 0.5);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(64, 224, 208, 0.15);
+  border-radius: 8px;
+  padding: 20px;
+}
+
+.article-header {
+  background: transparent;
+}
+
+.article-title {
+  color: #ffffff;
+}
+
+.article-entry {
+  color: #e0e0e0;
+}
+
+.article-entry h1,
+.article-entry h2,
+.article-entry h3,
+.article-entry h4,
+.article-entry h5,
+.article-entry h6 {
+  color: #ffffff;
+}
+
+.article-entry a {
+  color: #40E0D0;
+}
+
+.article-entry a:hover {
+  color: #7FFFD4;
+}
+
+.article-entry p {
+  color: #e0e0e0;
+}
+
+.article-entry li {
+  color: #e0e0e0;
+}
+
+/* 代码块 */
+.highlight {
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 6px;
+}
+
+pre {
+  background: rgba(0, 0, 0, 0.3);
+}
+
+code {
+  color: #87CEEB;
+  background: rgba(0, 0, 0, 0.2);
+  padding: 2px 6px;
+  border-radius: 3px;
+}
+
+pre code {
+  color: #87CEEB;
+  background: transparent;
+  padding: 0;
+}
+
+/* 引用块 */
+blockquote {
+  color: #7FFFD4;
+  border-left: 4px solid #40E0D0;
+  background: rgba(64, 224, 208, 0.1);
+  padding: 10px 15px;
+  border-radius: 5px;
+}
+
+/* 表格 */
+table {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+th {
+  background: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+}
+
+td {
+  color: #e0e0e0;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* 标签 */
+.article-tag-list-link,
+.tagcloud a {
+  color: #40E0D0;
+  background: rgba(64, 224, 208, 0.1);
+  border: 1px solid rgba(64, 224, 208, 0.2);
+  padding: 2px 8px;
+  border-radius: 3px;
+  text-decoration: none;
+}
+
+.article-tag-list-link:hover,
+.tagcloud a:hover {
+  background: rgba(64, 224, 208, 0.25);
+  color: #7FFFD4;
+}
+
+/* 分类 */
+.article-category-link {
+  color: #40E0D0;
+}
+
+.article-category-link:hover {
+  color: #7FFFD4;
+}
+
+/* 移动端导航 */
+.mobile-nav-on #wrap {
+  background: rgba(0, 0, 0, 0.8);
+}
