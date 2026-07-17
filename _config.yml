@@ -86,11 +86,6 @@ ignore:
 # Theme - 主题配置
 theme: landscape
 
-# Inject custom CSS - 注入自定义CSS
-inject:
-  head:
-    - <link rel="stylesheet" href="/css/custom.css">
-
 # Deployment - 使用GitHub Actions自动部署
 # deploy:
 #   type: git
