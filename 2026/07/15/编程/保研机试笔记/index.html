@@ -4,17 +4,20 @@
   <meta charset="utf-8">
   
   
-  <title>归档 | Chunk Blog</title>
+  <title>保研机试笔记 | Chunk Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="Hexo 搭建的个人博客，用于分享学习笔记和经验">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Chunk Blog">
-<meta property="og:url" content="https://subingchunk-hue.github.io/chunk.github.io/archives/page/2/index.html">
+  <meta name="description" content="代码随想录算法学习回顾。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="保研机试笔记">
+<meta property="og:url" content="https://subingchunk-hue.github.io/chunk.github.io/2026/07/15/%E7%BC%96%E7%A8%8B/%E4%BF%9D%E7%A0%94%E6%9C%BA%E8%AF%95%E7%AC%94%E8%AE%B0/index.html">
 <meta property="og:site_name" content="Chunk Blog">
-<meta property="og:description" content="Hexo 搭建的个人博客，用于分享学习笔记和经验">
+<meta property="og:description" content="代码随想录算法学习回顾。">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2026-07-15T14:56:47.000Z">
+<meta property="article:modified_time" content="2026-07-18T05:47:54.869Z">
 <meta property="article:author" content="chunk">
-<meta property="article:tag" content="Hexo, 博客, 学习, 笔记">
+<meta property="article:tag" content="编程">
+<meta property="article:tag" content="保研">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternate" href="/chunk.github.io/atom.xml" title="Chunk Blog" type="application/atom+xml">
@@ -95,114 +98,70 @@
 </header>
 
       <div class="outer">
-        <section id="main">
-  
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/chunk.github.io/archives/2025" class="archive-year">2025</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/chunk.github.io/2025/03/18/%E5%AF%86%E7%A0%81%E5%AD%A6/%E5%8F%A4%E5%85%B8%E5%AF%86%E7%A0%81/" class="archive-article-date">
-  <time class="dt-published" datetime="2025-03-18T00:07:00.000Z" itemprop="datePublished">3月 18</time>
+        <section id="main"><article id="post-编程/保研机试笔记" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/chunk.github.io/2026/07/15/%E7%BC%96%E7%A8%8B/%E4%BF%9D%E7%A0%94%E6%9C%BA%E8%AF%95%E7%AC%94%E8%AE%B0/" class="article-date">
+  <time class="dt-published" datetime="2026-07-15T14:56:47.000Z" itemprop="datePublished">2026-07-15</time>
 </a>
-      
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/chunk.github.io/categories/%E7%BC%96%E7%A8%8B/">编程</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/chunk.github.io/2025/03/18/%E5%AF%86%E7%A0%81%E5%AD%A6/%E5%8F%A4%E5%85%B8%E5%AF%86%E7%A0%81/">古典密码</a>
+    <h1 class="p-name article-title" itemprop="headline name">
+      保研机试笔记
     </h1>
   
 
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
       
-        <div class="archive-article-excerpt">古典密码学基础，包括置换密码、移位密码等传统加密方法的原理和破解技术。</div>
+        <h3 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h3><h4 id="二分查找"><a href="#二分查找" class="headerlink" title="二分查找"></a>二分查找</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">int left=0, right=nums.size()-1;</span><br><span class="line">while(left &lt;= right)&#123;</span><br><span class="line">	int mid = left + (right - left) / 2;</span><br><span class="line">	if(nums[mid] &gt; target) &#123;</span><br><span class="line">		right = mid - 1;</span><br><span class="line">	&#125;</span><br><span class="line">	else if(nums[mid] &lt; target)&#123;</span><br><span class="line">		left = mid + 1;</span><br><span class="line">	&#125;</span><br><span class="line">	else return mid;</span><br><span class="line">&#125; </span><br><span class="line">return -1;</span><br></pre></td></tr></table></figure>
+
+
       
-    </header>
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://subingchunk-hue.github.io/chunk.github.io/2026/07/15/%E7%BC%96%E7%A8%8B/%E4%BF%9D%E7%A0%94%E6%9C%BA%E8%AF%95%E7%AC%94%E8%AE%B0/" data-id="cmrpy451k0020v81mh4991br3" data-title="保研机试笔记" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/chunk.github.io/tags/%E4%BF%9D%E7%A0%94/" rel="tag">保研</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/chunk.github.io/tags/%E7%BC%96%E7%A8%8B/" rel="tag">编程</a></li></ul>
+
+    </footer>
   </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/chunk.github.io/2026/07/17/%E7%BC%96%E7%A8%8B/Hot100%E9%A2%98/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">前一篇</strong>
+      <div class="article-nav-title">
+        
+          Hot100题
+        
+      </div>
+    </a>
+  
+  
+    <a href="/chunk.github.io/2025/09/25/%E7%BC%96%E7%A8%8B/%E5%B9%B6%E6%9F%A5%E9%9B%86/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">后一篇</strong>
+      <div class="article-nav-title">并查集</div>
+    </a>
+  
+</nav>
+
+  
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/chunk.github.io/2025/03/15/%E5%AF%86%E7%A0%81%E5%AD%A6/%E5%AF%86%E7%A0%81%E5%AD%A6%E5%9F%BA%E6%9C%AC%E7%9F%A5%E8%AF%86/" class="archive-article-date">
-  <time class="dt-published" datetime="2025-03-15T07:07:00.000Z" itemprop="datePublished">3月 15</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/chunk.github.io/2025/03/15/%E5%AF%86%E7%A0%81%E5%AD%A6/%E5%AF%86%E7%A0%81%E5%AD%A6%E5%9F%BA%E6%9C%AC%E7%9F%A5%E8%AF%86/">密码学基本知识</a>
-    </h1>
-  
 
-      
-        <div class="archive-article-excerpt">密码学入门基础知识，介绍密码编码学和密码分析学的基本概念、研究内容和应用领域。</div>
-      
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/chunk.github.io/2025/03/13/%E5%AF%86%E7%A0%81%E5%AD%A6/%E5%AF%86%E7%A0%81%E5%AD%A6%E5%8F%B2/" class="archive-article-date">
-  <time class="dt-published" datetime="2025-03-13T00:07:00.000Z" itemprop="datePublished">3月 13</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/chunk.github.io/2025/03/13/%E5%AF%86%E7%A0%81%E5%AD%A6/%E5%AF%86%E7%A0%81%E5%AD%A6%E5%8F%B2/">密码学史</a>
-    </h1>
-  
-
-      
-        <div class="archive-article-excerpt">密码学发展历史，从古典密码到现代密码学的演变过程和重要里程碑事件。</div>
-      
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/chunk.github.io/2025/03/11/%E5%AF%86%E7%A0%81%E5%AD%A6/%E5%AF%86%E7%A0%81%E5%AD%A6/" class="archive-article-date">
-  <time class="dt-published" datetime="2025-03-11T06:07:00.000Z" itemprop="datePublished">3月 11</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/chunk.github.io/2025/03/11/%E5%AF%86%E7%A0%81%E5%AD%A6/%E5%AF%86%E7%A0%81%E5%AD%A6/">密码学</a>
-    </h1>
-  
-
-      
-        <div class="archive-article-excerpt">密码学知识体系总览，涵盖古典密码、现代对称密码、公钥密码学等核心领域。</div>
-      
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-
-  <nav id="page-nav">
-    
-    <a class="extend prev" rel="prev" href="/chunk.github.io/archives/">&laquo; 上一页</a><a class="page-number" href="/chunk.github.io/archives/">1</a><span class="page-number current">2</span>
-  </nav>
 
 </section>
         
