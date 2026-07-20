@@ -5,6 +5,19 @@
     
     <entry>
       <title></title>
+      <link href="/chunk.github.io/2026/07/20/%E5%AF%86%E7%A0%81%E5%AD%A6/%E9%87%8F%E5%AD%90%E5%AF%86%E7%A0%81/"/>
+      <url>/chunk.github.io/2026/07/20/%E5%AF%86%E7%A0%81%E5%AD%A6/%E9%87%8F%E5%AD%90%E5%AF%86%E7%A0%81/</url>
+      
+        <content type="html"><![CDATA[<p>title: 量子密码<br>date: 2025-05-21 13:07:00<br>tags: [密码学,笔记]<br>categories: [密码学]</p><p>excerpt: 量子密码学基础知识，包括量子计算机原理和量子密码技术的安全性特点。</p><h3 id="量子计算机"><a href="#量子计算机" class="headerlink" title="量子计算机"></a>量子计算机</h3><ol><li><p>量子比特有1&#x2F;2的概率为状态|0&gt;和|1&gt;，所以&#x3D;&#x3D;量子计算机可以生成令传统电子计算机头疼的真正随机数&#x3D;&#x3D;。</p></li><li><p>在所有问题基本上都是可计算的情况下，如何构建新的密码体制</p><img src="/chunk.github.io/images/a5e5df8306ae414bef5ab87a819d679d.jpg" alt="a5e5df8306ae414bef5ab87a819d679d" style="zoom:50%;" /></li></ol><h3 id="量子密码学"><a href="#量子密码学" class="headerlink" title="量子密码学"></a>量子密码学</h3><ol><li>&#x3D;&#x3D;量子密码学不是用来取代现代密码学&#x3D;&#x3D;，而是要将量子密码学的优势和现代密码体制(如公钥密码体制)的优势结合起来，寻找新的应用领域。</li><li>量子密码的安全性基于量子状态的特性</li><li>目前，量子密码学主要用来实现对称密钥的分发，其优点：<ul><li>  密钥在公开信道中传输不必担心被窃听</li><li>  &#x3D;&#x3D;能检查出密钥在传输过程中是否被窃听&#x3D;&#x3D;</li></ul></li><li>量子密钥分发体制(QKD)的分类<ul><li>  基于不确定性原理</li><li>  基于量子纠缠态</li></ul></li><li>量子密钥学发展史<ul><li>  1970年，Wiesner（美国）提出量子密码学的思想。</li><li>  1984年，Bennett（IBM）和Brassard（Montreal大- 学）提出第一个量子密码的密钥分配协议，称为BB84协议。</li><li>  1991年，Ekert（牛津大学）提出基于纠缠量子的量子密钥分配协议(E91协议)，比BB84更灵活。</li><li>  1992年，Bennett指出只用两个非正交态即可实现量子密码通信，并提出B92协议。</li><li>  至此，量子密码通信三大主流协议(BB84、E91、B92)已基本形成。</li></ul></li></ol>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title></title>
       <link href="/chunk.github.io/2026/07/20/%E4%BF%9D%E7%A0%94/%E9%9D%A2%E8%AF%95/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E7%94%A8%E4%BA%8E%E6%9F%A5%E6%89%BE%E7%9A%84%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
       <url>/chunk.github.io/2026/07/20/%E4%BF%9D%E7%A0%94/%E9%9D%A2%E8%AF%95/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E7%94%A8%E4%BA%8E%E6%9F%A5%E6%89%BE%E7%9A%84%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</url>
       
@@ -17,11 +30,11 @@
     
     
     <entry>
-      <title>Hot100题</title>
+      <title>Leetcode Hot100 题解整理</title>
       <link href="/chunk.github.io/2026/07/17/%E4%BF%9D%E7%A0%94/%E6%9C%BA%E8%AF%95/Hot100%E9%A2%98/"/>
       <url>/chunk.github.io/2026/07/17/%E4%BF%9D%E7%A0%94/%E6%9C%BA%E8%AF%95/Hot100%E9%A2%98/</url>
       
-        <content type="html"><![CDATA[<p>刷题链接<a href="https://leetcode.cn/studyplan/top-100-liked/">click here</a></p><h3 id="哈希"><a href="#哈希" class="headerlink" title="哈希"></a>哈希</h3><p>常用容器与数据结构</p><h4 id="两数之和"><a href="#两数之和" class="headerlink" title="两数之和"></a>两数之和</h4><h4 id="字母异位词分组"><a href="#字母异位词分组" class="headerlink" title="字母异位词分组"></a>字母异位词分组</h4><h4 id="最长连续序列"><a href="#最长连续序列" class="headerlink" title="最长连续序列"></a>最长连续序列</h4><h3 id="双指针"><a href="#双指针" class="headerlink" title="双指针"></a>双指针</h3><h4 id="移动零"><a href="#移动零" class="headerlink" title="移动零"></a>移动零</h4><h3 id="滑动窗口"><a href="#滑动窗口" class="headerlink" title="滑动窗口"></a>滑动窗口</h3><h3 id="子串"><a href="#子串" class="headerlink" title="子串"></a>子串</h3><h3 id="普通数组"><a href="#普通数组" class="headerlink" title="普通数组"></a>普通数组</h3><h4 id="最大子数组和"><a href="#最大子数组和" class="headerlink" title="最大子数组和"></a>最大子数组和</h4><h3 id="矩阵"><a href="#矩阵" class="headerlink" title="矩阵"></a>矩阵</h3><h3 id="链表"><a href="#链表" class="headerlink" title="链表"></a>链表</h3><h4 id="相交链表"><a href="#相交链表" class="headerlink" title="相交链表"></a>相交链表</h4><h3 id="二叉树"><a href="#二叉树" class="headerlink" title="二叉树"></a>二叉树</h3><h3 id="图论"><a href="#图论" class="headerlink" title="图论"></a>图论</h3><h3 id="回溯"><a href="#回溯" class="headerlink" title="回溯"></a>回溯</h3><h4 id="全排列"><a href="#全排列" class="headerlink" title="全排列"></a>全排列</h4><h3 id="二分查找"><a href="#二分查找" class="headerlink" title="二分查找"></a>二分查找</h3><h4 id="搜索插入位置"><a href="#搜索插入位置" class="headerlink" title="搜索插入位置"></a>搜索插入位置</h4><h4 id="搜索二维矩阵"><a href="#搜索二维矩阵" class="headerlink" title="搜索二维矩阵"></a>搜索二维矩阵</h4><h3 id="栈"><a href="#栈" class="headerlink" title="栈"></a>栈</h3><h4 id="有效的括号"><a href="#有效的括号" class="headerlink" title="有效的括号"></a>有效的括号</h4><h3 id="堆"><a href="#堆" class="headerlink" title="堆"></a>堆</h3><h3 id="贪心算法"><a href="#贪心算法" class="headerlink" title="贪心算法"></a>贪心算法</h3><h4 id="买卖股票的最佳时机"><a href="#买卖股票的最佳时机" class="headerlink" title="买卖股票的最佳时机"></a>买卖股票的最佳时机</h4><h3 id="动态规划"><a href="#动态规划" class="headerlink" title="动态规划"></a>动态规划</h3><h4 id="爬楼梯"><a href="#爬楼梯" class="headerlink" title="爬楼梯"></a>爬楼梯</h4><h4 id="杨辉三角"><a href="#杨辉三角" class="headerlink" title="杨辉三角"></a>杨辉三角</h4><h3 id="多维动态规划"><a href="#多维动态规划" class="headerlink" title="多维动态规划"></a>多维动态规划</h3><h3 id="技巧"><a href="#技巧" class="headerlink" title="技巧"></a>技巧</h3><h4 id="只出现一次的数字"><a href="#只出现一次的数字" class="headerlink" title="只出现一次的数字"></a>只出现一次的数字</h4>]]></content>
+        <content type="html"><![CDATA[<p>刷题链接<a href="https://leetcode.cn/studyplan/top-100-liked/">click here</a></p><h3 id="哈希"><a href="#哈希" class="headerlink" title="哈希"></a>哈希</h3><p><strong>题目描述</strong>：</p><p>给定一个整数数组 <code>nums</code> 和一个整数目标值 <code>target</code>，请你在该数组中找出 <strong>和为目标值</strong> <em><code>target</code></em> 的那 <strong>两个</strong> 整数，并返回它们的数组下标。</p><p>你可以假设每种输入只会对应一个答案，并且你不能使用两次相同的元素。</p><p>你可以按任意顺序返回答案。</p><figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">示例：</span><br><span class="line">输入：nums = [2,7,11,15], target = 9</span><br><span class="line">输出：[0,1]</span><br><span class="line">解释：因为 nums[0] + nums[1] == 9 ，返回 [0, 1] 。</span><br></pre></td></tr></table></figure><h4 id="两数之和"><a href="#两数之和" class="headerlink" title="两数之和"></a>两数之和</h4><h4 id="字母异位词分组"><a href="#字母异位词分组" class="headerlink" title="字母异位词分组"></a>字母异位词分组</h4><h4 id="最长连续序列"><a href="#最长连续序列" class="headerlink" title="最长连续序列"></a>最长连续序列</h4><h3 id="双指针"><a href="#双指针" class="headerlink" title="双指针"></a>双指针</h3><h4 id="移动零"><a href="#移动零" class="headerlink" title="移动零"></a>移动零</h4><h3 id="滑动窗口"><a href="#滑动窗口" class="headerlink" title="滑动窗口"></a>滑动窗口</h3><h3 id="子串"><a href="#子串" class="headerlink" title="子串"></a>子串</h3><h3 id="普通数组"><a href="#普通数组" class="headerlink" title="普通数组"></a>普通数组</h3><h4 id="最大子数组和"><a href="#最大子数组和" class="headerlink" title="最大子数组和"></a>最大子数组和</h4><h3 id="矩阵"><a href="#矩阵" class="headerlink" title="矩阵"></a>矩阵</h3><h3 id="链表"><a href="#链表" class="headerlink" title="链表"></a>链表</h3><h4 id="相交链表"><a href="#相交链表" class="headerlink" title="相交链表"></a>相交链表</h4><h3 id="二叉树"><a href="#二叉树" class="headerlink" title="二叉树"></a>二叉树</h3><h3 id="图论"><a href="#图论" class="headerlink" title="图论"></a>图论</h3><h3 id="回溯"><a href="#回溯" class="headerlink" title="回溯"></a>回溯</h3><h4 id="全排列"><a href="#全排列" class="headerlink" title="全排列"></a>全排列</h4><h3 id="二分查找"><a href="#二分查找" class="headerlink" title="二分查找"></a>二分查找</h3><h4 id="搜索插入位置"><a href="#搜索插入位置" class="headerlink" title="搜索插入位置"></a>搜索插入位置</h4><h4 id="搜索二维矩阵"><a href="#搜索二维矩阵" class="headerlink" title="搜索二维矩阵"></a>搜索二维矩阵</h4><h3 id="栈"><a href="#栈" class="headerlink" title="栈"></a>栈</h3><h4 id="有效的括号"><a href="#有效的括号" class="headerlink" title="有效的括号"></a>有效的括号</h4><h3 id="堆"><a href="#堆" class="headerlink" title="堆"></a>堆</h3><h3 id="贪心算法"><a href="#贪心算法" class="headerlink" title="贪心算法"></a>贪心算法</h3><h4 id="买卖股票的最佳时机"><a href="#买卖股票的最佳时机" class="headerlink" title="买卖股票的最佳时机"></a>买卖股票的最佳时机</h4><h3 id="动态规划"><a href="#动态规划" class="headerlink" title="动态规划"></a>动态规划</h3><h4 id="爬楼梯"><a href="#爬楼梯" class="headerlink" title="爬楼梯"></a>爬楼梯</h4><h4 id="杨辉三角"><a href="#杨辉三角" class="headerlink" title="杨辉三角"></a>杨辉三角</h4><h3 id="多维动态规划"><a href="#多维动态规划" class="headerlink" title="多维动态规划"></a>多维动态规划</h3><h3 id="技巧"><a href="#技巧" class="headerlink" title="技巧"></a>技巧</h3><h4 id="只出现一次的数字"><a href="#只出现一次的数字" class="headerlink" title="只出现一次的数字"></a>只出现一次的数字</h4>]]></content>
       
       
       <categories>
@@ -507,33 +520,6 @@
             <tag> 编程 </tag>
             
             <tag> 竞赛 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>量子密码</title>
-      <link href="/chunk.github.io/2025/05/21/%E5%AF%86%E7%A0%81%E5%AD%A6/%E9%87%8F%E5%AD%90%E5%AF%86%E7%A0%81/"/>
-      <url>/chunk.github.io/2025/05/21/%E5%AF%86%E7%A0%81%E5%AD%A6/%E9%87%8F%E5%AD%90%E5%AF%86%E7%A0%81/</url>
-      
-        <content type="html"><![CDATA[<h3 id="量子计算机"><a href="#量子计算机" class="headerlink" title="量子计算机"></a>量子计算机</h3><ol><li><p>量子比特有1&#x2F;2的概率为状态|0&gt;和|1&gt;，所以&#x3D;&#x3D;量子计算机可以生成令传统电子计算机头疼的真正随机数&#x3D;&#x3D;。</p></li><li><p>在所有问题基本上都是可计算的情况下，如何构建新的密码体制</p><img src="/chunk.github.io/images/a5e5df8306ae414bef5ab87a819d679d.jpg" alt="a5e5df8306ae414bef5ab87a819d679d" style="zoom:50%;" /></li></ol><h3 id="量子密码学"><a href="#量子密码学" class="headerlink" title="量子密码学"></a>量子密码学</h3><ol><li>&#x3D;&#x3D;量子密码学不是用来取代现代密码学&#x3D;&#x3D;，而是要将量子密码学的优势和现代密码体制(如公钥密码体制)的优势结合起来，寻找新的应用领域。</li><li>量子密码的安全性基于量子状态的特性</li><li>目前，量子密码学主要用来实现对称密钥的分发，其优点：<ul><li>  密钥在公开信道中传输不必担心被窃听</li><li>  &#x3D;&#x3D;能检查出密钥在传输过程中是否被窃听&#x3D;&#x3D;</li></ul></li><li>量子密钥分发体制(QKD)的分类<ul><li>  基于不确定性原理</li><li>  基于量子纠缠态</li></ul></li><li>量子密钥学发展史<ul><li>  1970年，Wiesner（美国）提出量子密码学的思想。</li><li>  1984年，Bennett（IBM）和Brassard（Montreal大- 学）提出第一个量子密码的密钥分配协议，称为BB84协议。</li><li>  1991年，Ekert（牛津大学）提出基于纠缠量子的量子密钥分配协议(E91协议)，比BB84更灵活。</li><li>  1992年，Bennett指出只用两个非正交态即可实现量子密码通信，并提出B92协议。</li><li>  至此，量子密码通信三大主流协议(BB84、E91、B92)已基本形成。</li></ul></li></ol>]]></content>
-      
-      
-      <categories>
-          
-          <category> 密码学 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 密码学 </tag>
-            
-            <tag> 笔记 </tag>
             
         </tags>
       
