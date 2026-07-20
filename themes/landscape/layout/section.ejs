@@ -1,0 +1,17 @@
+<% var section = page.section; %>
+<% var sectionPosts = site.posts.filter(function(post){
+  return post.source.indexOf('_posts/' + section + '/') === 0;
+}).sort(function(a, b){
+  return b.date - a.date;
+}); %>
+
+<section class="section-page-wrap">
+  <div class="section-page-header">
+    <h1 class="section-page-title"><%= section %></h1>
+  </div>
+  <div class="section-posts">
+    <% sectionPosts.forEach(function(post, i){ %>
+      <%- partial('_partial/archive-post', {post: post, even: i % 2 == 0}) %>
+    <% }) %>
+  </div>
+</section>

@@ -1,1 +1,20 @@
-<%- partial('_partial/post-list') %>
+<% var sections = ['保研', '密码学', '小程序开发', '编程']; %>
+<% sections.forEach(function(section){ %>
+  <% var sectionPosts = site.posts.filter(function(post){
+    return post.source.indexOf('_posts/' + section + '/') === 0;
+  }).sort(function(a, b){
+    return b.date - a.date;
+  }).slice(0, 4); %>
+
+  <section class="section-wrap">
+    <div class="section-header">
+      <h2 class="section-title"><%= section %></h2>
+      <a href="<%- url_for(section + '/') %>" class="section-more">阅读更多 &raquo;</a>
+    </div>
+    <div class="section-posts">
+      <% sectionPosts.forEach(function(post, i){ %>
+        <%- partial('_partial/archive-post', {post: post, even: i % 2 == 0}) %>
+      <% }) %>
+    </div>
+  </section>
+<% }) %>
