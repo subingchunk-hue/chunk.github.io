@@ -592,6 +592,46 @@ td {
   display: block;
 }
 
+/* ===== 侧边栏分类和标签样式 ===== */
+.widget .category-list,
+.widget .tag-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.widget .category-list-item,
+.widget .tag-list-item {
+  display: inline-block;
+  margin: 4px 4px;
+  padding: 6px 12px;
+  background: rgba(64, 224, 208, 0.1);
+  border: 1px solid rgba(64, 224, 208, 0.3);
+  border-radius: 5px;
+  font-size: 0.9em;
+}
+
+.widget .category-list-item:hover,
+.widget .tag-list-item:hover {
+  background: rgba(64, 224, 208, 0.2);
+}
+
+.widget .category-list-item a,
+.widget .tag-list-item a {
+  color: #008B8B;
+  text-decoration: none;
+}
+
+.widget .category-list-item a:hover,
+.widget .tag-list-item a:hover {
+  color: #40E0D0;
+}
+
+/* 隐藏层级嵌套 */
+.widget .category-list-child {
+  display: none;
+}
+
 /* 分类页面 */
 .category-page-wrap,
 .tag-page-wrap {

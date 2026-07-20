@@ -13,33 +13,12 @@
 <meta property="og:site_name" content="Chunk Blog">
 <meta property="og:description" content="数据完整性保护技术，包括消息认证码（MAC）、数字签名等防篡改方法。">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://subingchunk-hue.github.io/chunk.github.io/images/4abeee7a2ba97d5ad9a047cccc5095e1.jpg">
-<meta property="og:image" content="https://subingchunk-hue.github.io/chunk.github.io/images/df6399e8d912125c6d75c10434666479.jpg">
-<meta property="og:image" content="https://subingchunk-hue.github.io/chunk.github.io/images/ca58aa4889c61b30d76ceab1a0c5e347.jpg">
-<meta property="og:image" content="https://subingchunk-hue.github.io/chunk.github.io/images/e088d18c360497d7055d29940b9779c9.jpg">
-<meta property="og:image" content="https://subingchunk-hue.github.io/chunk.github.io/images/09f4deb75dfc6368ef49d2e4e3df24b5.jpg">
-<meta property="og:image" content="https://subingchunk-hue.github.io/chunk.github.io/images/232aae079d92fa46c5e2433e07b00d5d.jpg">
-<meta property="og:image" content="https://subingchunk-hue.github.io/chunk.github.io/images/60626a899321c8ec8e8495dae949e240.jpg">
-<meta property="og:image" content="https://subingchunk-hue.github.io/chunk.github.io/images/f891c3003bb0e6ff215b4099fae4fc45.jpg">
-<meta property="og:image" content="https://subingchunk-hue.github.io/chunk.github.io/images/70434232a677748c370395b4641a0640.jpg">
-<meta property="og:image" content="https://subingchunk-hue.github.io/chunk.github.io/images/084d1d5b612ff6c1b290740811673717.jpg">
-<meta property="og:image" content="https://subingchunk-hue.github.io/chunk.github.io/images/11c1e9b12e95cbc656d5dbbcdcacbfb6.jpg">
-<meta property="og:image" content="https://subingchunk-hue.github.io/chunk.github.io/images/897ad1fc3d94d63cfc08e46bfc8b6150.jpg">
-<meta property="og:image" content="https://subingchunk-hue.github.io/chunk.github.io/images/65963870d49fe4d8af10fddad2221f4f.jpg">
-<meta property="og:image" content="https://subingchunk-hue.github.io/chunk.github.io/images/ecca3b66634a18ee9cf7b74633d56e3f.jpg">
-<meta property="og:image" content="https://subingchunk-hue.github.io/chunk.github.io/images/124cc8994a5500707a2e98fc1ce91274.jpg">
-<meta property="og:image" content="https://subingchunk-hue.github.io/chunk.github.io/images/b9cb4fd0406baed001438220b929582f.jpg">
-<meta property="og:image" content="https://subingchunk-hue.github.io/chunk.github.io/images/5d478b0565f4229d8dd0b78fc4bd109b.jpg">
-<meta property="og:image" content="https://subingchunk-hue.github.io/chunk.github.io/images/d406e001bbcd7e8bebad8aaf5da76dec.jpg">
-<meta property="og:image" content="https://subingchunk-hue.github.io/chunk.github.io/images/dd61fdd42360fbdcbe07a784d43c85ce.jpg">
-<meta property="og:image" content="https://subingchunk-hue.github.io/chunk.github.io/images/2de7feff00e391f50dceb7047ed245c7.jpg">
 <meta property="article:published_time" content="2025-04-14T23:17:00.000Z">
-<meta property="article:modified_time" content="2026-07-20T09:02:51.189Z">
+<meta property="article:modified_time" content="2026-07-20T09:16:36.578Z">
 <meta property="article:author" content="chunk">
 <meta property="article:tag" content="密码学">
 <meta property="article:tag" content="笔记">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://subingchunk-hue.github.io/chunk.github.io/images/4abeee7a2ba97d5ad9a047cccc5095e1.jpg">
   
     <link rel="alternate" href="/chunk.github.io/atom.xml" title="Chunk Blog" type="application/atom+xml">
   
@@ -191,20 +170,16 @@
 </li>
 </ul>
 </li>
-<li>安全模型和定义<img src="/chunk.github.io/images/4abeee7a2ba97d5ad9a047cccc5095e1.jpg" alt="4abeee7a2ba97d5ad9a047cccc5095e1" style="zoom:50%;" />
-一个MAC算法是安全的，则对于任意高效的攻击者A，他在上述安全模型中伪造成功的概率      **Adv = Pr[A伪造成功]**       是可忽略的。</li>
+<li>安全模型和定义<br>&lt;img src&#x3D;”&#x2F;chunk.github.io&#x2F;images&#x2F;4abeee7a2ba97d5ad9a047cccc5095e1.jpg” style&#x3D;”zoom:50%;” &#x2F;<br>一个MAC算法是安全的，则对于任意高效的攻击者A，他在上述安全模型中伪造成功的概率      <strong>Adv &#x3D; Pr[A伪造成功]</strong>       是可忽略的。</li>
 </ol>
 <h5 id="例题"><a href="#例题" class="headerlink" title="例题"></a>例题</h5><blockquote>
-<p>如果对于密钥空间 1&#x2F;2 的密钥，攻击者都可以找到两个消息 m₀ !&#x3D; m₁ 使得MAC(k,m₀) &#x3D; MAC(k,m₁) ，这个MAC安全吗？</p>
-<img src="/chunk.github.io/images/df6399e8d912125c6d75c10434666479.jpg" alt="df6399e8d912125c6d75c10434666479" style="zoom:50%;" />
-==MAC本身必须抗碰撞==
-如果MAC(k,m)的输出总是5比特，这个MAC安全吗？<img src="/chunk.github.io/images/ca58aa4889c61b30d76ceab1a0c5e347.jpg" alt="ca58aa4889c61b30d76ceab1a0c5e347" style="zoom:50%;" />
-     ==MAC的输出必须足够长==</blockquote>
+<p>如果对于密钥空间 1&#x2F;2 的密钥，攻击者都可以找到两个消息 m₀ !&#x3D; m₁ 使得MAC(k,m₀) &#x3D; MAC(k,m₁) ，这个MAC安全吗？<br>&lt;img src&#x3D;”&#x2F;chunk.github.io&#x2F;images&#x2F;df6399e8d912125c6d75c10434666479.jpg” style&#x3D;”zoom:50%;” &#x2F;<br>&#x3D;&#x3D;MAC本身必须抗碰撞&#x3D;&#x3D;<br>如果MAC(k,m)的输出总是5比特，这个MAC安全吗？<br>&lt;img src&#x3D;”&#x2F;chunk.github.io&#x2F;images&#x2F;ca58aa4889c61b30d76ceab1a0c5e347.jpg” style&#x3D;”zoom:50%;” &#x2F;<br>     &#x3D;&#x3D;MAC的输出必须足够长&#x3D;&#x3D;</p>
+</blockquote>
 <h3 id="MAC的构造"><a href="#MAC的构造" class="headerlink" title="MAC的构造"></a>MAC的构造</h3><ol>
 <li>PRF-based MACs</li>
 </ol>
 <ul>
-<li>定义：设F: K × X  ⟶ Y 是安全的PRF，构造 MAC如下:<br>MAC (k,m) &#x3D; F(k, m)<img src="/chunk.github.io/images/e088d18c360497d7055d29940b9779c9.jpg" alt="e088d18c360497d7055d29940b9779c9" style="zoom:50%;" /></li>
+<li>定义：设F: K × X  ⟶ Y 是安全的PRF，构造 MAC如下:<br>MAC (k,m) &#x3D; F(k, m)<br>&lt;img src&#x3D;”&#x2F;chunk.github.io&#x2F;images&#x2F;e088d18c360497d7055d29940b9779c9.jpg” style&#x3D;”zoom:50%;” &#x2F;</li>
 <li>定理<br>只要|Y|足够大，则安全的PRF⇒安全的MAC</li>
 <li>截取问题<br>从 PRF-based MACs 的输出中截取w-bit作为新的MAC，仍是安全的。<br>w大于等于64时是可忽略的</li>
 <li>缺点<ul>
@@ -217,14 +192,10 @@
 <ol start="2">
 <li><p>CBC-MAC(基于CBC模式)</p>
 <ul>
-<li><p>CBC-MAC</p>
-<img src="/chunk.github.io/images/09f4deb75dfc6368ef49d2e4e3df24b5.jpg" alt="09f4deb75dfc6368ef49d2e4e3df24b5" style="zoom:50%;" />
-
-<img src="/chunk.github.io/images/232aae079d92fa46c5e2433e07b00d5d.jpg" alt="232aae079d92fa46c5e2433e07b00d5d" style="zoom:50%;" />
+<li><p>CBC-MAC<br>&lt;img src&#x3D;”&#x2F;chunk.github.io&#x2F;images&#x2F;09f4deb75dfc6368ef49d2e4e3df24b5.jpg” style&#x3D;”zoom:50%;” &#x2F;</p>
+<p>&lt;img src&#x3D;”&#x2F;chunk.github.io&#x2F;images&#x2F;232aae079d92fa46c5e2433e07b00d5d.jpg” style&#x3D;”zoom:50%;” &#x2F;</p>
 </li>
-<li><p>ECBC-MAC</p>
-<img src="/chunk.github.io/images/60626a899321c8ec8e8495dae949e240.jpg" alt="60626a899321c8ec8e8495dae949e240" style="zoom:50%;" />
-
+<li><p>ECBC-MAC<br>&lt;img src&#x3D;”&#x2F;chunk.github.io&#x2F;images&#x2F;60626a899321c8ec8e8495dae949e240.jpg” style&#x3D;”zoom:50%;” &#x2F;</p>
 <ul>
 <li>填充 <ul>
 <li>如果消息不是分组的整数倍，需要进行填充</li>
@@ -239,9 +210,9 @@
 </li>
 <li>ISO填充方法：&#x3D;&#x3D;用“100…00”填充，需要的话可追加一个dummy block&#x3D;&#x3D;<ul>
 <li>1表示这串是填充的开始</li>
-<li>ISO标准的CBC-MAC</li>
+<li>ISO标准的CBC-MAC<br>&lt;img src&#x3D;”&#x2F;chunk.github.io&#x2F;images&#x2F;f891c3003bb0e6ff215b4099fae4fc45.jpg” style&#x3D;”zoom:50%;” &#x2F;</li>
 </ul>
-<img src="/chunk.github.io/images/f891c3003bb0e6ff215b4099fae4fc45.jpg" alt="f891c3003bb0e6ff215b4099fae4fc45" style="zoom:50%;" /></li>
+</li>
 </ul>
 </li>
 </ul>
@@ -255,7 +226,7 @@
 <li>Hash函数没有出口限制</li>
 </ul>
 </li>
-<li>模型<img src="/chunk.github.io/images/70434232a677748c370395b4641a0640.jpg" alt="70434232a677748c370395b4641a0640" style="zoom:50%;" /></li>
+<li>模型<br>&lt;img src&#x3D;”&#x2F;chunk.github.io&#x2F;images&#x2F;70434232a677748c370395b4641a0640.jpg” style&#x3D;”zoom:50%;” &#x2F;</li>
 </ul>
 </li>
 </ol>
@@ -266,10 +237,8 @@
 <li>目的：绑定签名者信息与文件</li>
 <li>问题：任何人都可使用</li>
 </ul>
-<h4 id="数字签名-1"><a href="#数字签名-1" class="headerlink" title="数字签名"></a>数字签名</h4>   <img src="/chunk.github.io/images/084d1d5b612ff6c1b290740811673717.jpg" alt="084d1d5b612ff6c1b290740811673717" style="zoom:50%;" />
-   
-<h4 id="数字签名体制定义"><a href="#数字签名体制定义" class="headerlink" title="数字签名体制定义"></a>数字签名体制定义</h4>   <img src="/chunk.github.io/images/11c1e9b12e95cbc656d5dbbcdcacbfb6.jpg" alt="11c1e9b12e95cbc656d5dbbcdcacbfb6" style="zoom:50%;" />
-
+<h4 id="数字签名-1"><a href="#数字签名-1" class="headerlink" title="数字签名"></a>数字签名</h4><p>   &lt;img src&#x3D;”&#x2F;chunk.github.io&#x2F;images&#x2F;084d1d5b612ff6c1b290740811673717.jpg” style&#x3D;”zoom:50%;” &#x2F;</p>
+<h4 id="数字签名体制定义"><a href="#数字签名体制定义" class="headerlink" title="数字签名体制定义"></a>数字签名体制定义</h4><p>   &lt;img src&#x3D;”&#x2F;chunk.github.io&#x2F;images&#x2F;11c1e9b12e95cbc656d5dbbcdcacbfb6.jpg” style&#x3D;”zoom:50%;” &#x2F;</p>
 <h4 id="数字签名体制的安全性"><a href="#数字签名体制的安全性" class="headerlink" title="数字签名体制的安全性"></a>数字签名体制的安全性</h4><ul>
 <li><h5 id="攻击形式"><a href="#攻击形式" class="headerlink" title="攻击形式"></a>攻击形式</h5><ul>
 <li>攻击者攻击能力：选择消息攻击攻击者<br>选择消息 m₁, …, mₚ ∈M, 他可以获得相应的签名        σᵢ &lt;- Sign (sk, mᵢ)</li>
@@ -277,22 +246,20 @@
 </ul>
 </li>
 <li><h5 id="直觉上的安全性"><a href="#直觉上的安全性" class="headerlink" title="直觉上的安全性"></a>直觉上的安全性</h5>攻击者不能为一个新消息产生有效的签名</li>
-<li><h5 id="安全模型和定义"><a href="#安全模型和定义" class="headerlink" title="安全模型和定义"></a>安全模型和定义</h5><img src="/chunk.github.io/images/897ad1fc3d94d63cfc08e46bfc8b6150.jpg" alt="897ad1fc3d94d63cfc08e46bfc8b6150" style="zoom:50%;" />
-一个数字签名体制是安全的，则对于任意高效的攻击者  A，在上述安全模型中伪造成功的概率         
-Adv := Pr[ A伪造成功 ]    是可忽略的</li>
-<li><h5 id="例题-1"><a href="#例题-1" class="headerlink" title="例题"></a>例题</h5><img src="/chunk.github.io/images/65963870d49fe4d8af10fddad2221f4f.jpg" alt="65963870d49fe4d8af10fddad2221f4f" style="zoom:50%;" /></li>
+<li><h5 id="安全模型和定义"><a href="#安全模型和定义" class="headerlink" title="安全模型和定义"></a>安全模型和定义</h5>&lt;img src&#x3D;”&#x2F;chunk.github.io&#x2F;images&#x2F;897ad1fc3d94d63cfc08e46bfc8b6150.jpg” style&#x3D;”zoom:50%;” &#x2F;<br>一个数字签名体制是安全的，则对于任意高效的攻击者  A，在上述安全模型中伪造成功的概率<br>Adv :&#x3D; Pr[ A伪造成功 ]    是可忽略的</li>
+<li><h5 id="例题-1"><a href="#例题-1" class="headerlink" title="例题"></a>例题</h5>&lt;img src&#x3D;”&#x2F;chunk.github.io&#x2F;images&#x2F;65963870d49fe4d8af10fddad2221f4f.jpg” style&#x3D;”zoom:50%;” &#x2F;</li>
 </ul>
 <h4 id="利用抗碰撞hash函数签署长消息"><a href="#利用抗碰撞hash函数签署长消息" class="headerlink" title="利用抗碰撞hash函数签署长消息"></a>利用抗碰撞hash函数签署长消息</h4><ul>
 <li>构造工具<ul>
 <li><p>数字签名体制SIG&#x3D;(Setup, Sign, Verify),消息空间为 M</p>
 </li>
-<li><p>函数：Hash函数</p>
-<img src="/chunk.github.io/images/ecca3b66634a18ee9cf7b74633d56e3f.jpg" alt="ecca3b66634a18ee9cf7b74633d56e3f" style="zoom:50%;" />
+<li><p>函数：Hash函数<br>&lt;img src&#x3D;”&#x2F;chunk.github.io&#x2F;images&#x2F;ecca3b66634a18ee9cf7b74633d56e3f.jpg” style&#x3D;”zoom:50%;” &#x2F;</p>
 </li>
 <li><p>安全性<br>如果 SIG 是安全的数字签名体制 (消息空间为 M)、H是抗碰撞Hash函数，则这个数字签名体制也是安全的</p>
 </li>
 <li><p>例题 </p>
-<img src="/chunk.github.io/images/124cc8994a5500707a2e98fc1ce91274.jpg" alt="124cc8994a5500707a2e98fc1ce91274" style="zoom:50%;" /></li>
+<p>&lt;img src&#x3D;”&#x2F;chunk.github.io&#x2F;images&#x2F;124cc8994a5500707a2e98fc1ce91274.jpg” style&#x3D;”zoom:50%;” &#x2F;</p>
+</li>
 </ul>
 </li>
 </ul>
@@ -302,32 +269,35 @@ Adv := Pr[ A伪造成功 ]    是可忽略的</li>
 <li>H: M -&gt; X，全域Hash函数<br><code>全域Hash不等同于全域Hash函数</code></li>
 </ul>
 </li>
-<li><h5 id="过程"><a href="#过程" class="headerlink" title="过程"></a>过程</h5><img src="/chunk.github.io/images/b9cb4fd0406baed001438220b929582f.jpg" alt="b9cb4fd0406baed001438220b929582f" style="zoom:50%;" /></li>
-<li><h5 id="例题-2"><a href="#例题-2" class="headerlink" title="例题"></a>例题</h5><img src="/chunk.github.io/images/5d478b0565f4229d8dd0b78fc4bd109b.jpg" alt="5d478b0565f4229d8dd0b78fc4bd109b" style="zoom:50%;" /></li>
+<li><h5 id="过程"><a href="#过程" class="headerlink" title="过程"></a>过程</h5>&lt;img src&#x3D;”&#x2F;chunk.github.io&#x2F;images&#x2F;b9cb4fd0406baed001438220b929582f.jpg” style&#x3D;”zoom:50%;” &#x2F;</li>
+<li><h5 id="例题-2"><a href="#例题-2" class="headerlink" title="例题"></a>例题</h5>&lt;img src&#x3D;”&#x2F;chunk.github.io&#x2F;images&#x2F;5d478b0565f4229d8dd0b78fc4bd109b.jpg” style&#x3D;”zoom:50%;” &#x2F;</li>
 </ul>
-<h4 id="RSA-FDH"><a href="#RSA-FDH" class="headerlink" title="RSA-FDH"></a>RSA-FDH</h4>   <img src="/chunk.github.io/images/d406e001bbcd7e8bebad8aaf5da76dec.jpg" alt="d406e001bbcd7e8bebad8aaf5da76dec" style="zoom:50%;" />
-### PKI(公钥基础设施)
-`校验者如何确定收到的是签名者的公钥？     依赖认证的信道 `
-##### 公钥证书
-   * 使用过程
-   <img src="/chunk.github.io/images/dd61fdd42360fbdcbe07a784d43c85ce.jpg" alt="dd61fdd42360fbdcbe07a784d43c85ce" style="zoom:50%;" />
-   * 逻辑形式：用户身份信息+用户公钥+CA的签名
-##### PKI
-   * 定义:一个使用公钥概念和密码技术实施和提供安全服务的具有普适性的安全基础设施的总称。
-   * 提醒：PKI不是特指某一个密码设备和管理设施，它是
-     - 生成、管理、存储、颁发和撤销公钥证书所需要的软硬件、人员、策略和规程的总和
-     - 提供密钥管理和数字签名服务的平台
-   * 密钥生命周期
-     <img src="/chunk.github.io/images/2de7feff00e391f50dceb7047ed245c7.jpg" alt="2de7feff00e391f50dceb7047ed245c7" style="zoom:50%;" />
-   * **X.509**公钥证书格式
-   * 相关产品
-     - VeriSign——最大的CA
-     - Entrust 公司——世界一流
+<h4 id="RSA-FDH"><a href="#RSA-FDH" class="headerlink" title="RSA-FDH"></a>RSA-FDH</h4><p>   &lt;img src&#x3D;”&#x2F;chunk.github.io&#x2F;images&#x2F;d406e001bbcd7e8bebad8aaf5da76dec.jpg” style&#x3D;”zoom:50%;” &#x2F;</p>
+<h3 id="PKI-公钥基础设施"><a href="#PKI-公钥基础设施" class="headerlink" title="PKI(公钥基础设施)"></a>PKI(公钥基础设施)</h3><p><code>校验者如何确定收到的是签名者的公钥？     依赖认证的信道 </code></p>
+<h5 id="公钥证书"><a href="#公钥证书" class="headerlink" title="公钥证书"></a>公钥证书</h5><ul>
+<li>使用过程<br>   &lt;img src&#x3D;”&#x2F;chunk.github.io&#x2F;images&#x2F;dd61fdd42360fbdcbe07a784d43c85ce.jpg” style&#x3D;”zoom:50%;” &#x2F;</li>
+<li>逻辑形式：用户身份信息+用户公钥+CA的签名</li>
+</ul>
+<h5 id="PKI"><a href="#PKI" class="headerlink" title="PKI"></a>PKI</h5><ul>
+<li>定义:一个使用公钥概念和密码技术实施和提供安全服务的具有普适性的安全基础设施的总称。</li>
+<li>提醒：PKI不是特指某一个密码设备和管理设施，它是<ul>
+<li>生成、管理、存储、颁发和撤销公钥证书所需要的软硬件、人员、策略和规程的总和</li>
+<li>提供密钥管理和数字签名服务的平台</li>
+</ul>
+</li>
+<li>密钥生命周期<br>&lt;img src&#x3D;”&#x2F;chunk.github.io&#x2F;images&#x2F;2de7feff00e391f50dceb7047ed245c7.jpg” style&#x3D;”zoom:50%;” &#x2F;</li>
+<li><strong>X.509</strong>公钥证书格式</li>
+<li>相关产品<ul>
+<li>VeriSign——最大的CA</li>
+<li>Entrust 公司——世界一流</li>
+</ul>
+</li>
+</ul>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://subingchunk-hue.github.io/chunk.github.io/2025/04/14/%E5%AF%86%E7%A0%81%E5%AD%A6/%E6%95%B0%E6%8D%AE%E5%AE%8C%E6%95%B4%E6%80%A7%E6%8A%80%E6%9C%AF/" data-id="cmrszygsb000yv81mhyoz0xm1" data-title="数据完整性技术" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      <a data-url="https://subingchunk-hue.github.io/chunk.github.io/2025/04/14/%E5%AF%86%E7%A0%81%E5%AD%A6/%E6%95%B0%E6%8D%AE%E5%AE%8C%E6%95%B4%E6%80%A7%E6%8A%80%E6%9C%AF/" data-id="cmrt0g6ac000yvx1m9hlnanzj" data-title="数据完整性技术" class="article-share-link"><span class="fa fa-share">分享</span></a>
       
       
       
@@ -368,7 +338,7 @@ Adv := Pr[ A伪造成功 ]    是可忽略的</li>
   <div class="widget-wrap">
     <h3 class="widget-title">分类</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/chunk.github.io/categories/CSP%E8%AE%A4%E8%AF%81/">CSP认证</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/chunk.github.io/categories/CSP%E8%AE%A4%E8%AF%81/%E7%BC%96%E7%A8%8B/">编程</a><span class="category-list-count">2</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/chunk.github.io/categories/%E5%AF%86%E7%A0%81%E5%AD%A6/">密码学</a><span class="category-list-count">14</span></li><li class="category-list-item"><a class="category-list-link" href="/chunk.github.io/categories/%E5%B0%8F%E7%A8%8B%E5%BA%8F/">小程序</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/chunk.github.io/categories/%E7%BC%96%E7%A8%8B/">编程</a><span class="category-list-count">11</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/chunk.github.io/categories/%E7%BC%96%E7%A8%8B/%E3%80%8A%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B%E5%85%A5%E9%97%A8%E7%BB%8F%E5%85%B8%E3%80%8B/">《算法竞赛入门经典》</a><span class="category-list-count">2</span></li></ul></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/chunk.github.io/categories/CSP%E8%AE%A4%E8%AF%81/">CSP认证</a></li><li class="category-list-item"><a class="category-list-link" href="/chunk.github.io/categories/%E5%AF%86%E7%A0%81%E5%AD%A6/">密码学</a></li><li class="category-list-item"><a class="category-list-link" href="/chunk.github.io/categories/%E5%B0%8F%E7%A8%8B%E5%BA%8F/">小程序</a></li><li class="category-list-item"><a class="category-list-link" href="/chunk.github.io/categories/%E7%BC%96%E7%A8%8B/">编程</a></li></ul>
     </div>
   </div>
 
@@ -378,7 +348,7 @@ Adv := Pr[ A伪造成功 ]    是可忽略的</li>
   <div class="widget-wrap">
     <h3 class="widget-title">标签</h3>
     <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/chunk.github.io/tags/CSP%E8%AE%A4%E8%AF%81/" rel="tag">CSP认证</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/chunk.github.io/tags/%E4%BF%9D%E7%A0%94/" rel="tag">保研</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/chunk.github.io/tags/%E5%AE%9E%E9%AA%8C/" rel="tag">实验</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/chunk.github.io/tags/%E5%AF%86%E7%A0%81%E5%AD%A6/" rel="tag">密码学</a><span class="tag-list-count">14</span></li><li class="tag-list-item"><a class="tag-list-link" href="/chunk.github.io/tags/%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91/" rel="tag">小程序开发</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/chunk.github.io/tags/%E6%B4%9B%E8%B0%B7/" rel="tag">洛谷</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/chunk.github.io/tags/%E7%AB%9E%E8%B5%9B/" rel="tag">竞赛</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/chunk.github.io/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a><span class="tag-list-count">14</span></li><li class="tag-list-item"><a class="tag-list-link" href="/chunk.github.io/tags/%E7%BC%96%E7%A8%8B/" rel="tag">编程</a><span class="tag-list-count">13</span></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/chunk.github.io/tags/CSP%E8%AE%A4%E8%AF%81/" rel="tag">CSP认证</a></li><li class="tag-list-item"><a class="tag-list-link" href="/chunk.github.io/tags/%E4%BF%9D%E7%A0%94/" rel="tag">保研</a></li><li class="tag-list-item"><a class="tag-list-link" href="/chunk.github.io/tags/%E5%AE%9E%E9%AA%8C/" rel="tag">实验</a></li><li class="tag-list-item"><a class="tag-list-link" href="/chunk.github.io/tags/%E5%AF%86%E7%A0%81%E5%AD%A6/" rel="tag">密码学</a></li><li class="tag-list-item"><a class="tag-list-link" href="/chunk.github.io/tags/%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91/" rel="tag">小程序开发</a></li><li class="tag-list-item"><a class="tag-list-link" href="/chunk.github.io/tags/%E6%B4%9B%E8%B0%B7/" rel="tag">洛谷</a></li><li class="tag-list-item"><a class="tag-list-link" href="/chunk.github.io/tags/%E7%AB%9E%E8%B5%9B/" rel="tag">竞赛</a></li><li class="tag-list-item"><a class="tag-list-link" href="/chunk.github.io/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/chunk.github.io/tags/%E7%BC%96%E7%A8%8B/" rel="tag">编程</a></li></ul>
     </div>
   </div>
 
@@ -397,7 +367,7 @@ Adv := Pr[ A伪造成功 ]    是可忽略的</li>
   <div class="widget-wrap">
     <h3 class="widget-title">归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/chunk.github.io/archives/2026/07/">七月 2026</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/chunk.github.io/archives/2025/09/">九月 2025</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/chunk.github.io/archives/2025/08/">八月 2025</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/chunk.github.io/archives/2025/05/">五月 2025</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/chunk.github.io/archives/2025/04/">四月 2025</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/chunk.github.io/archives/2025/03/">三月 2025</a><span class="archive-list-count">6</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/chunk.github.io/archives/2026/07/">七月 2026</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/chunk.github.io/archives/2025/09/">九月 2025</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/chunk.github.io/archives/2025/08/">八月 2025</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/chunk.github.io/archives/2025/05/">五月 2025</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/chunk.github.io/archives/2025/04/">四月 2025</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/chunk.github.io/archives/2025/03/">三月 2025</a><span class="archive-list-count">6</span></li></ul>
     </div>
   </div>
 
@@ -408,10 +378,6 @@ Adv := Pr[ A伪造成功 ]    是可忽略的</li>
     <h3 class="widget-title">最新文章</h3>
     <div class="widget">
       <ul>
-        
-          <li>
-            <a href="/chunk.github.io/2026/07/20/%E5%AF%86%E7%A0%81%E5%AD%A6/%E9%87%8F%E5%AD%90%E5%AF%86%E7%A0%81/">(no title)</a>
-          </li>
         
           <li>
             <a href="/chunk.github.io/2026/07/20/%E4%BF%9D%E7%A0%94/%E9%9D%A2%E8%AF%95/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E7%94%A8%E4%BA%8E%E6%9F%A5%E6%89%BE%E7%9A%84%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">(no title)</a>
@@ -427,6 +393,10 @@ Adv := Pr[ A伪造成功 ]    是可忽略的</li>
         
           <li>
             <a href="/chunk.github.io/2025/09/25/%E7%BC%96%E7%A8%8B/%E5%B9%B6%E6%9F%A5%E9%9B%86/">并查集</a>
+          </li>
+        
+          <li>
+            <a href="/chunk.github.io/2025/09/20/%E7%BC%96%E7%A8%8B/%E7%BB%8F%E5%85%B8%E8%83%8C%E5%8C%85/">经典背包</a>
           </li>
         
       </ul>

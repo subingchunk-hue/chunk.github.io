@@ -13,22 +13,12 @@
 <meta property="og:site_name" content="Chunk Blog">
 <meta property="og:description" content="椭圆曲线密码学（ECC）基础知识，包括椭圆曲线数学原理和密码学应用。">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://subingchunk-hue.github.io/chunk.github.io/images/2c7636b09a33ffcd3c058b230795f2d6.jpg">
-<meta property="og:image" content="https://subingchunk-hue.github.io/chunk.github.io/images/b5ced4ae3206f0a942e7d3f65890710c.jpg">
-<meta property="og:image" content="https://subingchunk-hue.github.io/chunk.github.io/images/cb281f805c3ea0a6c0ce4d9b1c1b3676.jpg">
-<meta property="og:image" content="https://subingchunk-hue.github.io/chunk.github.io/images/2282d0f5ae1d11310c479ad8c771a75a.jpg">
-<meta property="og:image" content="https://subingchunk-hue.github.io/chunk.github.io/images/b15a1c11bd2e9c104ba106dcfd4f5bc6.jpg">
-<meta property="og:image" content="https://subingchunk-hue.github.io/chunk.github.io/images/1d2ed5b44eb880b5193fd7e4ceaf3b96.jpg">
-<meta property="og:image" content="https://subingchunk-hue.github.io/chunk.github.io/images/cb6745994e46dc3d0f07544edcde88c8.jpg">
-<meta property="og:image" content="https://subingchunk-hue.github.io/chunk.github.io/images/11c28257d11aff4303ca8c9ebeaec45c.jpg">
-<meta property="og:image" content="https://subingchunk-hue.github.io/chunk.github.io/images/1de31e27b7c2e6baf00c45134a274228.jpg">
 <meta property="article:published_time" content="2025-04-20T02:30:00.000Z">
-<meta property="article:modified_time" content="2026-07-20T09:02:51.189Z">
+<meta property="article:modified_time" content="2026-07-20T09:16:36.578Z">
 <meta property="article:author" content="chunk">
 <meta property="article:tag" content="密码学">
 <meta property="article:tag" content="笔记">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://subingchunk-hue.github.io/chunk.github.io/images/2c7636b09a33ffcd3c058b230795f2d6.jpg">
   
     <link rel="alternate" href="/chunk.github.io/atom.xml" title="Chunk Blog" type="application/atom+xml">
   
@@ -130,34 +120,28 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <h3 id="ECC"><a href="#ECC" class="headerlink" title="ECC"></a>ECC</h3><img src="/chunk.github.io/images/2c7636b09a33ffcd3c058b230795f2d6.jpg" alt="2c7636b09a33ffcd3c058b230795f2d6" style="zoom:50%;" />
-
-<img src="/chunk.github.io/images/b5ced4ae3206f0a942e7d3f65890710c.jpg" alt="b5ced4ae3206f0a942e7d3f65890710c" style="zoom:50%;" />
-
-<img src="/chunk.github.io/images/cb281f805c3ea0a6c0ce4d9b1c1b3676.jpg" alt="cb281f805c3ea0a6c0ce4d9b1c1b3676" style="zoom:50%;" />
-
-<h3 id="ECC版DH协议"><a href="#ECC版DH协议" class="headerlink" title="ECC版DH协议"></a>ECC版DH协议</h3><h4 id="ECC版DH协议-1"><a href="#ECC版DH协议-1" class="headerlink" title="ECC版DH协议"></a>ECC版DH协议</h4><p>   选择椭圆曲线E（Fₚ），选择其上一点P，P的阶是一个非常大的素数。<br>   <img src="/chunk.github.io/images/2282d0f5ae1d11310c479ad8c771a75a.jpg" alt="2282d0f5ae1d11310c479ad8c771a75a" style="zoom:50%;" /></p>
+        <h3 id="ECC"><a href="#ECC" class="headerlink" title="ECC"></a>ECC</h3><p>&lt;img src&#x3D;”&#x2F;chunk.github.io&#x2F;images&#x2F;2c7636b09a33ffcd3c058b230795f2d6.jpg” style&#x3D;”zoom:50%;” &#x2F;</p>
+<p>&lt;img src&#x3D;”&#x2F;chunk.github.io&#x2F;images&#x2F;b5ced4ae3206f0a942e7d3f65890710c.jpg” style&#x3D;”zoom:50%;” &#x2F;</p>
+<p>&lt;img src&#x3D;”&#x2F;chunk.github.io&#x2F;images&#x2F;cb281f805c3ea0a6c0ce4d9b1c1b3676.jpg” style&#x3D;”zoom:50%;” &#x2F;</p>
+<h3 id="ECC版DH协议"><a href="#ECC版DH协议" class="headerlink" title="ECC版DH协议"></a>ECC版DH协议</h3><h4 id="ECC版DH协议-1"><a href="#ECC版DH协议-1" class="headerlink" title="ECC版DH协议"></a>ECC版DH协议</h4><p>   选择椭圆曲线E（Fₚ），选择其上一点P，P的阶是一个非常大的素数。<br>   &lt;img src&#x3D;”&#x2F;chunk.github.io&#x2F;images&#x2F;2282d0f5ae1d11310c479ad8c771a75a.jpg” style&#x3D;”zoom:50%;” &#x2F;</p>
 <h4 id="安全性"><a href="#安全性" class="headerlink" title="安全性"></a>安全性</h4><p>   窃听者看到：E(Fₚ) , P,   Yᴀ&#x3D;xP,  Yʙ&#x3D;yP ——&gt; xyP<br>   如果 xyP 难以计算，那么ECC版Diffie-Hellman密钥交换协议可以抵抗窃听<br>   安全性基于 <strong>椭圆曲线上的Diffie-Hellman 问题</strong><br>   <code>缺少认证 可被中间人攻击</code></p>
 <h4 id="椭圆曲线上的Diffie-Hellman问题（都在计算上不可行）"><a href="#椭圆曲线上的Diffie-Hellman问题（都在计算上不可行）" class="headerlink" title="椭圆曲线上的Diffie-Hellman问题（都在计算上不可行）"></a>椭圆曲线上的Diffie-Hellman问题（都在计算上不可行）</h4><p>   给定 E(Fₚ)，以及 (P,  xP, yP)</p>
 <ul>
 <li>计算Diffie-Hellman问题 (CDH)<br>计算 xyP</li>
 <li>判定Diffie-Hellman问题 (DDH)<br>给定 点 T∈ E(Fp) ，判断 T 是否等于 xyP</li>
 </ul>
-<h3 id="双线性映射"><a href="#双线性映射" class="headerlink" title="双线性映射"></a>双线性映射</h3><h4 id="超奇异椭圆曲线是有限域上一种特殊的椭圆曲线"><a href="#超奇异椭圆曲线是有限域上一种特殊的椭圆曲线" class="headerlink" title="超奇异椭圆曲线是有限域上一种特殊的椭圆曲线"></a>超奇异椭圆曲线是有限域上一种特殊的椭圆曲线</h4><h4 id="双线性映射：一种可以将曲线上两个点映射到基域上的一个元素的算法"><a href="#双线性映射：一种可以将曲线上两个点映射到基域上的一个元素的算法" class="headerlink" title="双线性映射：一种可以将曲线上两个点映射到基域上的一个元素的算法"></a>双线性映射：一种可以将曲线上两个点映射到基域上的一个元素的算法</h4>   <img src="/chunk.github.io/images/b15a1c11bd2e9c104ba106dcfd4f5bc6.jpg" alt="b15a1c11bd2e9c104ba106dcfd4f5bc6" style="zoom: 50%;" />
-
-<h4 id="性质"><a href="#性质" class="headerlink" title="性质"></a>性质</h4><p>   设p是大素数，加法群 G₁ 和乘法群 G₂ 都是p阶循环群。双线性映射 e:G₁×G₁→G₂满足以下性质：<br>  <img src="/chunk.github.io/images/1d2ed5b44eb880b5193fd7e4ceaf3b96.jpg" alt="1d2ed5b44eb880b5193fd7e4ceaf3b96" style="zoom:50%;" /><br>    通常，取G₁为有限域上超奇异椭圆曲线，G₂为G₁的基域乘法群      </p>
+<h3 id="双线性映射"><a href="#双线性映射" class="headerlink" title="双线性映射"></a>双线性映射</h3><h4 id="超奇异椭圆曲线是有限域上一种特殊的椭圆曲线"><a href="#超奇异椭圆曲线是有限域上一种特殊的椭圆曲线" class="headerlink" title="超奇异椭圆曲线是有限域上一种特殊的椭圆曲线"></a>超奇异椭圆曲线是有限域上一种特殊的椭圆曲线</h4><h4 id="双线性映射：一种可以将曲线上两个点映射到基域上的一个元素的算法"><a href="#双线性映射：一种可以将曲线上两个点映射到基域上的一个元素的算法" class="headerlink" title="双线性映射：一种可以将曲线上两个点映射到基域上的一个元素的算法"></a>双线性映射：一种可以将曲线上两个点映射到基域上的一个元素的算法</h4><p>   &lt;img src&#x3D;”&#x2F;chunk.github.io&#x2F;images&#x2F;b15a1c11bd2e9c104ba106dcfd4f5bc6.jpg” style&#x3D;”zoom: 50%;” &#x2F;</p>
+<h4 id="性质"><a href="#性质" class="headerlink" title="性质"></a>性质</h4><p>   设p是大素数，加法群 G₁ 和乘法群 G₂ 都是p阶循环群。双线性映射 e:G₁×G₁→G₂满足以下性质：<br>  &lt;img src&#x3D;”&#x2F;chunk.github.io&#x2F;images&#x2F;1d2ed5b44eb880b5193fd7e4ceaf3b96.jpg” style&#x3D;”zoom:50%;” &#x2F;<br>    通常，取G₁为有限域上超奇异椭圆曲线，G₂为G₁的基域乘法群      </p>
 <h4 id="支持双线性映射的开发包：PBC-Library、relic-toolkit、MIRACL"><a href="#支持双线性映射的开发包：PBC-Library、relic-toolkit、MIRACL" class="headerlink" title="支持双线性映射的开发包：PBC Library、relic-toolkit、MIRACL"></a>支持双线性映射的开发包：PBC Library、relic-toolkit、MIRACL</h4><h4 id="优缺点"><a href="#优缺点" class="headerlink" title="优缺点"></a>优缺点</h4><p>   优点：提供了丰富的运算性质，可以满足以前难以满足的安全需求<br>   缺点：目前的计算速度较为缓慢</p>
 <h4 id="有限域上超奇异椭圆曲线中，DDH问题不在困难"><a href="#有限域上超奇异椭圆曲线中，DDH问题不在困难" class="headerlink" title="有限域上超奇异椭圆曲线中，DDH问题不在困难"></a><strong>有限域上超奇异椭圆曲线中，DDH问题不在困难</strong></h4><p>   给定 E(Fₚ)，P,  xP,  yP，以及 T，很容易判断 T 是否等于 xyP</p>
-   <img src="/chunk.github.io/images/cb6745994e46dc3d0f07544edcde88c8.jpg" alt="cb6745994e46dc3d0f07544edcde88c8" style="zoom:50%;" />
-
-<h4 id="三方Diffie-Hellman密钥交换协议"><a href="#三方Diffie-Hellman密钥交换协议" class="headerlink" title="三方Diffie-Hellman密钥交换协议"></a>三方Diffie-Hellman密钥交换协议</h4>   <img src="/chunk.github.io/images/11c28257d11aff4303ca8c9ebeaec45c.jpg" alt="11c28257d11aff4303ca8c9ebeaec45c" style="zoom:50%;" />
-
-<h4 id="Bilinear-Diffie-Hellman问题（BDH）"><a href="#Bilinear-Diffie-Hellman问题（BDH）" class="headerlink" title="Bilinear Diffie-Hellman问题（BDH）"></a>Bilinear Diffie-Hellman问题（BDH）</h4><p>给定 G₁，G₂, 以及 P, aP, bP, cP,<br>计算 e(P, P)ᵃᵇᶜ<br>计算上不可行<br><img src="/chunk.github.io/images/1de31e27b7c2e6baf00c45134a274228.jpg" alt="1de31e27b7c2e6baf00c45134a274228" style="zoom:50%;" /></p>
+<p>   &lt;img src&#x3D;”&#x2F;chunk.github.io&#x2F;images&#x2F;cb6745994e46dc3d0f07544edcde88c8.jpg” style&#x3D;”zoom:50%;” &#x2F;</p>
+<h4 id="三方Diffie-Hellman密钥交换协议"><a href="#三方Diffie-Hellman密钥交换协议" class="headerlink" title="三方Diffie-Hellman密钥交换协议"></a>三方Diffie-Hellman密钥交换协议</h4><p>   &lt;img src&#x3D;”&#x2F;chunk.github.io&#x2F;images&#x2F;11c28257d11aff4303ca8c9ebeaec45c.jpg” style&#x3D;”zoom:50%;” &#x2F;</p>
+<h4 id="Bilinear-Diffie-Hellman问题（BDH）"><a href="#Bilinear-Diffie-Hellman问题（BDH）" class="headerlink" title="Bilinear Diffie-Hellman问题（BDH）"></a>Bilinear Diffie-Hellman问题（BDH）</h4><p>给定 G₁，G₂, 以及 P, aP, bP, cP,<br>计算 e(P, P)ᵃᵇᶜ<br>计算上不可行<br>&lt;img src&#x3D;”&#x2F;chunk.github.io&#x2F;images&#x2F;1de31e27b7c2e6baf00c45134a274228.jpg” style&#x3D;”zoom:50%;” &#x2F;</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://subingchunk-hue.github.io/chunk.github.io/2025/04/20/%E5%AF%86%E7%A0%81%E5%AD%A6/%E6%A4%AD%E5%9C%86%E6%9B%B2%E7%BA%BF%E5%AF%86%E7%A0%81%E5%AD%A6/" data-id="cmrszygsc0012v81m080a1b7c" data-title="椭圆曲线密码学" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      <a data-url="https://subingchunk-hue.github.io/chunk.github.io/2025/04/20/%E5%AF%86%E7%A0%81%E5%AD%A6/%E6%A4%AD%E5%9C%86%E6%9B%B2%E7%BA%BF%E5%AF%86%E7%A0%81%E5%AD%A6/" data-id="cmrt0g6ad0012vx1mb0uc8yu8" data-title="椭圆曲线密码学" class="article-share-link"><span class="fa fa-share">分享</span></a>
       
       
       
@@ -198,7 +182,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">分类</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/chunk.github.io/categories/CSP%E8%AE%A4%E8%AF%81/">CSP认证</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/chunk.github.io/categories/CSP%E8%AE%A4%E8%AF%81/%E7%BC%96%E7%A8%8B/">编程</a><span class="category-list-count">2</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/chunk.github.io/categories/%E5%AF%86%E7%A0%81%E5%AD%A6/">密码学</a><span class="category-list-count">14</span></li><li class="category-list-item"><a class="category-list-link" href="/chunk.github.io/categories/%E5%B0%8F%E7%A8%8B%E5%BA%8F/">小程序</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/chunk.github.io/categories/%E7%BC%96%E7%A8%8B/">编程</a><span class="category-list-count">11</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/chunk.github.io/categories/%E7%BC%96%E7%A8%8B/%E3%80%8A%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B%E5%85%A5%E9%97%A8%E7%BB%8F%E5%85%B8%E3%80%8B/">《算法竞赛入门经典》</a><span class="category-list-count">2</span></li></ul></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/chunk.github.io/categories/CSP%E8%AE%A4%E8%AF%81/">CSP认证</a></li><li class="category-list-item"><a class="category-list-link" href="/chunk.github.io/categories/%E5%AF%86%E7%A0%81%E5%AD%A6/">密码学</a></li><li class="category-list-item"><a class="category-list-link" href="/chunk.github.io/categories/%E5%B0%8F%E7%A8%8B%E5%BA%8F/">小程序</a></li><li class="category-list-item"><a class="category-list-link" href="/chunk.github.io/categories/%E7%BC%96%E7%A8%8B/">编程</a></li></ul>
     </div>
   </div>
 
@@ -208,7 +192,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">标签</h3>
     <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/chunk.github.io/tags/CSP%E8%AE%A4%E8%AF%81/" rel="tag">CSP认证</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/chunk.github.io/tags/%E4%BF%9D%E7%A0%94/" rel="tag">保研</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/chunk.github.io/tags/%E5%AE%9E%E9%AA%8C/" rel="tag">实验</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/chunk.github.io/tags/%E5%AF%86%E7%A0%81%E5%AD%A6/" rel="tag">密码学</a><span class="tag-list-count">14</span></li><li class="tag-list-item"><a class="tag-list-link" href="/chunk.github.io/tags/%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91/" rel="tag">小程序开发</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/chunk.github.io/tags/%E6%B4%9B%E8%B0%B7/" rel="tag">洛谷</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/chunk.github.io/tags/%E7%AB%9E%E8%B5%9B/" rel="tag">竞赛</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/chunk.github.io/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a><span class="tag-list-count">14</span></li><li class="tag-list-item"><a class="tag-list-link" href="/chunk.github.io/tags/%E7%BC%96%E7%A8%8B/" rel="tag">编程</a><span class="tag-list-count">13</span></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/chunk.github.io/tags/CSP%E8%AE%A4%E8%AF%81/" rel="tag">CSP认证</a></li><li class="tag-list-item"><a class="tag-list-link" href="/chunk.github.io/tags/%E4%BF%9D%E7%A0%94/" rel="tag">保研</a></li><li class="tag-list-item"><a class="tag-list-link" href="/chunk.github.io/tags/%E5%AE%9E%E9%AA%8C/" rel="tag">实验</a></li><li class="tag-list-item"><a class="tag-list-link" href="/chunk.github.io/tags/%E5%AF%86%E7%A0%81%E5%AD%A6/" rel="tag">密码学</a></li><li class="tag-list-item"><a class="tag-list-link" href="/chunk.github.io/tags/%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91/" rel="tag">小程序开发</a></li><li class="tag-list-item"><a class="tag-list-link" href="/chunk.github.io/tags/%E6%B4%9B%E8%B0%B7/" rel="tag">洛谷</a></li><li class="tag-list-item"><a class="tag-list-link" href="/chunk.github.io/tags/%E7%AB%9E%E8%B5%9B/" rel="tag">竞赛</a></li><li class="tag-list-item"><a class="tag-list-link" href="/chunk.github.io/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/chunk.github.io/tags/%E7%BC%96%E7%A8%8B/" rel="tag">编程</a></li></ul>
     </div>
   </div>
 
@@ -227,7 +211,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/chunk.github.io/archives/2026/07/">七月 2026</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/chunk.github.io/archives/2025/09/">九月 2025</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/chunk.github.io/archives/2025/08/">八月 2025</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/chunk.github.io/archives/2025/05/">五月 2025</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/chunk.github.io/archives/2025/04/">四月 2025</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/chunk.github.io/archives/2025/03/">三月 2025</a><span class="archive-list-count">6</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/chunk.github.io/archives/2026/07/">七月 2026</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/chunk.github.io/archives/2025/09/">九月 2025</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/chunk.github.io/archives/2025/08/">八月 2025</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/chunk.github.io/archives/2025/05/">五月 2025</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/chunk.github.io/archives/2025/04/">四月 2025</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/chunk.github.io/archives/2025/03/">三月 2025</a><span class="archive-list-count">6</span></li></ul>
     </div>
   </div>
 
@@ -238,10 +222,6 @@
     <h3 class="widget-title">最新文章</h3>
     <div class="widget">
       <ul>
-        
-          <li>
-            <a href="/chunk.github.io/2026/07/20/%E5%AF%86%E7%A0%81%E5%AD%A6/%E9%87%8F%E5%AD%90%E5%AF%86%E7%A0%81/">(no title)</a>
-          </li>
         
           <li>
             <a href="/chunk.github.io/2026/07/20/%E4%BF%9D%E7%A0%94/%E9%9D%A2%E8%AF%95/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E7%94%A8%E4%BA%8E%E6%9F%A5%E6%89%BE%E7%9A%84%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">(no title)</a>
@@ -257,6 +237,10 @@
         
           <li>
             <a href="/chunk.github.io/2025/09/25/%E7%BC%96%E7%A8%8B/%E5%B9%B6%E6%9F%A5%E9%9B%86/">并查集</a>
+          </li>
+        
+          <li>
+            <a href="/chunk.github.io/2025/09/20/%E7%BC%96%E7%A8%8B/%E7%BB%8F%E5%85%B8%E8%83%8C%E5%8C%85/">经典背包</a>
           </li>
         
       </ul>
