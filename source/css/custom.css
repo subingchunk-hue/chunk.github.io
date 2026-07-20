@@ -592,3 +592,74 @@ td {
   display: block;
 }
 
+/* 分类页面 */
+.category-page-wrap,
+.tag-page-wrap {
+  padding: 20px;
+}
+
+.category-cloud,
+.tag-cloud {
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(64, 224, 208, 0.3);
+  border-radius: 8px;
+  padding: 20px;
+  margin-top: 20px;
+}
+
+.category-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.category-list-item {
+  margin: 10px 0;
+  padding: 10px 15px;
+  background: rgba(64, 224, 208, 0.1);
+  border-radius: 5px;
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.category-list-item a {
+  color: #008B8B;
+  text-decoration: none;
+}
+
+.category-list-item a:hover {
+  color: #40E0D0;
+}
+
+.category-list-count {
+  color: #666;
+  font-size: 0.85em;
+  margin-left: 5px;
+}
+
+.category-empty,
+.tag-empty {
+  text-align: center;
+  color: #666;
+  padding: 40px;
+}
+
+/* 标签云 */
+.tag-list {
+  line-height: 2;
+}
+
+.tag-list a {
+  display: inline-block;
+  margin: 5px;
+  padding: 5px 12px;
+  background: rgba(64, 224, 208, 0.1);
+  border: 1px solid rgba(64, 224, 208, 0.3);
+  border-radius: 3px;
+  text-decoration: none;
+}
+
+.tag-list a:hover {
+  background: rgba(64, 224, 208, 0.25);
+}
+

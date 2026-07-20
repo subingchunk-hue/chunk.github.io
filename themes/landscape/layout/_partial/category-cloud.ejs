@@ -1,0 +1,12 @@
+<% if (site.categories.length){ %>
+<div class="category-cloud">
+  <%- list_categories({
+    show_count: true,
+    class: 'category-list',
+    style: false,
+    depth: 2
+  }) %>
+</div>
+<% } else { %>
+<p class="category-empty">暂无分类</p>
+<% } %>

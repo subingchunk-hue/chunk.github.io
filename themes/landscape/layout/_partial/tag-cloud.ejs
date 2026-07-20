@@ -1,0 +1,13 @@
+<% if (site.tags.length){ %>
+<div class="tag-cloud">
+  <%- tagcloud({
+    show_count: true,
+    class: 'tag-list',
+    color: true,
+    start_color: '#40E0D0',
+    end_color: '#008B8B'
+  }) %>
+</div>
+<% } else { %>
+<p class="tag-empty">暂无标签</p>
+<% } %>
