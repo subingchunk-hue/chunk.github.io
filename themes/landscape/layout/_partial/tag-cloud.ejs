@@ -1,11 +1,9 @@
 <% if (site.tags.length){ %>
 <div class="tag-cloud">
   <%- tagcloud({
-    show_count: true,
+    show_count: false,
     class: 'tag-list',
-    color: true,
-    start_color: '#40E0D0',
-    end_color: '#008B8B'
+    color: false
   }) %>
 </div>
 <% } else { %>

@@ -1,10 +1,10 @@
 <% if (site.categories.length){ %>
 <div class="category-cloud">
   <%- list_categories({
-    show_count: true,
+    show_count: false,
     class: 'category-list',
     style: false,
-    depth: 2
+    depth: 1
   }) %>
 </div>
 <% } else { %>
