@@ -394,18 +394,16 @@ html, body {
 }
 
 /* 代码块 */
+.highlight,
 .article-entry .highlight,
-.article-entry pre,
-.highlight {
-  background: rgba(245, 245, 245, 0.95) !important;
-  border: none !important;
+.article-entry pre {
+  background: rgba(245, 245, 245, 0.95);
   border-radius: 6px;
-  margin: 1em 0 !important;
-  padding: 15px !important;
+  border: none !important;
 }
 
 pre {
-  background: rgba(245, 245, 245, 0.95) !important;
+  background: rgba(245, 245, 245, 0.95);
   border: none !important;
 }
 
@@ -418,34 +416,17 @@ code {
 
 pre code {
   color: #333333;
-  background: transparent !important;
-  text-shadow: none !important;
+  background: transparent;
   padding: 0;
 }
 
-/* 代码高亮表格无边框 */
-.highlight table,
-.highlight td,
-.highlight tr {
-  border: none !important;
-}
-
 /* 引用块 */
-.article-entry blockquote {
+blockquote {
   color: #555555;
   border-left: 4px solid #40E0D0;
   background: rgba(64, 224, 208, 0.08);
-  padding: 6px 12px !important;
-  margin: 10px 0 !important;
+  padding: 10px 15px;
   border-radius: 5px;
-  display: inline-block;
-  text-align: left !important;
-  font-family: inherit !important;
-  width: auto;
-}
-
-.article-entry blockquote p {
-  margin: 2px 0;
 }
 
 /* 表格 */
