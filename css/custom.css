@@ -394,14 +394,17 @@ html, body {
 }
 
 /* 代码块 */
-.highlight {
+.highlight,
+.article-entry .highlight,
+.article-entry pre {
   background: rgba(245, 245, 245, 0.95);
   border-radius: 6px;
-  border: 1px solid #e0e0e0;
+  border: none !important;
 }
 
 pre {
   background: rgba(245, 245, 245, 0.95);
+  border: none !important;
 }
 
 code {
