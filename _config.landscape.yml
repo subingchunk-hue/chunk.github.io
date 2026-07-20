@@ -15,7 +15,7 @@ rss: /atom.xml
 banner: "images/banner.jpg"
 
 # Subtitle of page top - 页面顶部副标题
-subtitle: "分享学习笔记和经验"
+subtitle: ""
 
 # Header links with icon - 页头链接图标
 # 在页面右上角显示的链接

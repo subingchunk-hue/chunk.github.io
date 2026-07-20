@@ -185,6 +185,8 @@ html, body {
 
 .archive-article-date {
   color: #666666;
+  font-size: 0.85em;
+  white-space: nowrap;
 }
 
 .archive-article-title {
