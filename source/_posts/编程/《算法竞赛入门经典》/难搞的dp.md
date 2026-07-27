@@ -1,8 +1,8 @@
 ---
 title: 难搞的dp
 date: 2025-09-07 14:41
-tags: [编程,竞赛]
-categories: [编程,《算法竞赛入门经典》]
+tags: [编程, 竞赛, 动态规划, DP]
+categories: [编程]
 excerpt: 复杂动态规划问题解析，包括DAG上的DP、状态压缩DP等高级技巧。
 ---
 

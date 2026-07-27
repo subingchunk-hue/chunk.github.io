@@ -1,1 +1,19 @@
-<%- partial('_partial/archive', {expand: false, index: true}) %>
+<section class="section-wrap">
+  <div class="section-header">
+    <h2 class="section-title"><%= page.tag %></h2>
+  </div>
+  <div class="section-posts">
+    <% page.posts.each(function(post, i){ %>
+      <%- partial('_partial/archive-post', {post: post, even: i % 2 == 0}) %>
+    <% }) %>
+  </div>
+</section>
+
+<% if (page.total > 1){ %>
+  <nav id="page-nav">
+    <%- paginator({
+      prev_text: "&laquo; Prev",
+      next_text: "Next &raquo;"
+    }) %>
+  </nav>
+<% } %>

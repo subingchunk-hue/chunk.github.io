@@ -1,8 +1,8 @@
 ---
 title: 实验报告——第一个HarmonyOS应用
 date: 2025-09-08 15:00:00
-tags: [小程序开发, 实验]
-categories: [小程序]
+categories: [小程序开发]
+tags: [小程序开发, 实验, HarmonyOS, ArkTS]
 excerpt: HarmonyOS应用开发实验报告，学习应用构建、包结构和资源文件使用。
 ---
 

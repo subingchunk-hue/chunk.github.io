@@ -393,68 +393,7 @@ html, body {
   color: #333333;
 }
 
-/* 代码块 */
-.highlight,
-.article-entry .highlight,
-.article-entry pre {
-  background: #1a1a1a !important;
-  border-radius: 6px;
-  border: none !important;
-  box-shadow: none !important;
-  padding: 15px;
-  margin: 15px 0;
-  overflow-x: auto;
-  color: #ffffff !important;
-}
-
-pre {
-  background: #1a1a1a !important;
-  border: none !important;
-  box-shadow: none !important;
-  color: #ffffff !important;
-}
-
-code {
-  color: #c7254e;
-  background: rgba(0, 0, 0, 0.05);
-  padding: 2px 6px;
-  border-radius: 3px;
-}
-
-pre code {
-  color: #ffffff !important;
-  background: transparent;
-  padding: 0;
-  border: none !important;
-}
-
-/* 行号已在配置中关闭，无需额外隐藏 */
-
-.highlight table {
-  border: none !important;
-  border-collapse: collapse;
-  width: 100%;
-}
-
-.highlight table td {
-  border: none !important;
-  padding: 0 !important;
-}
-
-/* 去掉代码块内所有边框线 */
-.highlight > pre,
-.article-entry .highlight > pre {
-  border: none !important;
-  margin: 0 !important;
-  padding: 0 !important;
-}
-
-/* highlight.js 样式调整 */
-.hljs {
-  background: transparent !important;
-  padding: 0 !important;
-  border: none !important;
-}
+/* 代码块样式由主题 highlight.styl 控制 */
 
 /* 引用块 */
 blockquote {
