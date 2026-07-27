@@ -428,26 +428,17 @@ pre code {
   border: none !important;
 }
 
-/* 去掉行号 */
-.highlight .gutter,
-.highlight .lineno,
-.highlight table td:first-child,
-.highlight pre .line-number {
-  display: none !important;
-}
+/* 行号已在配置中关闭，无需额外隐藏 */
 
 .highlight table {
   border: none !important;
   border-collapse: collapse;
+  width: 100%;
 }
 
 .highlight table td {
   border: none !important;
   padding: 0 !important;
-}
-
-.highlight table td.code {
-  width: 100%;
 }
 
 /* 去掉代码块内所有边框线 */
