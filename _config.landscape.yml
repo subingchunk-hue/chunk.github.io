@@ -52,7 +52,6 @@ sidebar: right
 widgets:
   - profile       # 个人信息（顶部，与左侧年份平齐）
   - category      # 分类
-  - tag           # 标签
   - recent_posts  # 最新文章
 
 # ===============
