@@ -397,19 +397,21 @@ html, body {
 .highlight,
 .article-entry .highlight,
 .article-entry pre {
-  background: rgba(245, 245, 245, 0.95);
+  background: #1a1a1a !important;
   border-radius: 6px;
   border: none !important;
   box-shadow: none !important;
   padding: 15px;
   margin: 15px 0;
   overflow-x: auto;
+  color: #ffffff !important;
 }
 
 pre {
-  background: rgba(245, 245, 245, 0.95);
+  background: #1a1a1a !important;
   border: none !important;
   box-shadow: none !important;
+  color: #ffffff !important;
 }
 
 code {
@@ -420,7 +422,7 @@ code {
 }
 
 pre code {
-  color: #333333;
+  color: #ffffff !important;
   background: transparent;
   padding: 0;
   border: none !important;
