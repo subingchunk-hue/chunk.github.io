@@ -1,4 +1,18 @@
-<section class="tag-page-wrap">
+<section class="archive-wrap">
   <h1 class="archive-year"><%= page.title %></h1>
-  <%- partial('_partial/tag-cloud') %>
+  <% site.tags.sort('name').forEach(function(tag){ %>
+    <% if (tag.posts.length > 0){ %>
+      <section class="section-wrap">
+        <div class="section-header">
+          <h2 class="section-title"><%= tag.name %></h2>
+          <span class="section-count">(<%= tag.posts.length %> 篇文章)</span>
+        </div>
+        <div class="section-posts">
+          <% tag.posts.sort('date', -1).each(function(post, i){ %>
+            <%- partial('_partial/archive-post', {post: post, even: i % 2 == 0}) %>
+          <% }) %>
+        </div>
+      </section>
+    <% } %>
+  <% }) %>
 </section>
