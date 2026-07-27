@@ -400,11 +400,16 @@ html, body {
   background: rgba(245, 245, 245, 0.95);
   border-radius: 6px;
   border: none !important;
+  box-shadow: none !important;
+  padding: 15px;
+  margin: 15px 0;
+  overflow-x: auto;
 }
 
 pre {
   background: rgba(245, 245, 245, 0.95);
   border: none !important;
+  box-shadow: none !important;
 }
 
 code {
@@ -418,6 +423,44 @@ pre code {
   color: #333333;
   background: transparent;
   padding: 0;
+  border: none !important;
+}
+
+/* 去掉行号 */
+.highlight .gutter,
+.highlight .lineno,
+.highlight table td:first-child,
+.highlight pre .line-number {
+  display: none !important;
+}
+
+.highlight table {
+  border: none !important;
+  border-collapse: collapse;
+}
+
+.highlight table td {
+  border: none !important;
+  padding: 0 !important;
+}
+
+.highlight table td.code {
+  width: 100%;
+}
+
+/* 去掉代码块内所有边框线 */
+.highlight > pre,
+.article-entry .highlight > pre {
+  border: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* highlight.js 样式调整 */
+.hljs {
+  background: transparent !important;
+  padding: 0 !important;
+  border: none !important;
 }
 
 /* 引用块 */

@@ -23,6 +23,21 @@
 <%- js('js/toc') %>
 <%- partial('gauges-analytics') %>
 
+<!-- MathJax 数学公式支持 -->
+<script>
+  MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$', '$$'], ['\\[', '\\]']],
+      processEscapes: true
+    },
+    svg: {
+      fontCache: 'global'
+    }
+  };
+</script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
 <% if(theme.valine.enable && theme.valine.appId && theme.valine.appKey){ %>
   <script src="https://cdn.bootcdn.net/ajax/libs/valine/1.4.16/Valine.min.js"></script>
 <script>
